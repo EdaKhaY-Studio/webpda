@@ -58,7 +58,7 @@ export default function FloatingWhatsApp() {
         />
       )}
 
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end pb-[env(safe-area-inset-bottom,0px)]">
       {/* WhatsApp Dialog Popup Card */}
       {isOpen && (
         <div className="mb-3 w-[calc(100vw-2rem)] sm:w-96 max-w-sm overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200/80 transition-all animate-in fade-in slide-in-from-bottom-4 duration-200">

@@ -103,7 +103,7 @@ export default function ChatGuidance({ compact = false }: ChatGuidanceProps) {
         </div>
 
         {/* 4 Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {guidanceSteps.map((item) => (
             <div
               key={item.step}
@@ -149,7 +149,7 @@ export default function ChatGuidance({ compact = false }: ChatGuidanceProps) {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-emerald-700 active:scale-[0.98] transition-all shrink-0"
+            className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white shadow-md hover:bg-emerald-700 active:scale-[0.98] transition-all shrink-0 min-h-[44px]"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Chat WhatsApp Sekarang</span>

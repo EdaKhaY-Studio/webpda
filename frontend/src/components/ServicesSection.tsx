@@ -1,5 +1,6 @@
 import React from "react";
 import { mockServices, siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Globe, Bot, TrendingUp, Sparkles, Check, ArrowRight, MessageCircle } from "lucide-react";
 
 export default function ServicesSection() {
@@ -38,9 +39,9 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mockServices.slice(0, 3).map((service) => {
-            const waServiceUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-              `Halo Paham Digital Agency! Saya ingin tanya lebih lanjut tentang layanan: *${service.title}* untuk usaha saya.`
-            )}`;
+            const waServiceUrl = buildWhatsAppUrl(
+              `Halo Paham Digital Agency! Saya ingin tanya lebih lanjut tentang layanan: *${service.title}* untuk usaha saya di Aceh Barat.`
+            );
 
             return (
               <div

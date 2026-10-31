@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
 import { Sparkles, MessageCircle, Mail, MapPin, Heart } from "lucide-react";
 
 export default function Footer() {
-  const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    siteConfig.defaultMessage
-  )}`;
+  const waUrl = buildWhatsAppUrl(PREFILLED_MESSAGES.general);
 
   return (
     <footer className="border-t border-slate-200 bg-slate-900 text-slate-300">

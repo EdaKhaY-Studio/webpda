@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
+import ChatGuidance from "@/components/ChatGuidance";
 import { MessageCircle, X, HelpCircle, Send, CheckCircle2, Sparkles } from "lucide-react";
 
 export default function FloatingWhatsApp() {
@@ -23,29 +25,27 @@ export default function FloatingWhatsApp() {
     {
       id: "website",
       label: "Pembuatan Website",
-      message: "Halo Tim Paham Digital Agency! Saya ingin tanya tentang pembuatan website modern untuk UMKM saya.",
+      message: PREFILLED_MESSAGES.website,
     },
     {
       id: "ai",
       label: "Customer Service AI",
-      message: "Halo Tim Paham Digital! Saya tertarik mencoba pasang Customer Service AI 24/7 untuk usaha saya.",
+      message: PREFILLED_MESSAGES.customerServiceAI,
     },
     {
       id: "seo",
       label: "Optimasi Google & AI",
-      message: "Halo Tim Paham Digital! Usaha saya ingin didaftarkan dan dioptimasi agar muncul di Google Search & Maps.",
+      message: PREFILLED_MESSAGES.seoGoogle,
     },
     {
       id: "custom",
       label: "Konsultasi Umum",
-      message: siteConfig.defaultMessage,
+      message: PREFILLED_MESSAGES.general,
     },
   ];
 
   const currentTopic = topics.find((t) => t.id === customTopic) || topics[0];
-  const activeWaUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    currentTopic.message
-  )}`;
+  const activeWaUrl = buildWhatsAppUrl(currentTopic.message);
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
@@ -97,32 +97,7 @@ export default function FloatingWhatsApp() {
             </div>
 
             {showGuidance ? (
-              /* Panduan Sebelum Chat */
-              <div className="space-y-3">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-                  <Sparkles className="h-4 w-4 text-emerald-600" />
-                  <span>Hal yang sebaiknya disiapkan:</span>
-                </div>
-                <div className="space-y-2">
-                  {siteConfig.chatGuidanceItems.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="rounded-xl border border-slate-100 bg-slate-50/70 p-3 text-xs"
-                    >
-                      <div className="flex items-center gap-2 font-medium text-slate-900">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                        <span>{item.title}</span>
-                      </div>
-                      <p className="mt-1 pl-5 text-slate-600 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[11px] text-slate-400 italic">
-                  *Belum punya persiapan lengkap? Jangan khawatir, tim kami akan bantu arahkan dari nol.
-                </p>
-              </div>
+              <ChatGuidance compact={true} />
             ) : (
               /* Pilihan Topik & Pesan Otomatis */
               <div className="space-y-3">

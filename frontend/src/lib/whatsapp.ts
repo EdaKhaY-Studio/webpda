@@ -35,3 +35,4 @@ export const PREFILLED_MESSAGES = {
   customConsultation: (businessType: string) =>
     `Halo Paham Digital Agency! Usaha saya di bidang *${businessType}* di Aceh Barat. Saya ingin konsultasi solusi digital yang tepat.`,
 };
+

@@ -1,11 +1,10 @@
 import React from "react";
 import { siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
 import { MessageCircle, ArrowRight, ShieldCheck, Zap, Bot, Star, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
-  const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    siteConfig.defaultMessage
-  )}`;
+  const waUrl = buildWhatsAppUrl(PREFILLED_MESSAGES.website);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-white to-white py-12 sm:py-20 lg:py-28">

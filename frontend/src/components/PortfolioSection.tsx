@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { mockProjects, Project, siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
 import {
   Sparkles,
   MessageCircle,
@@ -73,9 +74,9 @@ export default function PortfolioSection() {
         {/* Projects Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => {
-            const waCaseStudyUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-              `Halo Paham Digital Agency! Saya tertarik dengan hasil kerja proyek: *${project.title}* (${project.clientName}). Ingin konsultasi untuk usaha saya.`
-            )}`;
+            const waCaseStudyUrl = buildWhatsAppUrl(
+              PREFILLED_MESSAGES.portfolio(project.title, project.clientName)
+            );
 
             return (
               <div
@@ -273,9 +274,9 @@ export default function PortfolioSection() {
               {/* Direct CTA */}
               <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
                 <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-                    `Halo Paham Digital! Saya membaca studi kasus *${activeModalProject.title}* dan ingin membuat sistem/website serupa untuk usaha saya.`
-                  )}`}
+                  href={buildWhatsAppUrl(
+                    `Halo Paham Digital! Saya membaca detail studi kasus *${activeModalProject.title}* (${activeModalProject.clientName}) dan ingin membuat sistem/website serupa untuk usaha saya di Aceh Barat.`
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 py-3.5 px-6 text-sm font-bold text-white shadow-md hover:bg-emerald-700 transition-colors"

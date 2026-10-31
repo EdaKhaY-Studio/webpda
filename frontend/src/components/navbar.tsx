@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
 import { MessageCircle, Menu, X, Sparkles, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
@@ -16,9 +17,7 @@ export default function Navbar() {
     { name: "Testimoni", href: "/#testimoni" },
   ];
 
-  const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    siteConfig.defaultMessage
-  )}`;
+  const waUrl = buildWhatsAppUrl(PREFILLED_MESSAGES.general);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-all">

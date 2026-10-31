@@ -1,11 +1,12 @@
 import React from "react";
 import { siteConfig } from "@/data/mockData";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { MessageCircle, Sparkles, CheckCircle, ArrowRight, Clock, ShieldCheck } from "lucide-react";
 
 export default function CtaSection() {
-  const waUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+  const waUrl = buildWhatsAppUrl(
     "Halo Tim Paham Digital Agency! Saya ingin konsultasi gratis untuk mengembangkan website dan sistem digital usaha saya di Aceh Barat."
-  )}`;
+  );
 
   return (
     <section className="relative overflow-hidden py-20 bg-gradient-to-br from-blue-600 via-indigo-700 to-slate-900 text-white">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { siteConfig } from "@/data/mockData";
 import { MessageCircle, X, HelpCircle, Send, CheckCircle2, Sparkles } from "lucide-react";
 
@@ -8,6 +8,16 @@ export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [showGuidance, setShowGuidance] = useState(false);
   const [customTopic, setCustomTopic] = useState("website");
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   const topics = [
     {
@@ -168,6 +178,8 @@ export default function FloatingWhatsApp() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="dialog"
         className="group relative flex items-center gap-3 rounded-full bg-emerald-600 px-4 py-3.5 text-white shadow-xl hover:bg-emerald-700 active:scale-95 transition-all focus:outline-none ring-4 ring-emerald-500/20"
         aria-label="Buka Chat WhatsApp"
       >

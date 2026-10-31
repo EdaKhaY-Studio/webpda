@@ -19,9 +19,13 @@ export interface Project {
   problem: string;
   solution: string;
   result: string;
+  beforeState: string;
+  afterState: string;
+  metrics: { label: string; value: string }[];
   imageUrl: string;
   tags: string[];
   projectUrl?: string;
+  isLatest?: boolean;
 }
 
 export interface Testimonial {
@@ -40,7 +44,7 @@ export interface SiteConfig {
   tagline: string;
   description: string;
   location: string;
-  whatsappNumber: string; // international format e.g. 6281234567890
+  whatsappNumber: string;
   whatsappDisplay: string;
   defaultMessage: string;
   email: string;
@@ -156,50 +160,104 @@ export const mockProjects: Project[] = [
   {
     id: "1",
     slug: "selempang-aceh-barat",
-    title: "Selempang Wisuda & Souvenir Aceh Barat",
+    title: "Selempang Wisuda & Souvenir Khas Aceh Barat",
     clientName: "Selempang Meulaboh Official",
-    category: "Website Katalog & Order WA",
-    summary: "Transformasi toko souvenir wisuda dari hanya jualan lewat status WA menjadi website katalog terstruktur.",
+    category: "Katalog & Order WA",
+    summary:
+      "Transformasi toko souvenir wisuda dari hanya jualan lewat status WhatsApp menjadi website katalog interaktif siap pesan.",
     problem:
-      "Klien kewalahan mengirim foto contoh selempang berulang kali ke setiap calon pembeli di chat WhatsApp, sering membuat pembeli bingung memilih model.",
+      "Klien kewalahan mengirim puluhan foto contoh selempang berulang kali ke setiap calon pembeli di chat, membuat pembeli sering ragu dan lambat memutuskan.",
     solution:
-      "Dibuatkan website katalog digital interaktif dengan filter model selempang, kalkulator perkiraan harga, dan tombol 'Pesan Model Ini' yang langsung mengirim detail ke WhatsApp admin.",
-    result: "Waktu admin membalas berkurang 70%, konversi pesanan naik 2.5x lipat dalam bulan pertama.",
+      "Membangun website katalog digital interaktif dengan filter model selempang, kalkulator perkiraan harga, dan tombol 'Pesan Model Ini' yang langsung mengirim format pesanan lengkap ke WhatsApp admin.",
+    result: "Waktu admin membalas berkurang 70%, konversi pesanan naik 2.5x lipat dalam bulan pertama rilis.",
+    beforeState: "Hanya status WA seadanya, foto tercecer, pembeli bingung memilih jenis bahan dan tulisan.",
+    afterState: "Website katalog rapi dengan foto tajam, pilihan warna instan, dan pesanan masuk format rapi.",
+    metrics: [
+      { label: "Peningkatan Konversi", value: "+150%" },
+      { label: "Hemat Waktu Admin", value: "70%" },
+      { label: "Pengunjung Unik / Bln", value: "3.200+" },
+    ],
     imageUrl: "/images/JPG.jpg",
-    tags: ["Katalog Online", "Aceh Barat", "WhatsApp Order", "Website UMKM"],
+    tags: ["Katalog Digital", "Aceh Barat", "WhatsApp Order", "UMKM Souvenir"],
     projectUrl: "https://selempang-aceh.example.com",
+    isLatest: true,
   },
   {
     id: "2",
     slug: "kupi-khop-samudra",
     title: "Warung Kupi Khop Meulaboh Modern",
-    clientName: "Kupi Khop Samudra",
-    category: "Website Profil & AI Assistant",
-    summary: "Website profil cagar kuliner khas Aceh Barat dengan asisten AI penjawab menu & reservasi meja.",
+    clientName: "Kupi Khop Samudra Meulaboh",
+    category: "AI Chatbot",
+    summary:
+      "Website profil cagar kuliner khas kopi terbalik Aceh Barat dengan asisten AI penjawab daftar menu & reservasi meja 24 jam.",
     problem:
-      "Wisatawan luar daerah sering bingung lokasi dan jam buka, serta admin cafe lambat menjawab tanya jawab reservasi di malam hari.",
+      "Wisatawan luar daerah sering bingung mencari titik lokasi tepat dan daftar harga menu, serta pesan reservasi di malam hari sering lambat direspon admin cafe.",
     solution:
-      "Menghadirkan landing page bilingual dengan storytelling sejarah Kupi Khop, peta interaktif, serta AI Assistant yang siap menjawab harga menu dan reservasi meja 24 jam.",
-    result: "Kunjungan wisatawan naik 40% dan reservasi meja malam hari terlayani 100% tanpa admin begadang.",
+      "Menghadirkan landing page bilingual dengan storytelling sejarah Kupi Khop, rute peta Google Maps, serta Customer Service AI yang siap menjawab pertanyaan menu dan reservasi meja 24 jam tanpa jeda.",
+    result:
+      "Kunjungan wisatawan naik 40% dan pertanyaan menu malam hari terlayani 100% otomatis tanpa admin lembur.",
+    beforeState: "Tidak punya website resmi, chat malam sering terabaikan hingga calon pelanggan pindah warung.",
+    afterState: "Website elegan dengan asisten virtual cerdas yang membalas dalam 3 detik dan mencatat reservasi.",
+    metrics: [
+      { label: "Respon Chat Reservasi", value: "< 4 Detik" },
+      { label: "Kunjungan Wisatawan", value: "+40%" },
+      { label: "Kepuasan Tamu", value: "4.9 / 5" },
+    ],
     imageUrl: "/images/JPG.jpg",
     tags: ["Kuliner Khas", "AI Chatbot", "Google Maps SEO", "Profil Bisnis"],
     projectUrl: "https://kupikhop-samudra.example.com",
+    isLatest: true,
   },
   {
     id: "3",
     slug: "klinik-gigi-sehat-meulaboh",
     title: "Klinik Pratama & Perawatan Gigi Sehat",
     clientName: "Klinik Gigi Meulaboh Care",
-    category: "Website Jasa & Jadwal Dokter",
-    summary: "Sistem jadwal konsultasi dan profil dokter ramah pasien untuk layanan kesehatan di Aceh Barat.",
+    category: "Google SEO",
+    summary:
+      "Website profil klinik modern dengan jadwal praktek dokter real-time dan optimasi ranking #1 di Google Search Aceh Barat.",
     problem:
-      "Pasien sering datang tanpa tahu jadwal dokter yang sedang bertugas, menyebabkan antrean menumpuk dan ketidaknyamanan.",
+      "Pasien sering datang tanpa tahu dokter gigi spesialis yang bertugas hari itu, menyebabkan antrean menumpuk dan ketidakpuasan pasien di ruang tunggu.",
     solution:
-      "Website profil klinik dengan info jadwal dokter real-time, artikel tips kesehatan gigi, dan tombol janji temu WhatsApp otomatis.",
-    result: "Antrean klinik lebih teratur, dan klinik menempati peringkat 1 di Google Search 'Klinik Gigi Aceh Barat'.",
+      "Website profil klinik dengan fitur cek jadwal dokter real-time, tips kesehatan gigi, form pendaftaran janji temu WhatsApp, dan optimasi SEO lokal Google Bisnis.",
+    result:
+      "Antrean klinik lebih teratur, dan nama klinik menempati peringkat 1 di Google Search saat orang mengetik 'Dokter Gigi Aceh Barat'.",
+    beforeState: "Jadwal hanya ditulis di papan tulis klinik, tidak bisa dicari di Google.",
+    afterState: "Website terverifikasi Google Bisnis, pasien bisa cek jadwal dari HP sebelum berangkat.",
+    metrics: [
+      { label: "Peringkat Google Lokal", value: "Rank #1" },
+      { label: "Pengurangan Antrean", value: "45%" },
+      { label: "Pasien Baru / Bln", value: "120+" },
+    ],
     imageUrl: "/images/JPG.jpg",
     tags: ["Layanan Kesehatan", "Jadwal Online", "Local SEO Google"],
     projectUrl: "https://gigisehat-meulaboh.example.com",
+    isLatest: true,
+  },
+  {
+    id: "4",
+    slug: "hijab-butik-johan-pahlawan",
+    title: "Butik Hijab & Busana Muslimah Meulaboh",
+    clientName: "Zahra Boutique Aceh",
+    category: "Website UMKM",
+    summary:
+      "Toko busana muslimah lokal bertransformasi menjadi brand terpercaya dengan website katalog modern.",
+    problem:
+      "Peminat dari luar kecamatan Johan Pahlawan kesulitan melihat koleksi terbaru secara detail dan ragu belanja karena belum ada website resmi.",
+    solution:
+      "Mendesain website showcase busana dengan foto berkualitas tinggi, filter ukuran busana, dan sistem checkout langsung ke WhatsApp CS.",
+    result:
+      "Kepercayaan pembeli meningkat drastis, kini melayani pengiriman ke seluruh Aceh dan Sumatra.",
+    beforeState: "Mengandalkan postingan Instagram yang cepat tenggelam.",
+    afterState: "Website permanen yang profesional dan mudah diakses siapa saja.",
+    metrics: [
+      { label: "Jangkauan Daerah", value: "Seluruh Aceh" },
+      { label: "Pertumbuhan Omset", value: "+80%" },
+    ],
+    imageUrl: "/images/JPG.jpg",
+    tags: ["Fashion Muslim", "Website UMKM", "Katalog Busana"],
+    projectUrl: "https://zahra-boutique.example.com",
+    isLatest: false,
   },
 ];
 

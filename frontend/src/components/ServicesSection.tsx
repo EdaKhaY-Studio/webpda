@@ -45,7 +45,7 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.id}
-                className="group relative flex flex-col justify-between rounded-3xl bg-white p-8 shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:-translate-y-1"
+                className="group relative flex flex-col justify-between rounded-3xl bg-white p-6 sm:p-8 shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 hover:-translate-y-1"
               >
                 <div>
                   {/* Top Header inside card */}
@@ -101,7 +101,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Process / Langkah Kerja Sama Bar */}
-        <div className="mt-14 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-8 sm:p-10 text-white shadow-xl">
+        <div className="mt-14 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-6 sm:p-8 lg:p-10 text-white shadow-xl">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-blue-200">
               <Sparkles className="h-3 w-3" />

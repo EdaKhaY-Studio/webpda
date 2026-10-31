@@ -218,7 +218,7 @@ export default function PortfolioSection() {
               </div>
 
               {/* Metrics Grid */}
-              <div className="mt-6 grid grid-cols-3 gap-3">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                 {activeModalProject.metrics.map((m, idx) => (
                   <div key={idx} className="rounded-2xl bg-blue-50 p-3.5 text-center border border-blue-100">
                     <span className="block text-lg font-black text-blue-700">{m.value}</span>

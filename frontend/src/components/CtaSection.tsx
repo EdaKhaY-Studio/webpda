@@ -54,7 +54,7 @@ export default function CtaSection() {
           </div>
 
           {/* Right Action Card */}
-          <div className="w-full max-w-md rounded-3xl bg-white p-8 text-slate-900 shadow-2xl">
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 sm:p-8 text-slate-900 shadow-2xl">
             <h3 className="text-xl font-bold text-slate-900 text-center">
               Mulai Chat Bersama Tim Kami
             </h3>

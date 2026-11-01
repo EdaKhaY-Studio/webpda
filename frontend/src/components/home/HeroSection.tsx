@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Bot, Sparkles } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Bot } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES } from "@/lib/site-config";
 import gsap from "gsap";
 
@@ -16,18 +16,26 @@ export default function HeroSection() {
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const tagsRef = useRef<HTMLDivElement>(null);
+
+  // 3D Spatial Depth Stage Refs
+  const stageContainerRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
-  const mascotRef = useRef<HTMLDivElement>(null);
+  const concentricRingRef = useRef<HTMLDivElement>(null);
+  const mascotWrapperRef = useRef<HTMLDivElement>(null);
+  const mascotImageRef = useRef<HTMLDivElement>(null);
   const floatingBadgeRef = useRef<HTMLDivElement>(null);
 
   const waUrl = buildWAUrl(WHATSAPP_MESSAGES.project);
 
   useEffect(() => {
-    // Check for reduced motion preference
+    // Accessibility check: Reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
     const ctx = gsap.context(() => {
+      // ── 01. Coordinated Page Entrance Motion (Mostu & Lusion inspired) ──
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       // 1. Eyebrow appears
@@ -69,9 +77,9 @@ export default function HeroSection() {
         "-=0.6"
       );
 
-      // 6. Mascot reveals last with a gentle upward movement (Section 07 specification)
+      // 6. Mascot reveals last with a gentle upward movement
       tl.fromTo(
-        mascotRef.current,
+        mascotWrapperRef.current,
         { y: 35, scale: 0.96, opacity: 0 },
         { y: 0, scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" },
         "-=0.7"
@@ -87,17 +95,118 @@ export default function HeroSection() {
         );
       }
 
-      // 8. Subtle, elegant floating effect for mascot (movement range of only 6px)
-      tl.to(
-        mascotRef.current,
-        {
-          y: "-=6",
-          duration: 3.2,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
+      // ── 02. Organic Idle Floating Motion (Gentle 5px breathing loop) ──
+      gsap.to(mascotImageRef.current, {
+        y: "-=6",
+        duration: 3.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      // ── 03. Real-Time Pointer 3D Depth Engine (Desktop Only) ──
+      if (!isTouchDevice && mascotWrapperRef.current && circleRef.current) {
+        // High-performance quickTo setters (120 FPS hardware-accelerated)
+        const setMascotRotY = gsap.quickTo(mascotWrapperRef.current, "rotationY", {
+          duration: 0.7,
+          ease: "power2.out",
+        });
+        const setMascotRotX = gsap.quickTo(mascotWrapperRef.current, "rotationX", {
+          duration: 0.7,
+          ease: "power2.out",
+        });
+        const setMascotX = gsap.quickTo(mascotWrapperRef.current, "x", {
+          duration: 0.7,
+          ease: "power2.out",
+        });
+        const setMascotY = gsap.quickTo(mascotWrapperRef.current, "y", {
+          duration: 0.7,
+          ease: "power2.out",
+        });
+
+        // Inverse Parallax for Background Orange Glow
+        const setCircleX = gsap.quickTo(circleRef.current, "x", {
+          duration: 1.0,
+          ease: "power2.out",
+        });
+        const setCircleY = gsap.quickTo(circleRef.current, "y", {
+          duration: 1.0,
+          ease: "power2.out",
+        });
+
+        // Inverse Parallax for Concentric Rings
+        const setRingX = concentricRingRef.current
+          ? gsap.quickTo(concentricRingRef.current, "x", { duration: 0.9, ease: "power2.out" })
+          : null;
+        const setRingY = concentricRingRef.current
+          ? gsap.quickTo(concentricRingRef.current, "y", { duration: 0.9, ease: "power2.out" })
+          : null;
+
+        // Enhanced Foreground Parallax for Floating AI Status Pill
+        const setBadgeX = floatingBadgeRef.current
+          ? gsap.quickTo(floatingBadgeRef.current, "x", { duration: 0.5, ease: "power2.out" })
+          : null;
+        const setBadgeY = floatingBadgeRef.current
+          ? gsap.quickTo(floatingBadgeRef.current, "y", { duration: 0.5, ease: "power2.out" })
+          : null;
+
+        const handleMouseMove = (e: MouseEvent) => {
+          if (!containerRef.current) return;
+          const rect = containerRef.current.getBoundingClientRect();
+          // Normalize cursor coordinate from -1 (left/top) to +1 (right/bottom)
+          const normX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          const normY = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+
+          // 3D Tilt parameters: max 11 deg Y-axis, max 7 deg X-axis
+          setMascotRotY(normX * 11);
+          setMascotRotX(-normY * 7);
+          setMascotX(normX * 14);
+          setMascotY(normY * 10);
+
+          // Background glow moves in inverse direction creating deep optical depth
+          setCircleX(-normX * 22);
+          setCircleY(-normY * 16);
+          if (setRingX && setRingY) {
+            setRingX(-normX * 14);
+            setRingY(-normY * 10);
+          }
+
+          // Foreground badge pops forward
+          if (setBadgeX && setBadgeY) {
+            setBadgeX(normX * 22);
+            setBadgeY(normY * 16);
+          }
+        };
+
+        const handleMouseLeave = () => {
+          // Smoothly spring back to rest baseline
+          setMascotRotY(0);
+          setMascotRotX(0);
+          setMascotX(0);
+          setMascotY(0);
+          setCircleX(0);
+          setCircleY(0);
+          if (setRingX && setRingY) {
+            setRingX(0);
+            setRingY(0);
+          }
+          if (setBadgeX && setBadgeY) {
+            setBadgeX(0);
+            setBadgeY(0);
+          }
+        };
+
+        const heroEl = containerRef.current;
+        if (heroEl) {
+          heroEl.addEventListener("mousemove", handleMouseMove, { passive: true });
+          heroEl.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+
+          return () => {
+            heroEl.removeEventListener("mousemove", handleMouseMove);
+            heroEl.removeEventListener("mouseleave", handleMouseLeave);
+          };
         }
-      );
+      }
     }, containerRef);
 
     return () => ctx.revert();
@@ -125,7 +234,7 @@ export default function HeroSection() {
           {/* ── LEFT COLUMN (Content Stage ~54%) ──────────────────────── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
             
-            {/* Eyebrow Label (Section 04) */}
+            {/* Eyebrow Label */}
             <div ref={eyebrowRef} className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#F45B1A] shadow-[0_0_8px_#F45B1A]" />
               <span className="text-xs font-bold tracking-[0.14em] uppercase text-[#F7F1EB]">
@@ -133,7 +242,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Oversized Space Grotesk ExtraBold Headline (Section 04) */}
+            {/* Oversized Space Grotesk ExtraBold Headline */}
             <h1
               id="hero-title"
               className="font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[0.98] sm:leading-[0.95] text-[42px] sm:text-[62px] md:text-[74px] lg:text-[80px] xl:text-[90px]"
@@ -149,7 +258,7 @@ export default function HeroSection() {
               </div>
             </h1>
 
-            {/* Supporting Copy (Section 04) */}
+            {/* Supporting Copy */}
             <p
               ref={descRef}
               className="mt-6 sm:mt-7 text-base sm:text-lg lg:text-[19px] text-[#A99A90] font-normal leading-relaxed max-w-xl"
@@ -158,7 +267,7 @@ export default function HeroSection() {
               Kami membantu bisnis berkembang melalui website profesional, web application, AI customer service, dan sistem automasi yang bekerja lebih cerdas.
             </p>
 
-            {/* Two Action CTAs (Section 04) */}
+            {/* Two Action CTAs */}
             <div
               ref={ctaRef}
               className="mt-8 sm:mt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto"
@@ -216,47 +325,62 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN (Focal Visual Stage with Transparent Mascot ~46%) ── */}
-          <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0">
-            
-            {/* Signature Orange Glow Circle Behind Character (Section 05) */}
+          {/* ── RIGHT COLUMN (Interactive 3D Depth Stage ~46%) ────────── */}
+          <div
+            ref={stageContainerRef}
+            className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0"
+            style={{ perspective: "1000px" }}
+          >
+            {/* Signature Orange Glow Circle Behind Character (Inverse Parallax) */}
             <div
               ref={circleRef}
               aria-hidden="true"
-              className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[460px] lg:h-[460px] rounded-full bg-gradient-to-tr from-[#F45B1A]/35 via-[#FF6A2A]/20 to-transparent blur-3xl pointer-events-none -z-0"
+              className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[460px] lg:h-[460px] rounded-full bg-gradient-to-tr from-[#F45B1A]/35 via-[#FF6A2A]/20 to-transparent blur-3xl pointer-events-none -z-0 will-change-transform"
             />
 
             {/* Subtle Concentric Rings Accent */}
             <div
+              ref={concentricRingRef}
               aria-hidden="true"
-              className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[430px] lg:h-[430px] rounded-full border border-[#F45B1A]/20 pointer-events-none -z-0"
+              className="absolute w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[430px] lg:h-[430px] rounded-full border border-[#F45B1A]/20 pointer-events-none -z-0 will-change-transform"
             />
             <div
               aria-hidden="true"
               className="absolute w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[500px] lg:h-[500px] rounded-full border border-white/[0.04] pointer-events-none -z-0"
             />
 
-            {/* Official Transparent Cyber-Fox Mascot Holding Laptop (Section 05) */}
+            {/* 3D Perspective Mascot Wrapper */}
             <div
-              ref={mascotRef}
-              className="relative z-10 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[520px] xl:max-w-[560px] flex items-center justify-center"
+              ref={mascotWrapperRef}
+              className="relative z-10 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[520px] xl:max-w-[560px] flex items-center justify-center will-change-transform"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             >
-              <Image
-                src="/images/paham-mascot-laptop.png"
-                alt="Paham Digital Agency Official Cyber-Fox Mascot holding laptop"
-                width={819}
-                height={1024}
-                priority
-                className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.85)] filter"
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 460px, 560px"
-              />
+              <div
+                ref={mascotImageRef}
+                className="w-full h-auto flex items-center justify-center"
+              >
+                <Image
+                  src="/images/paham-mascot-laptop.png"
+                  alt="Paham Digital Agency Official Cyber-Fox Mascot holding laptop"
+                  width={819}
+                  height={1024}
+                  priority
+                  className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.85)] filter select-none pointer-events-none"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 460px, 560px"
+                />
+              </div>
             </div>
 
-            {/* Floating Live AI Capability Pill (KNEXU-style balanced detail) */}
+            {/* Floating Live AI Capability Pill (Forward Spatial Depth) */}
             <div
               ref={floatingBadgeRef}
-              className="absolute bottom-2 left-2 sm:-left-4 lg:-left-6 z-20 flex items-center gap-3 bg-[#17100D]/95 border border-[#F45B1A]/35 rounded-2xl px-4 py-3 shadow-[0_16px_36px_rgba(0,0,0,0.7),0_0_20px_rgba(244,91,26,0.1)] backdrop-blur-md"
-              style={{ fontFamily: "var(--font-body)" }}
+              className="absolute bottom-2 left-2 sm:-left-4 lg:-left-6 z-20 flex items-center gap-3 bg-[#17100D]/95 border border-[#F45B1A]/35 rounded-2xl px-4 py-3 shadow-[0_16px_36px_rgba(0,0,0,0.7),0_0_20px_rgba(244,91,26,0.1)] backdrop-blur-md will-change-transform"
+              style={{
+                fontFamily: "var(--font-body)",
+                transform: "translateZ(40px)",
+              }}
             >
               <div className="w-9 h-9 rounded-xl bg-[#F45B1A]/20 text-[#F45B1A] flex items-center justify-center shrink-0">
                 <Bot size={20} />

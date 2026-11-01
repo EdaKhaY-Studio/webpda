@@ -1,13 +1,41 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES, SITE_CONFIG } from "@/lib/site-config";
 
 export default function ContactCTASection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const waUrl = buildWAUrl(WHATSAPP_MESSAGES.project);
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       aria-labelledby="contact-cta-title"
       className="relative section-py bg-[#0B0807] bg-grid-texture scroll-mt-20 overflow-hidden"
@@ -20,9 +48,12 @@ export default function ContactCTASection() {
 
       <div className="container-site relative z-10">
         
-        {/* High-Impact Creative Card */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#17100D] via-[#21140F] to-[#17100D] border border-white/15 p-8 sm:p-14 lg:p-20 shadow-[0_30px_90px_rgba(0,0,0,0.8)]">
-          
+        {/* High-Impact Creative Card with Progressive Entrance */}
+        <div
+          className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#17100D] via-[#21140F] to-[#17100D] border border-white/15 p-8 sm:p-14 lg:p-20 shadow-[0_30px_90px_rgba(0,0,0,0.8)] transition-all duration-700 ease-out ${
+            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-[0.98]"
+          }`}
+        >
           {/* Subtle Orange Glow in Corner */}
           <div
             aria-hidden="true"
@@ -55,7 +86,7 @@ export default function ContactCTASection() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary-orange text-base px-8 py-4 shadow-[0_6px_28px_rgba(244,91,26,0.45)] group"
+                className="btn-primary-orange text-base px-8 py-4 shadow-[0_6px_28px_rgba(244,91,26,0.45)] group transition-all duration-300 hover:scale-[1.02] active:scale-95"
               >
                 <svg
                   width="20"
@@ -76,7 +107,7 @@ export default function ContactCTASection() {
 
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
-                className="btn-secondary-dark text-base px-7 py-4"
+                className="btn-secondary-dark text-base px-7 py-4 transition-all duration-300 hover:scale-[1.02] active:scale-95"
               >
                 <span>Email: {SITE_CONFIG.email}</span>
               </a>

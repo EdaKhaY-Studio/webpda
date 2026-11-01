@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Bot } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES } from "@/lib/site-config";
 import gsap from "gsap";
 
@@ -15,7 +15,6 @@ export default function HeroSection() {
   const headlineLine3Ref = useRef<HTMLDivElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const tagsRef = useRef<HTMLDivElement>(null);
 
   // 3D Spatial Depth Stage Refs
   const stageContainerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +22,6 @@ export default function HeroSection() {
   const concentricRingRef = useRef<HTMLDivElement>(null);
   const mascotWrapperRef = useRef<HTMLDivElement>(null);
   const mascotImageRef = useRef<HTMLDivElement>(null);
-  const floatingBadgeRef = useRef<HTMLDivElement>(null);
 
   const waUrl = buildWAUrl(WHATSAPP_MESSAGES.project);
 
@@ -35,7 +33,7 @@ export default function HeroSection() {
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
     const ctx = gsap.context(() => {
-      // ── 01. Coordinated Page Entrance Motion (Mostu & Lusion inspired) ──
+      // ── 01. Coordinated Page Entrance Motion (Situek easeOutBack inspired) ──
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       // 1. Eyebrow appears
@@ -77,23 +75,13 @@ export default function HeroSection() {
         "-=0.6"
       );
 
-      // 6. Mascot reveals last with gentle upward movement
+      // 6. Mascot reveals last with gentle overshoot curve (Situek easeOutBack inspired)
       tl.fromTo(
         mascotWrapperRef.current,
-        { y: 30, scale: 0.96, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 0.95, ease: "power3.out" },
+        { y: 35, scale: 0.94, opacity: 0 },
+        { y: 0, scale: 1, opacity: 1, duration: 1.1, ease: "back.out(1.15)" },
         "-=0.7"
       );
-
-      // 7. Floating badge pops in smoothly
-      if (floatingBadgeRef.current) {
-        tl.fromTo(
-          floatingBadgeRef.current,
-          { scale: 0.85, opacity: 0, y: 15 },
-          { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.5)" },
-          "-=0.4"
-        );
-      }
 
       // ── 02. Organic Idle Floating Motion (Gentle 5px breathing loop) ──
       gsap.to(mascotImageRef.current, {
@@ -141,14 +129,6 @@ export default function HeroSection() {
           ? gsap.quickTo(concentricRingRef.current, "y", { duration: 0.9, ease: "power2.out" })
           : null;
 
-        // Enhanced Foreground Parallax for Floating AI Status Pill
-        const setBadgeX = floatingBadgeRef.current
-          ? gsap.quickTo(floatingBadgeRef.current, "x", { duration: 0.5, ease: "power2.out" })
-          : null;
-        const setBadgeY = floatingBadgeRef.current
-          ? gsap.quickTo(floatingBadgeRef.current, "y", { duration: 0.5, ease: "power2.out" })
-          : null;
-
         const handleMouseMove = (e: MouseEvent) => {
           if (!containerRef.current) return;
           const rect = containerRef.current.getBoundingClientRect();
@@ -166,11 +146,6 @@ export default function HeroSection() {
             setRingX(-normX * 12);
             setRingY(-normY * 8);
           }
-
-          if (setBadgeX && setBadgeY) {
-            setBadgeX(normX * 18);
-            setBadgeY(normY * 14);
-          }
         };
 
         const handleMouseLeave = () => {
@@ -183,10 +158,6 @@ export default function HeroSection() {
           if (setRingX && setRingY) {
             setRingX(0);
             setRingY(0);
-          }
-          if (setBadgeX && setBadgeY) {
-            setBadgeX(0);
-            setBadgeY(0);
           }
         };
 
@@ -293,32 +264,9 @@ export default function HeroSection() {
                 />
               </Link>
             </div>
-
-            {/* Service & Capability Indicators Strip (KNEXU-style compact height) */}
-            <div
-              ref={tagsRef}
-              className="mt-5 sm:mt-6 pt-3.5 border-t border-white/10 w-full flex flex-wrap gap-2"
-            >
-              {[
-                "Website Profesional",
-                "Web Application",
-                "AI Customer Service 24/7",
-                "Automasi Bisnis",
-                "Optimasi SEO & AI",
-              ].map((tag) => (
-                <div
-                  key={tag}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[11px] font-medium text-[#A99A90]"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A]" />
-                  <span>{tag}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* ── RIGHT COLUMN (Interactive 3D Depth Stage with Full Mascot ~46%) ── */}
+          {/* ── RIGHT COLUMN (Clean Mascot Stage ~46% — No Overlapping Badges) ── */}
           <div
             ref={stageContainerRef}
             className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0"
@@ -328,18 +276,18 @@ export default function HeroSection() {
             <div
               ref={circleRef}
               aria-hidden="true"
-              className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] rounded-full bg-gradient-to-tr from-[#F45B1A]/35 via-[#FF6A2A]/20 to-transparent blur-3xl pointer-events-none -z-0 will-change-transform"
+              className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] rounded-full bg-gradient-to-tr from-[#F45B1A]/35 via-[#FF6A2A]/20 to-transparent blur-3xl pointer-events-none -z-0 will-change-transform"
             />
 
             {/* Subtle Concentric Rings Accent */}
             <div
               ref={concentricRingRef}
               aria-hidden="true"
-              className="absolute w-[260px] h-[260px] sm:w-[330px] sm:h-[330px] lg:w-[380px] lg:h-[380px] rounded-full border border-[#F45B1A]/20 pointer-events-none -z-0 will-change-transform"
+              className="absolute w-[260px] h-[260px] sm:w-[330px] sm:h-[330px] lg:w-[390px] lg:h-[390px] rounded-full border border-[#F45B1A]/20 pointer-events-none -z-0 will-change-transform"
             />
             <div
               aria-hidden="true"
-              className="absolute w-[310px] h-[310px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full border border-white/[0.04] pointer-events-none -z-0"
+              className="absolute w-[310px] h-[310px] sm:w-[380px] sm:h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border border-white/[0.04] pointer-events-none -z-0"
             />
 
             {/* 3D Perspective Mascot Wrapper (Complete Character: Laptop, Tail, Shoes 100% visible) */}
@@ -363,31 +311,6 @@ export default function HeroSection() {
                   className="w-auto max-w-full h-[clamp(300px,58svh,520px)] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] filter select-none pointer-events-none"
                   sizes="(max-width: 640px) 280px, (max-width: 1024px) 420px, 520px"
                 />
-              </div>
-            </div>
-
-            {/* Floating Live AI Capability Pill (Forward Spatial Depth) */}
-            <div
-              ref={floatingBadgeRef}
-              className="absolute bottom-1 left-0 sm:-left-3 lg:-left-5 z-20 flex items-center gap-2.5 bg-[#17100D]/95 border border-[#F45B1A]/35 rounded-xl px-3.5 py-2 shadow-[0_12px_28px_rgba(0,0,0,0.7),0_0_18px_rgba(244,91,26,0.1)] backdrop-blur-md will-change-transform"
-              style={{
-                fontFamily: "var(--font-body)",
-                transform: "translateZ(35px)",
-              }}
-            >
-              <div className="w-8 h-8 rounded-lg bg-[#F45B1A]/20 text-[#F45B1A] flex items-center justify-center shrink-0">
-                <Bot size={18} />
-              </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                  <p className="text-xs font-bold text-[#F7F1EB] leading-tight">
-                    AI Customer Service
-                  </p>
-                </div>
-                <p className="text-[10px] text-[#A99A90] leading-tight mt-0.5">
-                  Sistem Otomatis 24/7 Aktif
-                </p>
               </div>
             </div>
 

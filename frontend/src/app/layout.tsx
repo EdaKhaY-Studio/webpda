@@ -1,40 +1,57 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import { SITE_CONFIG } from "@/lib/site-config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-nav",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Paham Digital Agency - Solusi Digital & Website UMKM Aceh Barat",
+  title: "Paham Digital Agency — Modern Creative Technology & Automation",
   description:
-    "Membantu UMKM di Aceh Barat tampil modern dan naik level melalui website profesional, Customer Service AI 24/7, dan optimasi SEO Google & rekomendasi AI.",
-  keywords: [
-    "Paham Digital Agency",
-    "Website UMKM Aceh Barat",
-    "Jasa Website Meulaboh",
-    "Customer Service AI",
-    "SEO Google Aceh Barat",
-    "Digital Agency Aceh",
-  ],
-  authors: [{ name: "Paham Digital Agency" }],
+    "Kami membantu bisnis berkembang melalui website profesional, web application, AI, dan sistem automasi yang bekerja lebih cerdas.",
+  keywords: SITE_CONFIG.seo.keywords,
+  authors: [{ name: SITE_CONFIG.name }],
+  metadataBase: new URL("https://pahamdigital.id"),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Paham Digital Agency - Solusi Digital & Website UMKM Aceh Barat",
+    title: "Paham Digital Agency — Paham Bisnisnya, Otomatiskan Sistemnya.",
     description:
-      "Membantu UMKM di Aceh Barat tampil modern dan naik level melalui website profesional, Customer Service AI 24/7, dan optimasi SEO Google & rekomendasi AI.",
-    siteName: "Paham Digital Agency",
+      "Kami membantu bisnis berkembang melalui website profesional, web application, AI, dan sistem automasi yang bekerja lebih cerdas.",
+    siteName: SITE_CONFIG.name,
     locale: "id_ID",
     type: "website",
+    url: "https://pahamdigital.id",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paham Digital Agency",
+    description: "Paham Bisnisnya, Otomatiskan Sistemnya.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -46,11 +63,18 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable} scroll-smooth dark`}
     >
-      <body className="min-h-full flex flex-col bg-white text-slate-900 selection:bg-blue-600 selection:text-white">
+      <body
+        className="min-h-screen flex flex-col antialiased selection:bg-[#F45B1A] selection:text-white"
+        style={{
+          backgroundColor: "#0B0807",
+          color: "#F7F1EB",
+          fontFamily: "var(--font-body)",
+        }}
+      >
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 animate-page-entrance">{children}</main>
         <Footer />
         <FloatingWhatsApp />
       </body>

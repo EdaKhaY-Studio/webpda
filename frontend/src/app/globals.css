@@ -1,26 +1,276 @@
+/* ── Google Fonts ────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 
+/* ── Centralized Dark Creative Agency Tokens ─────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Theme Colors */
+  --color-background:       #0B0807;
+  --color-surface:          #17100D;
+  --color-surface-elevated: #21140F;
+  --color-primary:          #F45B1A;
+  --color-accent:           #FF6A2A;
+  --color-text:             #F7F1EB;
+  --color-muted:            #A99A90;
+  --color-border:           rgba(255, 255, 255, 0.12);
+  --color-border-subtle:    rgba(255, 255, 255, 0.07);
+  --color-border-orange:    rgba(244, 91, 26, 0.35);
+  --color-whatsapp:         #16A34A;
+
+  /* Typography */
+  --font-nav:     'Poppins', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+
+  /* Spacing Scale */
+  --space-unit: 4px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Base Reset & Defaults ───────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+/* ── Focus ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Typography Utilities ────────────────────────────────── */
+.font-nav     { font-family: var(--font-nav); }
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+/* ── Layout Containers ───────────────────────────────────── */
+.container-site {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+@media (max-width: 1024px) {
+  .container-site {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-site {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ── Section Spacing ─────────────────────────────────────── */
+.section-py {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+@media (max-width: 1024px) {
+  .section-py {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-py {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ── Background Grid & Cinematic Textures ────────────────── */
+.bg-grid-texture {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-radial-orange-glow {
+  background: radial-gradient(
+    circle at 70% 30%, 
+    rgba(244, 91, 26, 0.22) 0%, 
+    rgba(255, 106, 42, 0.08) 40%, 
+    transparent 70%
+  );
+}
+
+.bg-radial-glow-center {
+  background: radial-gradient(
+    circle at 50% 50%, 
+    rgba(244, 91, 26, 0.16) 0%, 
+    rgba(255, 106, 42, 0.04) 50%, 
+    transparent 75%
+  );
+}
+
+/* ── Eyebrow Label ───────────────────────────────────────── */
+.eyebrow-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 10px rgba(244, 91, 26, 0.8);
+}
+
+/* ── Dark Surfaces & Borders ─────────────────────────────── */
+.surface-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.surface-card:hover {
+  border-color: rgba(244, 91, 26, 0.4);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(244, 91, 26, 0.06);
+}
+
+.surface-elevated {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(244, 91, 26, 0.35);
+  white-space: nowrap;
+}
+
+.btn-primary-orange:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(244, 91, 26, 0.5);
+}
+
+.btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-secondary-dark:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* ── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0807;
+}
+::-webkit-scrollbar-thumb {
+  background: #21140F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ── Page Entrance Motion (Mostu-inspired upward reveal) ─── */
+@keyframes pageEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-entrance {
+  animation: pageEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

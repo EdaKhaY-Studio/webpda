@@ -84,7 +84,11 @@ export default function PortfolioSection() {
                 className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image Showcase */}
-                <div className="relative h-56 w-full overflow-hidden bg-slate-100 cursor-pointer" onClick={() => setActiveModalProject(project)}>
+                <div
+                  className="relative h-56 w-full overflow-hidden bg-slate-100 cursor-pointer"
+                  style={{ position: "relative" }}
+                  onClick={() => setActiveModalProject(project)}
+                >
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
@@ -209,7 +213,7 @@ export default function PortfolioSection() {
               </div>
 
               {/* Image Preview */}
-              <div className="relative h-60 w-full rounded-2xl overflow-hidden mt-5 bg-slate-100">
+              <div className="relative h-60 w-full rounded-2xl overflow-hidden mt-5 bg-slate-100" style={{ position: "relative" }}>
                 <Image
                   src={activeModalProject.imageUrl}
                   alt={activeModalProject.title}

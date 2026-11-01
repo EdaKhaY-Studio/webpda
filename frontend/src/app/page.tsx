@@ -1,30 +1,42 @@
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import TestimonialSection from "@/components/TestimonialSection";
-import ChatGuidance from "@/components/ChatGuidance";
-import CtaSection from "@/components/CtaSection";
+import HeroSection from "@/components/home/HeroSection";
+import BrandIntroSection from "@/components/home/BrandIntroSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import PortfolioSection from "@/components/home/PortfolioSection";
+import ProcessSection from "@/components/home/ProcessSection";
+import BlogPreviewSection from "@/components/home/BlogPreviewSection";
+import ContactCTASection from "@/components/home/ContactCTASection";
+import type { Metadata } from "next";
+import { SITE_CONFIG } from "@/lib/site-config";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: SITE_CONFIG.seo.title,
+  description: SITE_CONFIG.seo.description,
+  alternates: { canonical: "/" },
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Sambutan & Identitas + Ajakan Konsultasi */}
+    <>
+      {/* 01. Hero — Asymmetric Editorial Composition */}
       <HeroSection />
 
-      {/* Sorotan Layanan */}
+      {/* 02. Brand Introduction */}
+      <BrandIntroSection />
+
+      {/* 03. Services — 5 categories editorial layout */}
       <ServicesSection />
 
-      {/* Hasil Kerja Terbaru */}
+      {/* 04. Selected Work / Portfolio */}
       <PortfolioSection />
 
-      {/* Bukti Sosial / Testimoni */}
-      <TestimonialSection />
+      {/* 05. Working Process — horizontal timeline */}
+      <ProcessSection />
 
-      {/* Panduan Sebelum Chat WhatsApp */}
-      <ChatGuidance />
+      {/* 06. Blog / Digital Knowledge preview */}
+      <BlogPreviewSection />
 
-      {/* Ajakan Konsultasi Utama */}
-      <CtaSection />
-    </div>
+      {/* 07. Contact CTA */}
+      <ContactCTASection />
+    </>
   );
 }

@@ -18,12 +18,23 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll detection for subtle border & shadow change
+  // Passive, lightweight scroll detection at ~50px threshold
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 50;
+          setScrolled(isScrolled);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    // Check initial state
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -60,24 +71,32 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── 01. Floating Capsule Navbar Container ───────────────────────── */}
+      {/* ── 01. Morphing Navbar Container ───────────────────────────────── */}
       <header
         role="banner"
-        className="fixed top-[14px] md:top-[20px] left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300"
+        className={`fixed left-0 right-0 z-50 w-full pointer-events-none transition-all duration-400 ease-out ${
+          scrolled ? "top-3 md:top-4" : "top-4 md:top-5"
+        }`}
       >
-        <div className="w-[90%] sm:w-[88%] md:w-[92%] max-w-[1320px] mx-auto">
-          {/* Solid Dark Capsule Surface (prevents background grid interference with logo) */}
+        <div
+          className={`mx-auto transition-all duration-400 ease-out ${
+            scrolled
+              ? "w-[92%] sm:w-[90%] md:w-[88%] max-w-[1220px]"
+              : "w-[92%] sm:w-[92%] md:w-[94%] max-w-[1320px]"
+          }`}
+        >
+          {/* Morphing Capsule Surface: Transparent at top -> Solid Floating Capsule after scroll */}
           <div
-            className={`pointer-events-auto flex items-center justify-between mx-auto rounded-full px-5 sm:px-7 md:px-9 lg:px-10 h-[58px] md:h-[68px] lg:h-[70px] bg-[#140D0A] transition-all duration-300 ${
+            className={`pointer-events-auto flex items-center justify-between mx-auto transition-all duration-400 ease-out ${
               scrolled
-                ? "border border-white/18 shadow-[0_16px_48px_rgba(0,0,0,0.8),0_0_24px_rgba(244,91,26,0.12)]"
-                : "border border-white/12 shadow-[0_10px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(244,91,26,0.08)]"
+                ? "h-[58px] md:h-[66px] px-5 sm:px-7 md:px-8 rounded-full bg-[#140D0A]/92 backdrop-blur-md border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(244,91,26,0.08)]"
+                : "h-[58px] md:h-[66px] px-2 sm:px-4 md:px-6 rounded-none bg-transparent border border-transparent shadow-none"
             }`}
             style={{
               fontFamily: "var(--font-nav)",
             }}
           >
-            {/* Logo on Left with Generous Safe Area */}
+            {/* Logo on Left */}
             <Link
               href="/"
               onClick={closeMenu}
@@ -90,7 +109,7 @@ export default function Navbar() {
                   alt="Paham Digital Agency"
                   width={150}
                   height={50}
-                  className="h-9 sm:h-10 md:h-[42px] lg:h-[44px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                  className="h-9 sm:h-10 md:h-[40px] lg:h-[42px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   priority
                 />
               </div>
@@ -100,7 +119,7 @@ export default function Navbar() {
             <nav
               role="navigation"
               aria-label="Navigasi Utama Desktop"
-              className="hidden md:flex items-center gap-8 lg:gap-11"
+              className="hidden md:flex items-center gap-7 lg:gap-10"
             >
               {NAV_LINKS.map((item) => (
                 <Link
@@ -120,7 +139,7 @@ export default function Navbar() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#F45B1A] hover:bg-[#FF6A2A] text-white text-[14px] font-semibold tracking-tight px-6 py-2.5 rounded-full shadow-[0_4px_16px_rgba(244,91,26,0.35)] hover:shadow-[0_6px_22px_rgba(244,91,26,0.5)] transition-all duration-200 active:scale-95 whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-[#F45B1A] hover:bg-[#FF6A2A] text-white text-[14px] font-semibold tracking-tight px-5 sm:px-6 py-2.5 rounded-full shadow-[0_4px_16px_rgba(244,91,26,0.35)] hover:shadow-[0_6px_22px_rgba(244,91,26,0.5)] transition-all duration-200 active:scale-95 whitespace-nowrap"
               >
                 <span>Diskusikan Proyek</span>
                 <ArrowUpRight size={16} />
@@ -134,7 +153,11 @@ export default function Navbar() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-dropdown-menu"
               aria-label={mobileOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-              className="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border border-white/12 bg-white/5 hover:bg-white/10 active:scale-95 transition-all focus:outline-none"
+              className={`md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-full border transition-all focus:outline-none ${
+                scrolled
+                  ? "border-white/12 bg-white/5 hover:bg-white/10 active:scale-95"
+                  : "border-white/15 bg-black/30 backdrop-blur-sm hover:bg-white/10 active:scale-95"
+              }`}
             >
               <div className="relative w-5 h-4 flex flex-col justify-between items-center">
                 {/* Top Bar */}
@@ -172,7 +195,7 @@ export default function Navbar() {
 
       {/* ── 03. Mobile Dropdown Panel (Mostu-Inspired Downward Expand) ─── */}
       <div
-        className="fixed top-[78px] sm:top-[84px] left-0 right-0 z-50 pointer-events-none flex justify-center md:hidden"
+        className="fixed top-[74px] sm:top-[78px] left-0 right-0 z-50 pointer-events-none flex justify-center md:hidden"
       >
         <div
           id="mobile-dropdown-menu"

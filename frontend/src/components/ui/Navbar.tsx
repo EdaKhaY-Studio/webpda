@@ -18,10 +18,10 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll detection for navbar styling
+  // Scroll detection for subtle border & shadow change
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -63,34 +63,34 @@ export default function Navbar() {
       {/* ── 01. Floating Capsule Navbar Container ───────────────────────── */}
       <header
         role="banner"
-        className="fixed top-4 sm:top-5 left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300"
+        className="fixed top-[14px] md:top-[20px] left-0 right-0 z-50 w-full pointer-events-none transition-all duration-300"
       >
-        <div className="w-[88%] sm:w-[85%] max-w-[1320px] mx-auto">
+        <div className="w-[90%] sm:w-[88%] md:w-[92%] max-w-[1320px] mx-auto">
+          {/* Solid Dark Capsule Surface (prevents background grid interference with logo) */}
           <div
-            className={`pointer-events-auto flex items-center justify-between mx-auto rounded-full px-4 sm:px-6 md:px-7 transition-all duration-300 ${
+            className={`pointer-events-auto flex items-center justify-between mx-auto rounded-full px-5 sm:px-7 md:px-9 lg:px-10 h-[58px] md:h-[68px] lg:h-[70px] bg-[#140D0A] transition-all duration-300 ${
               scrolled
-                ? "bg-[#17100D]/95 border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.65),0_0_20px_rgba(244,91,26,0.1)] backdrop-blur-xl"
-                : "bg-[#17100D]/85 border border-white/12 shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_15px_rgba(244,91,26,0.06)] backdrop-blur-md"
+                ? "border border-white/18 shadow-[0_16px_48px_rgba(0,0,0,0.8),0_0_24px_rgba(244,91,26,0.12)]"
+                : "border border-white/12 shadow-[0_10px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(244,91,26,0.08)]"
             }`}
             style={{
-              height: "58px",
               fontFamily: "var(--font-nav)",
             }}
           >
-            {/* Logo on Left */}
+            {/* Logo on Left with Generous Safe Area */}
             <Link
               href="/"
               onClick={closeMenu}
               aria-label="Paham Digital Agency — Beranda"
-              className="flex items-center gap-3 shrink-0 focus:outline-none group"
+              className="flex items-center gap-3 shrink-0 focus:outline-none group py-1"
             >
-              <div className="relative h-10 sm:h-11 md:h-12 w-auto flex items-center">
+              <div className="relative flex items-center">
                 <Image
                   src="/images/logo-paham-light.png"
                   alt="Paham Digital Agency"
-                  width={140}
-                  height={56}
-                  className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                  width={150}
+                  height={50}
+                  className="h-9 sm:h-10 md:h-[42px] lg:h-[44px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   priority
                 />
               </div>
@@ -172,20 +172,20 @@ export default function Navbar() {
 
       {/* ── 03. Mobile Dropdown Panel (Mostu-Inspired Downward Expand) ─── */}
       <div
-        className="fixed top-[74px] sm:top-[82px] left-0 right-0 z-50 pointer-events-none flex justify-center md:hidden"
+        className="fixed top-[78px] sm:top-[84px] left-0 right-0 z-50 pointer-events-none flex justify-center md:hidden"
       >
         <div
           id="mobile-dropdown-menu"
           role="navigation"
           aria-label="Navigasi Mobile Dropdown"
-          className={`w-[88%] sm:w-[85%] max-w-[440px] mx-auto rounded-[24px] bg-[#17100D]/95 border border-white/12 shadow-[0_24px_60px_rgba(0,0,0,0.85),0_0_30px_rgba(244,91,26,0.12)] backdrop-blur-2xl p-5 transition-all duration-300 ease-out origin-top ${
+          className={`w-[90%] sm:w-[88%] max-w-[460px] mx-auto rounded-[24px] bg-[#140D0A] border border-white/15 shadow-[0_24px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(244,91,26,0.12)] p-5 transition-all duration-300 ease-out origin-top ${
             mobileOpen
               ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
               : "opacity-0 scale-y-90 -translate-y-2 pointer-events-none"
           }`}
           style={{ fontFamily: "var(--font-nav)" }}
         >
-          {/* Navigation Items with Horizontal Dividers */}
+          {/* Navigation Items with Clean Horizontal Dividers */}
           <nav className="flex flex-col">
             {NAV_LINKS.map((item, index) => (
               <div

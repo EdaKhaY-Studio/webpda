@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 2);
   const articleContent = getArticleContent(post.id);
-  const waShareUrl = `https://wa.me/?text=${encodeURIComponent(`${post.title} — Paham Digital Agency\nhttps://pahamdigital.id/blog/${post.slug}`)}`;
+  const waShareUrl = `https://wa.me/?text=${encodeURIComponent(`${post.title} — Paham Digital Agency\nhttps://pahamdigital.online/blog/${post.slug}`)}`;
 
   return (
     <div className="bg-[#0B0807] bg-grid-texture min-h-screen text-[#F7F1EB] font-body pt-32 pb-24">

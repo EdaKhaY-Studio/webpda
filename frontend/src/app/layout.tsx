@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Kami membantu bisnis berkembang melalui website profesional, web application, AI, dan sistem automasi yang bekerja lebih cerdas.",
   keywords: SITE_CONFIG.seo.keywords,
   authors: [{ name: SITE_CONFIG.name }],
-  metadataBase: new URL("https://pahamdigital.id"),
+  metadataBase: new URL("https://pahamdigital.online"),
   alternates: { canonical: "/" },
   openGraph: {
     title: "Paham Digital Agency — Paham Bisnisnya, Otomatiskan Sistemnya.",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
     type: "website",
-    url: "https://pahamdigital.id",
+    url: "https://pahamdigital.online",
   },
   twitter: {
     card: "summary_large_image",

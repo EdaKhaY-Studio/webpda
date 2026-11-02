@@ -35,3 +35,4 @@ jobs:
           local-dir: frontend/out/
           server-dir: domains/pahamdigital.online/public_html/
           dangerous-clean-slate: false
+

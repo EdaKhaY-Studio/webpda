@@ -38,6 +38,16 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
   icons: {
     icon: [
@@ -52,6 +62,43 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pahamdigital.online/#organization",
+      name: "Paham Digital Agency",
+      url: "https://pahamdigital.online",
+      logo: "https://pahamdigital.online/images/logo-paham.png",
+      description:
+        "Partner solusi digital untuk website profesional, web application, AI customer service, automasi bisnis, dan optimasi SEO.",
+      telephone: "+6282311307556",
+      email: "halo@pahamdigital.id",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Meulaboh",
+        addressRegion: "Aceh Barat, Aceh",
+        addressCountry: "ID",
+      },
+      sameAs: [
+        "https://www.instagram.com/pahamdigitall.id/",
+        "https://www.tiktok.com/@pahamdigitall.id",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pahamdigital.online/#website",
+      url: "https://pahamdigital.online",
+      name: "Paham Digital Agency",
+      publisher: {
+        "@id": "https://pahamdigital.online/#organization",
+      },
+      inLanguage: "id-ID",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +109,12 @@ export default function RootLayout({
       lang="id"
       className={`${poppins.variable} font-body scroll-smooth dark`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className="min-h-screen flex flex-col antialiased selection:bg-[#F45B1A] selection:text-white"
         style={{

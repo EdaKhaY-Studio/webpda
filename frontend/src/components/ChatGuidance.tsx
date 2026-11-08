@@ -4,7 +4,6 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import {
   HelpCircle,
   CheckCircle2,
-  Sparkles,
   MessageCircle,
   FileText,
   Lightbulb,
@@ -55,7 +54,7 @@ export default function ChatGuidance({ compact = false }: ChatGuidanceProps) {
     return (
       <div className="space-y-3">
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-800">
-          <Sparkles className="h-4 w-4 text-emerald-600" />
+          <CheckCircle2 className="h-4 w-4 text-emerald-600" />
           <span>Hal yang sebaiknya disiapkan sebelum chat:</span>
         </div>
         <div className="space-y-2">

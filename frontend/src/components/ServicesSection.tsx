@@ -1,7 +1,7 @@
 import React from "react";
 import { mockServices, siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { Globe, Bot, TrendingUp, Sparkles, Check, ArrowRight, MessageCircle } from "lucide-react";
+import { Globe, Bot, TrendingUp, Layers, Check, ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 
 export default function ServicesSection() {
   const getIcon = (iconName: string) => {
@@ -13,7 +13,7 @@ export default function ServicesSection() {
       case "TrendingUp":
         return <TrendingUp className="h-6 w-6 text-indigo-600" />;
       default:
-        return <Sparkles className="h-6 w-6 text-amber-600" />;
+        return <Layers className="h-6 w-6 text-amber-600" />;
     }
   };
 
@@ -23,7 +23,7 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700 mb-3">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Layers className="h-3.5 w-3.5" />
             <span>Solusi Kami untuk Anda</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -105,7 +105,7 @@ export default function ServicesSection() {
         <div className="mt-14 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-6 sm:p-8 lg:p-10 text-white shadow-xl">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-blue-200">
-              <Sparkles className="h-3 w-3" />
+              <CheckCircle2 className="h-3 w-3" />
               Mudah & Tanpa Ribet
             </span>
             <h3 className="mt-3 text-2xl font-bold sm:text-3xl">

@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Sparkles, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { SolutionHandBulbIcon } from "@/components/icons/SolutionHandBulbIcon";
 import { PORTFOLIO_PROJECTS, buildWAUrl, WHATSAPP_MESSAGES } from "@/lib/site-config";
 
 // ── Interactive 3D Perspective Portfolio Card ───────────────────
@@ -26,8 +27,8 @@ function PortfolioPerspectiveCard({ project }: { project: (typeof PORTFOLIO_PROJ
     const normY = (y / rect.height) * 2 - 1;
 
     setTransform({
-      rotX: -normY * 8, // Max tilt: 8deg
-      rotY: normX * 8,
+      rotX: -normY * 6, // Gentle tilt: max 6deg
+      rotY: normX * 6,
       glareX: (x / rect.width) * 100,
       glareY: (y / rect.height) * 100,
       glareOpacity: 0.35,
@@ -65,7 +66,7 @@ function PortfolioPerspectiveCard({ project }: { project: (typeof PORTFOLIO_PROJ
       <div
         className="absolute inset-0 transition-transform duration-700"
         style={{
-          transform: transform.isHovered ? "translateZ(20px) scale(1.04)" : "translateZ(0px) scale(1)",
+          transform: transform.isHovered ? "translateZ(18px) scale(1.03)" : "translateZ(0px) scale(1)",
         }}
       >
         <Image
@@ -92,7 +93,7 @@ function PortfolioPerspectiveCard({ project }: { project: (typeof PORTFOLIO_PROJ
       <div
         className="absolute top-4 left-4 z-30 transition-transform duration-300"
         style={{
-          transform: transform.isHovered ? "translateZ(38px)" : "translateZ(10px)",
+          transform: transform.isHovered ? "translateZ(35px)" : "translateZ(10px)",
         }}
       >
         <div className="px-3.5 py-1.5 rounded-full bg-[#F45B1A] text-white text-xs font-bold font-display tracking-wider shadow-[0_4px_16px_rgba(244,91,26,0.45)]">
@@ -104,7 +105,7 @@ function PortfolioPerspectiveCard({ project }: { project: (typeof PORTFOLIO_PROJ
       <div
         className="absolute bottom-4 left-4 right-4 z-30 flex items-center justify-between transition-transform duration-300"
         style={{
-          transform: transform.isHovered ? "translateZ(30px)" : "translateZ(5px)",
+          transform: transform.isHovered ? "translateZ(28px)" : "translateZ(5px)",
         }}
       >
         <div className="bg-[#17100D]/90 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-xs text-[#F7F1EB] font-medium flex items-center gap-2">
@@ -119,27 +120,38 @@ function PortfolioPerspectiveCard({ project }: { project: (typeof PORTFOLIO_PROJ
   );
 }
 
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 export default function PortfolioSection() {
+  const { sectionRef, isInView, getRevealClass } = useScrollReveal({
+    threshold: 0.1,
+  });
+
   const waUrl = buildWAUrl(WHATSAPP_MESSAGES.project);
 
   return (
     <section
+      ref={sectionRef}
       id="portofolio"
       aria-labelledby="portfolio-title"
       className="relative section-py bg-[#17100D] border-y border-white/10 scroll-mt-20 overflow-hidden"
     >
       <div className="container-site relative z-10">
         
-        {/* Section Header */}
+        {/* Section Header with Vertical Scroll Reveal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <div className="eyebrow-label mb-5">
+            <div
+              className={`eyebrow-label mb-5 reveal-heading ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "60ms" : "0ms" }}
+            >
               <span className="eyebrow-dot" />
               <span>SELECTED WORK</span>
             </div>
             <h2
               id="portfolio-title"
-              className="font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[1.08] text-[34px] sm:text-[46px] lg:text-[56px]"
+              className={`font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[1.08] text-[34px] sm:text-[46px] lg:text-[56px] reveal-heading ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "140ms" : "0ms" }}
             >
               SOLUSI NYATA, UNTUK{" "}
               <span className="text-[#F45B1A]">KEBUTUHAN BISNIS NYATA.</span>
@@ -150,21 +162,25 @@ export default function PortfolioSection() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary-dark group self-start md:self-auto shrink-0"
+            className={`btn-secondary-dark group self-start md:self-auto shrink-0 reveal-button ${getRevealClass()}`}
+            style={{ transitionDelay: isInView ? "240ms" : "0ms" }}
           >
             <span>Minta Portofolio Lainnya</span>
             <ArrowUpRight
               size={17}
-              className="text-[#F45B1A] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-[#F45B1A] transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5"
             />
           </a>
         </div>
 
-        {/* Project Case Study Showcase */}
-        {PORTFOLIO_PROJECTS.map((project) => (
+        {/* Project Case Study Showcase with Staggered Vertical Reveal */}
+        {PORTFOLIO_PROJECTS.map((project, idx) => (
           <article
             key={project.id}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-10 lg:p-12 rounded-3xl bg-[#0B0807] border border-white/12 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+            className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-10 lg:p-12 rounded-3xl bg-[#0B0807] border border-white/12 shadow-[0_20px_60px_rgba(0,0,0,0.6)] reveal-card ${getRevealClass()}`}
+            style={{
+              transitionDelay: isInView ? `${idx * 160 + 260}ms` : "0ms",
+            }}
           >
             {/* Left: Interactive 3D Perspective Card (7 cols) */}
             <div className="lg:col-span-7 relative group">
@@ -182,7 +198,7 @@ export default function PortfolioSection() {
                   {project.title}
                 </h3>
 
-                <p className="text-sm font-medium text-[#A99A90] mb-6">
+                <p className="text-sm font-medium text-[#A99A90] mb-6 font-outfit">
                   Klien: <span className="text-[#F7F1EB]">{project.client}</span> · {project.industry}
                 </p>
 
@@ -193,17 +209,17 @@ export default function PortfolioSection() {
                       <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
                       Tantangan Awal:
                     </h4>
-                    <p className="text-sm text-[#F7F1EB] leading-relaxed">
+                    <p className="text-sm text-[#F7F1EB] leading-relaxed font-outfit">
                       {project.challenge}
                     </p>
                   </div>
 
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[#F45B1A] mb-1.5 flex items-center gap-1.5">
-                      <Sparkles size={12} className="text-[#F45B1A]" />
+                      <SolutionHandBulbIcon size={12} className="text-[#F45B1A] shrink-0" />
                       Solusi yang Dibangun:
                     </h4>
-                    <p className="text-sm text-[#F7F1EB] leading-relaxed">
+                    <p className="text-sm text-[#F7F1EB] leading-relaxed font-outfit">
                       {project.solution}
                     </p>
                   </div>
@@ -214,7 +230,7 @@ export default function PortfolioSection() {
                   {project.services.map((s) => (
                     <span
                       key={s}
-                      className="text-xs font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#A99A90]"
+                      className="text-xs font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#A99A90] font-outfit"
                     >
                       {s}
                     </span>
@@ -230,10 +246,10 @@ export default function PortfolioSection() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary-orange w-full sm:w-auto"
+                  className="btn-primary-orange w-full sm:w-auto group/btn"
                 >
                   <span>Konsultasi Proyek Serupa</span>
-                  <ArrowUpRight size={17} />
+                  <ArrowUpRight size={17} className="transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5" />
                 </a>
               </div>
             </div>

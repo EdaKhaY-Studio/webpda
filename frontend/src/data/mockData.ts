@@ -151,7 +151,7 @@ export const mockServices: Service[] = [
       "Panduan pemakaian sederhana untuk pemilik & tim",
       "Dukungan teknis berkala tanpa biaya tersembunyi",
     ],
-    icon: "Sparkles",
+    icon: "ShieldCheck",
     highlight: "Bebas Pusing",
   },
 ];

@@ -1,6 +1,5 @@
 import {
   MessageCircle,
-  Sparkles,
   CheckCircle2,
   ArrowRight,
   TrendingUp,

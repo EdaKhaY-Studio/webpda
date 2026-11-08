@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
-import { Sparkles, MessageCircle, Mail, MapPin, Heart } from "lucide-react";
+import { Globe, MessageCircle, Mail, MapPin, Heart } from "lucide-react";
 
 export default function Footer() {
   const waUrl = buildWhatsAppUrl(PREFILLED_MESSAGES.general);
@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/30">
-                <Sparkles className="h-5 w-5" />
+                <Globe className="h-5 w-5" />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">
                 Paham Digital Agency

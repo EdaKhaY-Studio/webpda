@@ -5,14 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES } from "@/lib/site-config";
+import HeroHeadlineTypewriter from "@/components/home/HeroHeadlineTypewriter";
 import gsap from "gsap";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
-  const headlineLine1Ref = useRef<HTMLDivElement>(null);
-  const headlineLine2Ref = useRef<HTMLDivElement>(null);
-  const headlineLine3Ref = useRef<HTMLDivElement>(null);
+  const headlineContainerRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -33,53 +32,63 @@ export default function HeroSection() {
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
     const ctx = gsap.context(() => {
-      // ── 01. Coordinated Page Entrance Motion (Situek easeOutBack inspired) ──
+      // ── 01. Coordinated Page Entrance Motion (Smooth Vertical Reveal) ──
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Eyebrow appears
+      // 1. Eyebrow appears (Fade & slide slowly from bottom)
       tl.fromTo(
         eyebrowRef.current,
-        { y: -15, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6 }
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.85 }
       );
 
-      // 2. Headline lines reveal sequentially
+      // 2. Headline enters (Fade & slide smoothly from bottom)
       tl.fromTo(
-        [headlineLine1Ref.current, headlineLine2Ref.current, headlineLine3Ref.current],
-        { y: 35, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.75, stagger: 0.1 },
-        "-=0.4"
+        headlineContainerRef.current,
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9 },
+        "-=0.7"
       );
 
-      // 3. Description enters
+      // 3. Description enters (Fade & slide gradually from bottom)
       tl.fromTo(
         descRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.65 },
-        "-=0.5"
+        { y: 25, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.0 },
+        "-=0.75"
       );
 
-      // 4. CTA buttons appear
+      // 4. CTA buttons appear (Smooth vertical entrance with slight delay)
       tl.fromTo(
         ctaRef.current,
-        { y: 18, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6 },
-        "-=0.5"
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.85 },
+        "-=0.7"
       );
 
-      // 5. Orange circle expands into position
+      // 5. Orange glow circle expands into position (Center-outward radial scale)
       tl.fromTo(
         circleRef.current,
-        { scale: 0.6, opacity: 0 },
+        { scale: 0.5, opacity: 0 },
         { scale: 1, opacity: 1, duration: 1.0, ease: "expo.out" },
         "-=0.6"
       );
 
-      // 6. Mascot reveals last with gentle overshoot curve (Situek easeOutBack inspired)
+      // 6. Subtle Concentric Rings enter (Scale out)
+      if (concentricRingRef.current) {
+        tl.fromTo(
+          concentricRingRef.current,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.0, ease: "expo.out" },
+          "-=0.8"
+        );
+      }
+
+      // 7. Mascot reveals from the right with gentle overshoot curve
       tl.fromTo(
         mascotWrapperRef.current,
-        { y: 35, scale: 0.94, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 1.1, ease: "back.out(1.15)" },
+        { x: 40, scale: 0.94, opacity: 0 },
+        { x: 0, scale: 1, opacity: 1, duration: 1.1, ease: "back.out(1.15)" },
         "-=0.7"
       );
 
@@ -206,55 +215,48 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Oversized Space Grotesk ExtraBold Headline (Height-conscious clamp) */}
+            {/* Direct Headline Looping Typewriter (Directly on original 3-line headline with zero CLS) */}
             <h1
               id="hero-title"
-              className="font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[0.96] text-[clamp(2.35rem,4.5vw,4.85rem)]"
+              ref={headlineContainerRef}
+              className="w-full"
             >
-              <div ref={headlineLine1Ref} className="overflow-hidden">
-                PAHAM BISNISNYA.
-              </div>
-              <div ref={headlineLine2Ref} className="overflow-hidden text-[#F45B1A]">
-                OTOMATISKAN.
-              </div>
-              <div ref={headlineLine3Ref} className="overflow-hidden">
-                SISTEMNYA.
-              </div>
+              <HeroHeadlineTypewriter />
             </h1>
 
             {/* Supporting Copy (Limited to 520–560px for optimal line-length and fold safety) */}
             <p
               ref={descRef}
-              className="mt-3.5 sm:mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-[#A99A90] font-normal leading-relaxed max-w-[540px]"
+              className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] lg:text-[16px] text-[#A99A90] font-normal leading-relaxed max-w-[540px]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Kami membantu bisnis berkembang melalui website profesional, web application, AI customer service, dan sistem automasi yang bekerja lebih cerdas.
             </p>
 
-            {/* Two Action CTAs (Guaranteed visible above the fold on 720p/768p/900p) */}
+            {/* Two Action CTAs (Directly beneath description, guaranteed above the fold) */}
             <div
               ref={ctaRef}
-              className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto"
+              className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto"
             >
               {/* Primary CTA */}
               <a
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-[#F45B1A] hover:bg-[#FF6A2A] text-white font-bold text-[14px] sm:text-[15px] px-6 py-3 sm:py-3.5 rounded-full shadow-[0_4px_20px_rgba(244,91,26,0.4)] hover:shadow-[0_6px_28px_rgba(244,91,26,0.55)] transition-all duration-200 active:scale-95 group whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#F45B1A] hover:bg-[#FF6A2A] text-white font-bold text-[14px] sm:text-[15px] px-6 py-3 sm:py-3.5 rounded-full shadow-[0_4px_20px_rgba(244,91,26,0.4)] hover:shadow-[0_8px_28px_rgba(244,91,26,0.6)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 group whitespace-nowrap"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <span>Diskusikan Proyek</span>
                 <ArrowUpRight
                   size={17}
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                 />
               </a>
 
               {/* Secondary CTA */}
               <Link
-                href="/#layanan"
-                className="inline-flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] text-[#F7F1EB] hover:text-white border border-white/12 hover:border-[#F45B1A]/40 font-semibold text-[14px] sm:text-[15px] px-6 py-3 sm:py-3.5 rounded-full backdrop-blur-sm transition-all duration-200 active:scale-95 group whitespace-nowrap"
+                href="/layanan/"
+                className="inline-flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] text-[#F7F1EB] hover:text-white border border-white/12 hover:border-[#F45B1A]/40 font-semibold text-[14px] sm:text-[15px] px-6 py-3 sm:py-3.5 rounded-full backdrop-blur-sm hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 group whitespace-nowrap"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <span>Jelajahi Layanan</span>

@@ -1,35 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES, SITE_CONFIG } from "@/lib/site-config";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function ContactCTASection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { sectionRef, isInView, getRevealClass } = useScrollReveal({
+    threshold: 0.12,
+  });
 
   const waUrl = buildWAUrl(WHATSAPP_MESSAGES.project);
 
@@ -48,11 +26,9 @@ export default function ContactCTASection() {
 
       <div className="container-site relative z-10">
         
-        {/* High-Impact Creative Card with Progressive Entrance */}
+        {/* High-Impact Creative Card with Vertical Reveal */}
         <div
-          className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#17100D] via-[#21140F] to-[#17100D] border border-white/15 p-8 sm:p-14 lg:p-20 shadow-[0_30px_90px_rgba(0,0,0,0.8)] transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-[0.98]"
-          }`}
+          className={`relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#17100D] via-[#21140F] to-[#17100D] border border-white/15 p-8 sm:p-14 lg:p-20 shadow-[0_30px_90px_rgba(0,0,0,0.8)] reveal-card ${getRevealClass()}`}
         >
           {/* Subtle Orange Glow in Corner */}
           <div
@@ -62,26 +38,36 @@ export default function ContactCTASection() {
 
           <div className="relative z-10 max-w-3xl">
             
-            <div className="eyebrow-label mb-6">
+            <div
+              className={`eyebrow-label mb-6 reveal-heading ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "60ms" : "0ms" }}
+            >
               <span className="eyebrow-dot" />
               <span>MULAI KOLABORASI</span>
             </div>
 
             <h2
               id="contact-cta-title"
-              className="font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[1.02] text-[36px] sm:text-[54px] lg:text-[68px] mb-6"
+              className={`font-display font-extrabold uppercase tracking-tight text-[#F7F1EB] leading-[1.02] text-[36px] sm:text-[54px] lg:text-[68px] mb-6 reveal-heading ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "140ms" : "0ms" }}
             >
               LET&apos;S BUILD SOMETHING THAT{" "}
               <span className="text-[#F45B1A]">MOVES YOUR BUSINESS FORWARD.</span>
             </h2>
 
-            <p className="text-base sm:text-xl text-[#A99A90] leading-relaxed max-w-2xl mb-10">
+            <p
+              className={`text-base sm:text-xl text-[#A99A90] leading-relaxed max-w-2xl mb-10 font-outfit reveal-paragraph ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "260ms" : "0ms" }}
+            >
               Mulai dari kebutuhan website profesional, asisten AI customer service 24/7,
               hingga automasi alur kerja digital. Mari bicarakan langkah nyata untuk bisnis Anda.
             </p>
 
             {/* CTAs & Contact channels */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+            <div
+              className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 reveal-button ${getRevealClass()}`}
+              style={{ transitionDelay: isInView ? "380ms" : "0ms" }}
+            >
               <a
                 href={waUrl}
                 target="_blank"
@@ -101,7 +87,7 @@ export default function ContactCTASection() {
                 <span>Diskusi via WhatsApp</span>
                 <ArrowUpRight
                   size={18}
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                 />
               </a>
 

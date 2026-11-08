@@ -5,7 +5,7 @@ import {
   CheckCircle,
   ArrowRight,
   MessageCircle,
-  Sparkles,
+  Award,
   Zap,
   Clock,
   Shield,
@@ -126,7 +126,7 @@ export default function ServicesSection() {
                 {service.popular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-1 text-xs font-bold text-white shadow-md">
-                      <Sparkles className="h-3.5 w-3.5 text-amber-300" />
+                      <Award className="h-3.5 w-3.5 text-amber-300" />
                       Pilihan Terfavorit UMKM
                     </span>
                   </div>

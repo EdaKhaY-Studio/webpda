@@ -6,12 +6,12 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { buildWAUrl, WHATSAPP_MESSAGES } from "@/lib/site-config";
 
-// Exact 4 navigation links strictly ordered as specified
+// Exact 4 navigation links strictly ordered as specified: Beranda → Tentang Kami → Layanan Kami → Blog
 const NAV_LINKS = [
   { label: "Beranda", href: "/" },
-  { label: "Layanan", href: "/#layanan" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Tentang Kami", href: "/tentang-kami/" },
+  { label: "Layanan Kami", href: "/layanan/" },
+  { label: "Blog", href: "/blog/" },
 ];
 
 export default function Navbar() {
@@ -74,12 +74,12 @@ export default function Navbar() {
       {/* ── 01. Morphing Navbar Container ───────────────────────────────── */}
       <header
         role="banner"
-        className={`fixed left-0 right-0 z-50 w-full pointer-events-none transition-all duration-400 ease-out ${
+        className={`fixed left-0 right-0 z-50 w-full pointer-events-none transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           scrolled ? "top-3 md:top-4" : "top-4 md:top-5"
         }`}
       >
         <div
-          className={`mx-auto transition-all duration-400 ease-out ${
+          className={`mx-auto transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             scrolled
               ? "w-[92%] sm:w-[90%] md:w-[88%] max-w-[1220px]"
               : "w-[92%] sm:w-[92%] md:w-[94%] max-w-[1320px]"
@@ -87,7 +87,7 @@ export default function Navbar() {
         >
           {/* Morphing Capsule Surface: Transparent at top -> Solid Floating Capsule after scroll */}
           <div
-            className={`pointer-events-auto flex items-center justify-between mx-auto transition-all duration-400 ease-out ${
+            className={`pointer-events-auto flex items-center justify-between mx-auto transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               scrolled
                 ? "h-[58px] md:h-[66px] px-5 sm:px-7 md:px-8 rounded-full bg-[#140D0A]/92 backdrop-blur-md border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.7),0_0_24px_rgba(244,91,26,0.08)]"
                 : "h-[58px] md:h-[66px] px-2 sm:px-4 md:px-6 rounded-none bg-transparent border border-transparent shadow-none"

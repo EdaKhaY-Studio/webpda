@@ -1,4 +1,4 @@
-import { MessageCircle, Quote, Sparkles, HeartHandshake, CheckCircle2, ShieldCheck, MapPin } from "lucide-react";
+import { MessageCircle, Quote, HeartHandshake, CheckCircle2, ShieldCheck, MapPin } from "lucide-react";
 import { MOCK_IDENTITY, AGENCY_INFO } from "@/data/mock-home";
 
 export default function WelcomeIdentitySection() {

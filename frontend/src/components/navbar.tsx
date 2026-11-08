@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
-import { MessageCircle, Menu, X, Sparkles, ArrowRight } from "lucide-react";
+import { MessageCircle, Menu, X, Globe, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* Brand Logo & Tagline */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <Sparkles className="h-6 w-6" />
+            <Globe className="h-6 w-6" />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">

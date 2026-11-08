@@ -1,4 +1,4 @@
-import { MapPin, Layers, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { MapPin, Layers, ShieldCheck, HeartHandshake, CheckCircle2 } from "lucide-react";
 import { MOCK_WHY_US } from "@/data/mock-home";
 
 export default function WhyUsSection() {
@@ -10,8 +10,8 @@ export default function WhyUsSection() {
         return <Layers className="h-6 w-6 text-indigo-600" />;
       case "shield-check":
         return <ShieldCheck className="h-6 w-6 text-emerald-600" />;
-      case "sparkles":
-        return <Sparkles className="h-6 w-6 text-amber-500" />;
+      case "heart-handshake":
+        return <HeartHandshake className="h-6 w-6 text-amber-500" />;
       default:
         return <CheckCircle2 className="h-6 w-6 text-blue-600" />;
     }

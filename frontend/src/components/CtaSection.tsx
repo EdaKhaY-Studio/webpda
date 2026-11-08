@@ -1,7 +1,7 @@
 import React from "react";
 import { siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { MessageCircle, Sparkles, CheckCircle, ArrowRight, Clock, ShieldCheck } from "lucide-react";
+import { MessageCircle, CheckCircle, ArrowRight, Clock, ShieldCheck, HeartHandshake } from "lucide-react";
 
 export default function CtaSection() {
   const waUrl = buildWhatsAppUrl(
@@ -19,7 +19,7 @@ export default function CtaSection() {
           {/* Left Text */}
           <div className="max-w-2xl text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3.5 py-1 text-xs font-semibold text-emerald-300 border border-white/10 mb-4">
-              <Sparkles className="h-3.5 w-3.5" />
+              <MessageCircle className="h-3.5 w-3.5" />
               <span>Konsultasi 100% Gratis & Tanpa Kewajiban</span>
             </div>
 
@@ -48,7 +48,7 @@ export default function CtaSection() {
                 <span>Harga transparan & ramah kantong UMKM</span>
               </div>
               <div className="flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-emerald-400 shrink-0" />
+                <HeartHandshake className="h-4 w-4 text-emerald-400 shrink-0" />
                 <span>Dampingi proses dari awal sampai jadi</span>
               </div>
             </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { mockProjects, Project, siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
 import {
-  Sparkles,
+  Briefcase,
   MessageCircle,
   ArrowUpRight,
   CheckCircle2,
@@ -40,7 +40,7 @@ export default function PortfolioSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3.5 py-1 text-xs font-semibold text-emerald-800 mb-3">
-              <Sparkles className="h-3.5 w-3.5" />
+              <Briefcase className="h-3.5 w-3.5" />
               <span>Cuplikan Hasil Kerja Terbaru</span>
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">

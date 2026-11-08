@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0807" />
+      <stop offset="50%" stop-color="#140E0B" />
+      <stop offset="100%" stop-color="#0B0807" />
+    </linearGradient>
+
+    <!-- Radial Glows -->
+    <radialGradient id="orangeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#FF6A2A" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="serverGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241712" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#17100D" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="orangeBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F45B1A" />
+      <stop offset="100%" stop-color="#FF6A2A" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F45B1A" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- 1. Background Layer -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+  <rect width="1200" height="675" fill="url(#grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="600" cy="340" r="380" fill="url(#orangeGlow)" />
+  <circle cx="850" cy="400" r="220" fill="url(#serverGlow)" />
+
+  <!-- 2. Decorative Perspective Grid Floor -->
+  <g opacity="0.25">
+    <line x1="200" y1="560" x2="1000" y2="560" stroke="#F45B1A" stroke-width="1.5" />
+    <line x1="280" y1="520" x2="920" y2="520" stroke="#F45B1A" stroke-width="1" />
+    <line x1="340" y1="490" x2="860" y2="490" stroke="#F45B1A" stroke-width="0.75" />
+    <!-- Diagonal floor rays -->
+    <line x1="200" y1="560" x2="420" y2="460" stroke="#F45B1A" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="400" y1="560" x2="520" y2="460" stroke="#F45B1A" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="800" y1="560" x2="680" y2="460" stroke="#F45B1A" stroke-width="1" stroke-dasharray="4 4" />
+    <line x1="1000" y1="560" x2="780" y2="460" stroke="#F45B1A" stroke-width="1" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- 3. Connection Data Cable (Laser Beam between Domain & Server/House) -->
+  <path d="M 460 215 C 460 290, 750 250, 750 330" fill="none" stroke="#F45B1A" stroke-width="3" stroke-dasharray="8 6" opacity="0.8" />
+  <path d="M 460 215 C 460 320, 500 370, 520 400" fill="none" stroke="#FF6A2A" stroke-width="2.5" opacity="0.6" />
+
+  <!-- 4. The House Illustration (Analogy: Tempat Tinggal & Penyimpanan) -->
+  <g transform="translate(340, 240)">
+    <!-- House Foundation Shadow -->
+    <ellipse cx="140" cy="270" rx="160" ry="24" fill="#000000" opacity="0.6" />
+
+    <!-- House Main Structure -->
+    <path d="M 40 130 L 140 50 L 240 130 L 240 260 L 40 260 Z" fill="url(#cardGrad)" stroke="#F45B1A" stroke-opacity="0.35" stroke-width="2" />
+    
+    <!-- Roof Overhang Accent -->
+    <path d="M 25 135 L 140 40 L 255 135" fill="none" stroke="url(#orangeBar)" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Chimney / Antenna with WiFi signal -->
+    <rect x="190" y="65" width="22" height="40" rx="3" fill="#1C130F" stroke="#F45B1A" stroke-opacity="0.4" stroke-width="1.5" />
+    <circle cx="201" cy="55" r="4" fill="#F45B1A" />
+    <path d="M 193 47 A 12 12 0 0 1 209 47" fill="none" stroke="#F45B1A" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+
+    <!-- Modern Front Glass Window with Website File Silhouettes inside -->
+    <rect x="65" y="150" width="85" height="90" rx="8" fill="#0B0807" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.5" />
+    
+    <!-- Files / Furniture inside house -->
+    <!-- Image file icon -->
+    <rect x="75" y="160" width="30" height="24" rx="4" fill="#F45B1A" fill-opacity="0.2" stroke="#F45B1A" stroke-opacity="0.6" stroke-width="1" />
+    <circle cx="83" cy="168" r="3" fill="#F45B1A" />
+    <path d="M 76 182 L 87 172 L 95 180 L 104 174" fill="none" stroke="#F45B1A" stroke-width="1.2" />
+
+    <!-- Code file icon -->
+    <rect x="112" y="160" width="30" height="24" rx="4" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1" />
+    <text x="118" y="176" fill="#F7F1EB" font-family="monospace" font-size="11" font-weight="bold">&lt;/&gt;</text>
+
+    <!-- Content doc lines (simulating text files) -->
+    <rect x="75" y="196" width="67" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.15" />
+    <rect x="75" y="208" width="50" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.1" />
+    <rect x="75" y="220" width="60" height="6" rx="3" fill="#F45B1A" fill-opacity="0.4" />
+
+    <!-- Modern Front Door -->
+    <rect x="165" y="165" width="55" height="95" rx="6" fill="#1A110D" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1.5" />
+    <circle cx="176" cy="212" r="3.5" fill="#F45B1A" />
+    <!-- Door glass slit -->
+    <rect x="195" y="178" width="15" height="45" rx="3" fill="#F45B1A" fill-opacity="0.15" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1" />
+
+    <!-- House Badge / Label -->
+    <g transform="translate(60, 275)">
+      <rect x="0" y="0" width="160" height="32" rx="16" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1" />
+      <circle cx="16" cy="16" r="5" fill="#4ADE80" />
+      <text x="30" y="20" fill="#F7F1EB" font-family="sans-serif" font-size="11" font-weight="bold" letter-spacing="0.5">RUMAH (WEBSITE)</text>
+    </g>
+  </g>
+
+  <!-- 5. High-Tech Server Rack (Analogy: Hosting Infrastructure) -->
+  <g transform="translate(680, 250)">
+    <!-- Server Shadow -->
+    <ellipse cx="85" cy="265" rx="95" ry="18" fill="#000000" opacity="0.7" />
+
+    <!-- Server Cabinet Body -->
+    <rect x="15" y="40" width="140" height="220" rx="12" fill="#140E0B" stroke="#F45B1A" stroke-opacity="0.4" stroke-width="2" />
+    <rect x="25" y="50" width="120" height="200" rx="8" fill="#0B0807" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+
+    <!-- Server Slots (Bays) -->
+    <!-- Bay 1 -->
+    <g transform="translate(35, 60)">
+      <rect x="0" y="0" width="100" height="36" rx="6" fill="#1A120E" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1" />
+      <circle cx="14" cy="18" r="3" fill="#F45B1A" />
+      <circle cx="24" cy="18" r="3" fill="#4ADE80" />
+      <rect x="36" y="14" width="35" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.2" />
+      <rect x="36" y="22" width="20" height="3" rx="1.5" fill="#F45B1A" fill-opacity="0.5" />
+      <!-- Drive vents -->
+      <line x1="80" y1="12" x2="80" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="85" y1="12" x2="85" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="90" y1="12" x2="90" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+    </g>
+
+    <!-- Bay 2 -->
+    <g transform="translate(35, 105)">
+      <rect x="0" y="0" width="100" height="36" rx="6" fill="#1A120E" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1" />
+      <circle cx="14" cy="18" r="3" fill="#F45B1A" />
+      <circle cx="24" cy="18" r="3" fill="#4ADE80" />
+      <rect x="36" y="14" width="45" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.2" />
+      <rect x="36" y="22" width="28" height="3" rx="1.5" fill="#F45B1A" fill-opacity="0.5" />
+      <line x1="80" y1="12" x2="80" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="85" y1="12" x2="85" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="90" y1="12" x2="90" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+    </g>
+
+    <!-- Bay 3 (SSD Storage Unit) -->
+    <g transform="translate(35, 150)">
+      <rect x="0" y="0" width="100" height="36" rx="6" fill="#1A120E" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1" />
+      <circle cx="14" cy="18" r="3" fill="#4ADE80" />
+      <circle cx="24" cy="18" r="3" fill="#4ADE80" />
+      <rect x="36" y="14" width="40" height="4" rx="2" fill="#FFFFFF" fill-opacity="0.2" />
+      <rect x="36" y="22" width="25" height="3" rx="1.5" fill="#4ADE80" fill-opacity="0.5" />
+      <line x1="80" y1="12" x2="80" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="85" y1="12" x2="85" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+      <line x1="90" y1="12" x2="90" y2="24" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="2" />
+    </g>
+
+    <!-- Bay 4 (Cooling Unit) -->
+    <g transform="translate(35, 195)">
+      <rect x="0" y="0" width="100" height="42" rx="6" fill="#160F0B" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+      <circle cx="30" cy="21" r="12" fill="none" stroke="#F45B1A" stroke-width="1.5" stroke-opacity="0.4" />
+      <circle cx="70" cy="21" r="12" fill="none" stroke="#F45B1A" stroke-width="1.5" stroke-opacity="0.4" />
+      <circle cx="30" cy="21" r="4" fill="#F45B1A" opacity="0.6" />
+      <circle cx="70" cy="21" r="4" fill="#F45B1A" opacity="0.6" />
+    </g>
+
+    <!-- Hosting Server Label -->
+    <g transform="translate(10, 275)">
+      <rect x="0" y="0" width="150" height="32" rx="16" fill="#17100D" stroke="#F45B1A" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="16" cy="16" r="5" fill="#F45B1A" />
+      <text x="30" y="20" fill="#F7F1EB" font-family="sans-serif" font-size="11" font-weight="bold" letter-spacing="0.5">HOSTING (SERVER)</text>
+    </g>
+  </g>
+
+  <!-- 6. Floating Domain Marker (Analogy: Alamat Rumah) -->
+  <g transform="translate(330, 90)">
+    <!-- Location Pin Stem -->
+    <path d="M 130 110 L 130 145" stroke="url(#orangeBar)" stroke-width="3" stroke-linecap="round" />
+    <circle cx="130" cy="148" r="4" fill="#F45B1A" />
+    <ellipse cx="130" cy="154" rx="18" ry="4" fill="#F45B1A" opacity="0.3" />
+
+    <!-- Domain Address Capsule -->
+    <rect x="0" y="35" width="260" height="72" rx="20" fill="#17100D" stroke="#F45B1A" stroke-width="2" filter="drop-shadow(0 12px 30px rgba(0,0,0,0.8))" />
+    
+    <!-- Pin Icon -->
+    <circle cx="38" cy="71" r="18" fill="#F45B1A" />
+    <path d="M 38 60 C 33.5 60 30 63.5 30 68 C 30 74 38 82 38 82 C 38 82 46 74 46 68 C 46 63.5 42.5 60 38 60 Z" fill="#FFFFFF" />
+    <circle cx="38" cy="67" r="3" fill="#F45B1A" />
+
+    <!-- Domain Text Details -->
+    <text x="68" y="62" fill="#A99A90" font-family="sans-serif" font-size="10.5" font-weight="bold" letter-spacing="1">DOMAIN (ALAMAT)</text>
+    <text x="68" y="85" fill="#F7F1EB" font-family="sans-serif" font-size="16" font-weight="800" letter-spacing="0.2">pahamdigital<tspan fill="#F45B1A">.online</tspan></text>
+  </g>
+
+  <!-- 7. TLD Badges Cloud (.com, .id, .online) -->
+  <g transform="translate(130, 200)">
+    <!-- .com pill -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="110" height="42" rx="21" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5" />
+      <circle cx="20" cy="21" r="4" fill="#F45B1A" />
+      <text x="32" y="26" fill="#F7F1EB" font-family="sans-serif" font-size="14" font-weight="bold">.com</text>
+    </g>
+
+    <!-- .id pill -->
+    <g transform="translate(20, 65)">
+      <rect x="0" y="0" width="95" height="42" rx="21" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5" />
+      <circle cx="20" cy="21" r="4" fill="#EF4444" />
+      <text x="32" y="26" fill="#F7F1EB" font-family="sans-serif" font-size="14" font-weight="bold">.id</text>
+    </g>
+
+    <!-- .online pill -->
+    <g transform="translate(10, 130)">
+      <rect x="0" y="0" width="125" height="42" rx="21" fill="#17100D" stroke="#F45B1A" stroke-opacity="0.4" stroke-width="1.5" />
+      <circle cx="20" cy="21" r="4" fill="#F45B1A" />
+      <text x="32" y="26" fill="#F45B1A" font-family="sans-serif" font-size="14" font-weight="bold">.online</text>
+    </g>
+  </g>
+
+  <!-- 8. Floating Summary Infographic Pill at Bottom Right -->
+  <g transform="translate(860, 160)">
+    <rect x="0" y="0" width="220" height="110" rx="16" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5" />
+    
+    <text x="20" y="32" fill="#F45B1A" font-family="sans-serif" font-size="11" font-weight="bold" letter-spacing="1">ANALOGI PRAKTIS</text>
+    
+    <circle cx="25" cy="55" r="3" fill="#F45B1A" />
+    <text x="36" y="58" fill="#F7F1EB" font-family="sans-serif" font-size="12" font-weight="bold">Domain <tspan fill="#A99A90" font-weight="normal">= Alamat</tspan></text>
+    
+    <circle cx="25" cy="75" r="3" fill="#F45B1A" />
+    <text x="36" y="78" fill="#F7F1EB" font-family="sans-serif" font-size="12" font-weight="bold">Hosting <tspan fill="#A99A90" font-weight="normal">= Bangunan</tspan></text>
+
+    <circle cx="25" cy="95" r="3" fill="#F45B1A" />
+    <text x="36" y="98" fill="#F7F1EB" font-family="sans-serif" font-size="12" font-weight="bold">File Web <tspan fill="#A99A90" font-weight="normal">= Perabot</tspan></text>
+  </g>
+
+  <!-- 9. Header Watermark / Brand Accent -->
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="168" height="28" rx="14" fill="#F45B1A" fill-opacity="0.12" stroke="#F45B1A" stroke-opacity="0.3" stroke-width="1" />
+    <text x="14" y="18" fill="#F45B1A" font-family="sans-serif" font-size="10" font-weight="bold" letter-spacing="1.2">PAHAM DIGITAL AGENCY</text>
+  </g>
+</svg>
+

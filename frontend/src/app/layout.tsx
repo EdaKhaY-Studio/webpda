@@ -1,29 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins, Manrope, Space_Grotesk } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import ScrollRevealManager from "@/components/ui/ScrollRevealManager";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 const poppins = Poppins({
   variable: "--font-nav",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -53,6 +39,17 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -63,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${poppins.variable} ${spaceGrotesk.variable} ${manrope.variable} scroll-smooth dark`}
+      className={`${poppins.variable} font-body scroll-smooth dark`}
     >
       <body
         className="min-h-screen flex flex-col antialiased selection:bg-[#F45B1A] selection:text-white"
@@ -74,9 +71,9 @@ export default function RootLayout({
         }}
       >
         <Navbar />
+        <ScrollRevealManager />
         <main className="flex-1 animate-page-entrance">{children}</main>
         <Footer />
-        <FloatingWhatsApp />
       </body>
     </html>
   );

@@ -186,7 +186,7 @@ export const MOCK_WHY_US: ValueBenefit[] = [
     title: "Pendampingan & Pelatihan Ramah",
     description:
       "Anda tidak ditinggal setelah website jadi. Kami ajarkan cara mengelola dan siap membantu kapan pun ada kendala.",
-    icon: "sparkles",
+    icon: "heart-handshake",
   },
 ];
 

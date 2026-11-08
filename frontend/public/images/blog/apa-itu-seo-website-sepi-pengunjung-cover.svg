@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0807" />
+      <stop offset="50%" stop-color="#140E0B" />
+      <stop offset="100%" stop-color="#0B0807" />
+    </linearGradient>
+
+    <!-- Radial Glows -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.28" />
+      <stop offset="60%" stop-color="#FF6A2A" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="highlightHouseGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.45" />
+      <stop offset="70%" stop-color="#FF6A2A" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6A2A" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Linear Gradients for Cards & Objects -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#211510" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#150E0B" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="roofGradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A3D" />
+      <stop offset="100%" stop-color="#E04A0D" />
+    </linearGradient>
+
+    <linearGradient id="roofGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D1D16" />
+      <stop offset="100%" stop-color="#1A110D" />
+    </linearGradient>
+
+    <linearGradient id="houseWallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1C1310" />
+      <stop offset="100%" stop-color="#120B09" />
+    </linearGradient>
+
+    <linearGradient id="orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F45B1A" />
+      <stop offset="100%" stop-color="#FF6A2A" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F45B1A" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- 1. Background Layer -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+  <rect width="1200" height="675" fill="url(#grid)" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="600" cy="350" r="420" fill="url(#centerGlow)" />
+  <circle cx="920" cy="360" r="240" fill="url(#highlightHouseGlow)" />
+  <circle cx="580" cy="380" r="260" fill="url(#hubGlow)" />
+
+  <!-- 2. Perspective Neighborhood Ground Grid & Roads -->
+  <g opacity="0.22">
+    <ellipse cx="600" cy="480" rx="520" ry="140" stroke="#F45B1A" stroke-width="1" fill="none" stroke-dasharray="6 6" />
+    <ellipse cx="600" cy="480" rx="380" ry="95" stroke="#F45B1A" stroke-width="1.2" fill="none" />
+    <ellipse cx="600" cy="480" rx="220" ry="55" stroke="#F45B1A" stroke-width="1" fill="none" stroke-dasharray="4 4" />
+    <!-- Radiating Neighborhood Pathway Rays -->
+    <line x1="600" y1="480" x2="180" y2="460" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="8 6" />
+    <line x1="600" y1="480" x2="380" y2="340" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="8 6" />
+    <line x1="600" y1="480" x2="820" y2="350" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="8 6" />
+    <line x1="600" y1="480" x2="960" y2="450" stroke="#F45B1A" stroke-width="2" stroke-dasharray="8 6" />
+    <line x1="600" y1="480" x2="600" y2="600" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="8 6" />
+  </g>
+
+  <!-- Pathway Connection Glow to the New House (Orange Data Beam) -->
+  <path d="M 590 420 Q 750 430 920 400" fill="none" stroke="url(#orangeAccent)" stroke-width="3" stroke-dasharray="10 6" opacity="0.85" />
+  <path d="M 590 420 Q 750 430 920 400" fill="none" stroke="#FFA270" stroke-width="1" opacity="0.6" />
+
+  <!-- 3. TOP BRANDING & EDITORIAL IDENTIFIER -->
+  <g transform="translate(60, 50)">
+    <rect width="260" height="34" rx="17" fill="#1C130E" stroke="rgba(244,91,26,0.4)" stroke-width="1" />
+    <circle cx="18" cy="17" r="4.5" fill="#F45B1A" />
+    <text x="32" y="22" font-family="'Geom Variable', 'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#F7F1EB" letter-spacing="1.5">
+      DIGITAL KNOWLEDGE · 02
+    </text>
+  </g>
+
+  <g transform="translate(1010, 50)">
+    <rect width="130" height="34" rx="17" fill="#1C130E" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+    <text x="65" y="22" text-anchor="middle" font-family="'Geom Variable', 'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" fill="#A99A90" letter-spacing="1.2">
+      SEO SERIES
+    </text>
+  </g>
+
+  <!-- 4. BACKGROUND HOUSES (Neighborhood Environment) -->
+
+  <!-- House Left A (Existing Resident House) -->
+  <g transform="translate(200, 340)">
+    <!-- Shadow -->
+    <ellipse cx="60" cy="100" rx="70" ry="22" fill="#000" opacity="0.5" />
+    <!-- Wall -->
+    <path d="M 15 45 L 60 15 L 105 45 L 105 95 L 15 95 Z" fill="url(#houseWallGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <!-- Roof -->
+    <path d="M 8 46 L 60 10 L 112 46 L 60 25 Z" fill="url(#roofGradDark)" stroke="rgba(244,91,26,0.3)" stroke-width="1.5" />
+    <!-- Door & Window with subtle warm light -->
+    <rect x="48" y="60" width="24" height="35" rx="3" fill="#0E0806" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <rect x="25" y="55" width="16" height="16" rx="2" fill="#F45B1A" fill-opacity="0.25" stroke="rgba(244,91,26,0.4)" stroke-width="1" />
+    <rect x="79" y="55" width="16" height="16" rx="2" fill="#F45B1A" fill-opacity="0.25" stroke="rgba(244,91,26,0.4)" stroke-width="1" />
+    <text x="60" y="112" text-anchor="middle" font-family="'Outfit Variable', system-ui" font-size="10" fill="#8E7F75">Rumah Warga</text>
+  </g>
+
+  <!-- House Left B (Another Resident Shop/House) -->
+  <g transform="translate(350, 240)">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="85" rx="60" ry="18" fill="#000" opacity="0.45" />
+    <!-- Wall -->
+    <path d="M 10 38 L 50 12 L 90 38 L 90 80 L 10 80 Z" fill="url(#houseWallGrad)" stroke="rgba(255,255,255,0.1)" stroke-width="1.2" />
+    <!-- Roof -->
+    <path d="M 4 39 L 50 8 L 96 39 L 50 20 Z" fill="url(#roofGradDark)" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" />
+    <!-- Window -->
+    <rect x="40" y="48" width="20" height="32" rx="2" fill="#0E0806" stroke="rgba(255,255,255,0.08)" />
+    <circle cx="50" cy="30" r="5" fill="#F45B1A" fill-opacity="0.3" />
+    <text x="50" y="98" text-anchor="middle" font-family="'Outfit Variable', system-ui" font-size="9" fill="#756860">Toko Warga</text>
+  </g>
+
+  <!-- 5. THE HIGHLIGHTED NEW HOUSE (Website Baru yang Masih Sepi) -->
+  <g transform="translate(850, 280)">
+    <!-- Ground Glow Rings -->
+    <ellipse cx="80" cy="160" rx="120" ry="40" fill="#F45B1A" fill-opacity="0.15" />
+    <ellipse cx="80" cy="160" rx="90" ry="30" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.6" />
+    <ellipse cx="80" cy="160" rx="60" ry="20" fill="#000" opacity="0.6" />
+
+    <!-- 3D Isometric Styled House Base -->
+    <g>
+      <!-- House Main Body -->
+      <path d="M 20 65 L 80 20 L 140 65 L 140 145 L 20 145 Z" fill="#1C130E" stroke="#F45B1A" stroke-width="2" />
+      <!-- High-gloss Warm Orange Gabled Roof -->
+      <path d="M 10 66 L 80 12 L 150 66 L 80 34 Z" fill="url(#roofGradOrange)" stroke="#FFA270" stroke-width="1.5" />
+      <path d="M 80 12 L 80 34 L 150 66" fill="#B83909" opacity="0.4" />
+
+      <!-- Glowing Front Door -->
+      <rect x="62" y="95" width="36" height="50" rx="4" fill="#2E1B13" stroke="#F45B1A" stroke-width="1.5" />
+      <circle cx="90" cy="120" r="2.5" fill="#FF7A3D" />
+
+      <!-- Windows radiating digital light -->
+      <rect x="32" y="80" width="22" height="26" rx="3" fill="#F45B1A" fill-opacity="0.35" stroke="#FF7A3D" stroke-width="1.5" />
+      <line x1="43" y1="80" x2="43" y2="106" stroke="#FF7A3D" stroke-width="1" />
+      <line x1="32" y1="93" x2="54" y2="93" stroke="#FF7A3D" stroke-width="1" />
+
+      <rect x="106" y="80" width="22" height="26" rx="3" fill="#F45B1A" fill-opacity="0.35" stroke="#FF7A3D" stroke-width="1.5" />
+      <line x1="117" y1="80" x2="117" y2="106" stroke="#FF7A3D" stroke-width="1" />
+      <line x1="106" y1="93" x2="128" y2="93" stroke="#FF7A3D" stroke-width="1" />
+
+      <!-- Domain Name Plaque on Front -->
+      <rect x="45" y="52" width="70" height="16" rx="8" fill="#0B0807" stroke="#F45B1A" stroke-width="1" />
+      <text x="80" y="63" text-anchor="middle" font-family="'Geom Variable', system-ui" font-size="8" font-weight="700" fill="#FF9A68" letter-spacing="0.5">
+        rumahbisnis.com
+      </text>
+    </g>
+
+    <!-- Glowing Location Pin floating above house -->
+    <g transform="translate(80, -20)">
+      <circle cx="0" cy="0" r="22" fill="#F45B1A" fill-opacity="0.25" />
+      <path d="M 0 -18 C -10 -18 -16 -12 -16 -2 C -16 8 0 20 0 20 C 0 20 16 8 16 -2 C 16 -12 10 -18 0 -18 Z" fill="url(#orangeAccent)" stroke="#FFF" stroke-width="1.5" />
+      <circle cx="0" cy="-4" r="5.5" fill="#FFF" />
+      <path d="M 0 22 L 0 35" stroke="#F45B1A" stroke-width="2" stroke-dasharray="3 3" />
+    </g>
+
+    <!-- Floating Badge: "Website Sudah Ada, Tapi Masih Sepi!" -->
+    <g transform="translate(160, 50)">
+      <rect width="170" height="56" rx="12" fill="#1C130E" stroke="#F45B1A" stroke-width="1.2" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.8))" />
+      <circle cx="20" cy="28" r="6" fill="#F45B1A" />
+      <text x="34" y="24" font-family="'Geom Variable', system-ui" font-size="11" font-weight="700" fill="#F7F1EB">Website Baru</text>
+      <text x="34" y="42" font-family="'Outfit Variable', system-ui" font-size="10" fill="#A99A90">Alamat Ada, Belum Ramai</text>
+    </g>
+  </g>
+
+  <!-- 6. NEIGHBORHOOD NOTICE BOARD (SITEMAP & DIRECTORY) -->
+  <g transform="translate(740, 430)">
+    <!-- Stand posts -->
+    <line x1="15" y1="40" x2="15" y2="90" stroke="#4A3428" stroke-width="4" stroke-linecap="round" />
+    <line x1="85" y1="40" x2="85" y2="90" stroke="#4A3428" stroke-width="4" stroke-linecap="round" />
+    <!-- Board -->
+    <rect x="0" y="0" width="100" height="50" rx="6" fill="#241711" stroke="rgba(244,91,26,0.5)" stroke-width="1.5" />
+    <rect x="6" y="6" width="88" height="38" rx="3" fill="#150E0B" />
+    <line x1="14" y1="16" x2="60" y2="16" stroke="#F45B1A" stroke-width="2" stroke-linecap="round" />
+    <line x1="14" y1="24" x2="80" y2="24" stroke="#A99A90" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    <line x1="14" y1="32" x2="70" y2="32" stroke="#A99A90" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    <text x="50" y="105" text-anchor="middle" font-family="'Outfit Variable', system-ui" font-size="9" fill="#8E7F75">Papan Informasi (Sitemap)</text>
+  </g>
+
+  <!-- 7. AUTOMATED CRAWLER ROBOT (GOOGLEBOT PATROL) -->
+  <g transform="translate(720, 260)">
+    <!-- Glowing Aura -->
+    <circle cx="30" cy="30" r="38" fill="#F45B1A" fill-opacity="0.18" />
+    <!-- Robot Body -->
+    <rect x="12" y="14" width="36" height="30" rx="10" fill="#1C130E" stroke="#FF7A3D" stroke-width="2" />
+    <!-- Antenna -->
+    <line x1="30" y1="14" x2="30" y2="4" stroke="#FF7A3D" stroke-width="2" stroke-linecap="round" />
+    <circle cx="30" cy="3" r="3.5" fill="#FF6A2A" />
+    <!-- Eyes / Scanner Sensor (Cyan & Orange friendly optics) -->
+    <circle cx="23" cy="28" r="4.5" fill="#FF7A3D" />
+    <circle cx="37" cy="28" r="4.5" fill="#FF7A3D" />
+    <circle cx="23" cy="28" r="1.5" fill="#FFF" />
+    <circle cx="37" cy="28" r="1.5" fill="#FFF" />
+    <!-- Scanner Beam projecting downward to road/houses -->
+    <polygon points="20,44 40,44 65,95 -5,95" fill="url(#orangeAccent)" opacity="0.12" />
+    <line x1="30" y1="44" x2="30" y2="95" stroke="#F45B1A" stroke-width="1" stroke-dasharray="3 3" opacity="0.4" />
+    <!-- Wheels / Hover Base -->
+    <ellipse cx="30" cy="46" rx="14" ry="4" fill="#FF6A2A" fill-opacity="0.8" />
+    <!-- Badge Label -->
+    <rect x="-10" y="102" width="80" height="20" rx="10" fill="#140E0B" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+    <text x="30" y="115" text-anchor="middle" font-family="'Geom Variable', system-ui" font-size="8.5" font-weight="700" fill="#FF9A68">
+      GOOGLEBOT
+    </text>
+  </g>
+
+  <!-- 8. THE CENTRAL NEIGHBORHOOD HUB & PAK RT (GOOGLE SEARCH) -->
+  <g transform="translate(480, 220)">
+    <!-- Platform Glow -->
+    <ellipse cx="90" cy="240" rx="140" ry="45" fill="url(#hubGlow)" />
+    <ellipse cx="90" cy="240" rx="110" ry="32" stroke="#F45B1A" stroke-width="1.5" stroke-dasharray="5 5" fill="none" opacity="0.5" />
+
+    <!-- Hub Podium / Balai RT -->
+    <path d="M 20 220 L 90 195 L 160 220 L 160 245 L 90 270 L 20 245 Z" fill="#211510" stroke="rgba(244,91,26,0.6)" stroke-width="2" />
+    <path d="M 90 195 L 160 220 L 90 245 L 20 220 Z" fill="#2E1C15" />
+
+    <!-- 3D Conceptual Figure of Pak RT (Friendly Neighborhood Leader) -->
+    <!-- Shadow -->
+    <ellipse cx="90" cy="198" rx="26" ry="9" fill="#000" opacity="0.6" />
+    
+    <!-- Body: Traditional Indonesian Batik / Professional Vest Jacket -->
+    <path d="M 72 135 L 108 135 L 115 190 L 65 190 Z" fill="#1C130E" stroke="#F45B1A" stroke-width="1.8" />
+    <path d="M 80 135 L 90 155 L 100 135" stroke="#FFA270" stroke-width="1.5" fill="none" />
+    <!-- Traditional Kopiah / Peji Peci Cap -->
+    <rect x="78" y="92" width="24" height="12" rx="2" fill="#140D0B" stroke="#F45B1A" stroke-width="1.2" />
+    <!-- Head with warm friendly smile -->
+    <circle cx="90" cy="114" r="14" fill="#E2A782" />
+    <circle cx="85" cy="112" r="1.5" fill="#24140D" />
+    <circle cx="95" cy="112" r="1.5" fill="#24140D" />
+    <path d="M 86 119 Q 90 123 94 119" stroke="#7A3F1F" stroke-width="1.5" fill="none" stroke-linecap="round" />
+
+    <!-- Pak RT's Clipboard / Neighborhood Record Book (Google Index) -->
+    <g transform="translate(98, 140) rotate(-12)">
+      <rect x="0" y="0" width="34" height="46" rx="4" fill="#FF7A3D" stroke="#FFF" stroke-width="1.2" />
+      <rect x="4" y="6" width="26" height="34" rx="2" fill="#FFF" />
+      <rect x="12" y="-3" width="10" height="6" rx="2" fill="#333" />
+      <!-- Book Lines (Index Records) -->
+      <line x1="8" y1="14" x2="24" y2="14" stroke="#F45B1A" stroke-width="2" stroke-linecap="round" />
+      <line x1="8" y1="20" x2="26" y2="20" stroke="#555" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="8" y1="26" x2="22" y2="26" stroke="#555" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="8" y1="32" x2="25" y2="32" stroke="#555" stroke-width="1.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Floating Magnifying Glass above Pak RT (Discovery / Search Symbol) -->
+    <g transform="translate(90, 48)">
+      <circle cx="0" cy="0" r="28" fill="#F45B1A" fill-opacity="0.2" />
+      <circle cx="-3" cy="-3" r="18" stroke="url(#orangeAccent)" stroke-width="4" fill="none" />
+      <line x1="10" y1="10" x2="24" y2="24" stroke="url(#orangeAccent)" stroke-width="5" stroke-linecap="round" />
+      <circle cx="-8" cy="-8" r="5" fill="#FFF" opacity="0.6" />
+    </g>
+
+    <!-- Speech Bubble from Inquiring Resident: "Pak, cari toko bagus di mana?" -->
+    <g transform="translate(-160, 110)">
+      <path d="M 0 0 L 150 0 C 158 0 164 6 164 14 L 164 46 C 164 54 158 60 150 60 L 120 60 L 135 74 L 105 60 L 0 60 C -8 60 -14 54 -14 46 L -14 14 C -14 6 -8 0 0 0 Z" fill="#1C130E" stroke="rgba(244,91,26,0.6)" stroke-width="1.5" />
+      <text x="6" y="24" font-family="'Outfit Variable', system-ui" font-size="11" font-weight="700" fill="#F7F1EB">"Pak, kalau cari tempat</text>
+      <text x="6" y="42" font-family="'Outfit Variable', system-ui" font-size="11" font-weight="700" fill="#FFA270">makan enak, di mana ya?"</text>
+    </g>
+
+    <!-- Resident Approaching Pak RT -->
+    <g transform="translate(-40, 155)">
+      <ellipse cx="15" cy="55" rx="16" ry="6" fill="#000" opacity="0.5" />
+      <circle cx="15" cy="12" r="10" fill="#D39673" />
+      <path d="M 5 26 L 25 26 L 28 50 L 2 50 Z" fill="#241712" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" />
+      <text x="15" y="68" text-anchor="middle" font-family="'Outfit Variable', system-ui" font-size="9" fill="#8E7F75">Warga (User)</text>
+    </g>
+
+    <!-- Hub Title Label -->
+    <rect x="25" y="280" width="130" height="28" rx="14" fill="#17100D" stroke="#F45B1A" stroke-width="1.2" />
+    <text x="90" y="297" text-anchor="middle" font-family="'Geom Variable', system-ui" font-size="10" font-weight="700" fill="#F7F1EB" letter-spacing="1">
+      PAK RT = GOOGLE SEARCH
+    </text>
+  </g>
+
+  <!-- 9. BOTTOM EDITORIAL HEADLINE BANNER -->
+  <g transform="translate(60, 560)">
+    <rect width="1080" height="75" rx="20" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.7))" />
+    <rect x="20" y="16" width="4" height="43" rx="2" fill="url(#orangeAccent)" />
+    
+    <text x="38" y="38" font-family="'Geom Variable', system-ui, sans-serif" font-size="20" font-weight="800" fill="#F7F1EB">
+      Sudah Punya Website, Kok Belum Ada yang Berkunjung?
+    </text>
+    <text x="38" y="58" font-family="'Outfit Variable', system-ui, sans-serif" font-size="13" fill="#A99A90">
+      Punya rumah dan alamat saja belum cukup. Kenali SEO lewat analogi Pak RT, Googlebot, dan Google Index.
+    </text>
+
+    <!-- Reading Time Badge -->
+    <g transform="translate(940, 22)">
+      <rect width="115" height="32" rx="16" fill="#1C130E" stroke="rgba(244,91,26,0.4)" stroke-width="1" />
+      <circle cx="16" cy="16" r="3.5" fill="#16A34A" />
+      <text x="26" y="20" font-family="'Outfit Variable', system-ui" font-size="11" font-weight="600" fill="#D5CBC3">
+        9 Menit Baca
+      </text>
+    </g>
+  </g>
+</svg>

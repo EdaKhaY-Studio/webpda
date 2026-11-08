@@ -1,5 +1,31 @@
-/* ── Google Fonts ────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* ── Self-Hosted Primary Typography: Geom (Variable, Thanos Poulakidas) ─ */
+@font-face {
+  font-family: 'Geom';
+  src: url('/fonts/geom-latin-wght-normal.woff2') format('woff2-variations'),
+       url('/fonts/geom-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geom';
+  src: url('/fonts/geom-latin-wght-italic.woff2') format('woff2-variations'),
+       url('/fonts/geom-latin-wght-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Self-Hosted Supporting Typography: Outfit (Variable) ────────── */
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/outfit-latin-wght-normal.woff2') format('woff2-variations'),
+       url('/fonts/outfit-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @import "tailwindcss";
 
@@ -18,13 +44,43 @@
   --color-border-orange:    rgba(244, 91, 26, 0.35);
   --color-whatsapp:         #16A34A;
 
-  /* Typography */
-  --font-nav:     'Poppins', system-ui, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body:    'Manrope', system-ui, sans-serif;
+  /* Typography System: Geom (Primary) + Outfit (Supporting) + Poppins (Nav) */
+  --font-geom:    'Geom', system-ui, sans-serif;
+  --font-outfit:  'Outfit', system-ui, sans-serif;
+  --font-display: var(--font-geom);
+  --font-body:    var(--font-outfit);
+  --font-nav:     'Poppins', var(--font-outfit), system-ui, sans-serif;
 
   /* Spacing Scale */
   --space-unit: 4px;
+
+  /* ── Motion Design System (Mostu-inspired) ────────────────── */
+  --ease-premium:     cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast:    180ms;
+  --duration-medium:  380ms;
+  --duration-section: 720ms;
+  --duration-hero:    1000ms;
+}
+
+/* ── Font Family Utility Classes ──────────────────────────── */
+.font-geom {
+  font-family: var(--font-geom);
+}
+
+.font-outfit {
+  font-family: var(--font-outfit);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-nav {
+  font-family: var(--font-nav);
 }
 
 /* ── Base Reset & Defaults ───────────────────────────────── */
@@ -277,6 +333,89 @@ body {
 }
 
 .animate-page-entrance {
-  animation: pageEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: pageEntrance 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Hero Headline Typewriter Cursor (Mostu-inspired) ─── */
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor-blink {
+  animation: cursorBlink 0.6s step-end infinite;
+}
+
+/* ── Universal Smooth Scroll Reveal System (Paham Digital Agency) ── */
+.sr-auto {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: var(--sr-duration, 900ms);
+  transition-delay: var(--sr-delay, 0ms);
+}
+
+.sr-from-below {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.sr-from-above {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.sr-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Explicit timing & easing helpers per prompt specification */
+.reveal-heading {
+  transition-property: opacity, transform;
+  transition-duration: 900ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-subheading {
+  transition-property: opacity, transform;
+  transition-duration: 950ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-paragraph {
+  transition-property: opacity, transform;
+  transition-duration: 1000ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-card {
+  transition-property: opacity, transform, box-shadow, border-color, background-color;
+  transition-duration: 900ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-button {
+  transition-property: opacity, transform, background-color, box-shadow;
+  transition-duration: 850ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-auto,
+  .reveal-heading,
+  .reveal-subheading,
+  .reveal-paragraph,
+  .reveal-card,
+  .reveal-button {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 

@@ -1,4 +1,4 @@
-import { MessageCircle, CheckCircle2, Clock, PhoneCall, Sparkles } from "lucide-react";
+import { MessageCircle, CheckCircle2, Clock, PhoneCall } from "lucide-react";
 import { AGENCY_INFO } from "@/data/mock-home";
 
 export default function CtaSection() {
@@ -13,7 +13,7 @@ export default function CtaSection() {
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-blue-100 border border-white/20 mb-6">
-              <Sparkles className="h-4 w-4 text-amber-300" />
+              <Clock className="h-4 w-4 text-blue-200" />
               <span>Konsultasi 100% Gratis Tanpa Komitmen</span>
             </div>
 

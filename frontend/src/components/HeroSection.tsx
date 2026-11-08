@@ -1,7 +1,7 @@
 import React from "react";
 import { siteConfig } from "@/data/mockData";
 import { buildWhatsAppUrl, PREFILLED_MESSAGES } from "@/lib/whatsapp";
-import { MessageCircle, ArrowRight, ShieldCheck, Zap, Bot, Star, Sparkles } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, Zap, Bot, Star, CheckCircle2 } from "lucide-react";
 
 export default function HeroSection() {
   const waUrl = buildWhatsAppUrl(PREFILLED_MESSAGES.website);
@@ -94,7 +94,7 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 shrink-0">
-                <Sparkles className="h-5 w-5" />
+                <CheckCircle2 className="h-5 w-5" />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-slate-900">Tanpa Ribet</h4>

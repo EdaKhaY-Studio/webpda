@@ -1,0 +1,65 @@
+# ============================================================
+# Hostinger Shared Hosting Apache / LiteSpeed Configuration
+# Paham Digital Agency (https://pahamdigital.online)
+# ============================================================
+
+# Enable Directory Slash
+<IfModule mod_dir.c>
+    DirectorySlash On
+    DirectoryIndex index.html
+</IfModule>
+
+# Custom 404 Error Document
+ErrorDocument 404 /_not-found/index.html
+
+# Rewrite Engine for Clean Static Routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Force HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirect /index.html to /
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # Redirect /subpath/index.html to /subpath/
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)/index\.html\ HTTP/
+    RewriteRule ^(.*)/index\.html$ /$1/ [R=301,L]
+
+    # If request is a real file or directory, serve it
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # If path exists as folder with index.html, rewrite to it
+    RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+    RewriteRule ^(.*)/?$ /$1/index.html [L]
+</IfModule>
+
+# Caching Configuration
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

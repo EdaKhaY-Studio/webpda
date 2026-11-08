@@ -2,7 +2,19 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BLOG_POSTS, buildWAUrl } from "@/lib/site-config";
 import type { Metadata } from "next";
-import { ArrowLeft, ArrowUpRight, MessageCircle } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Calendar,
+  Clock,
+  User,
+  MessageSquare,
+} from "lucide-react";
+import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
+import TableOfContents from "@/components/blog/TableOfContents";
+import ArticleDomainVsHosting from "@/components/blog/ArticleDomainVsHosting";
+import ArticleSeoWebsiteSepi from "@/components/blog/ArticleSeoWebsiteSepi";
+import ArticleKenapaBisnisPerluWebsite from "@/components/blog/ArticleKenapaBisnisPerluWebsite";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -14,10 +26,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return {};
+
+  const canonicalUrl = `https://pahamdigital.online/blog/${post.slug}/`;
+  const imageUrl = `https://pahamdigital.online${post.coverImage || "/images/blog/domain-vs-hosting-cover.jpg"}`;
+
   return {
-    title: `${post.title} — Paham Digital Agency`,
-    description: post.excerpt,
-    alternates: { canonical: `/blog/${slug}` },
+    title: post.seoTitle || `${post.title} — Paham Digital Agency`,
+    description: post.metaDescription || post.excerpt,
+    keywords: [post.primaryKeyword, ...(post.additionalKeywords || [])].filter(Boolean),
+    alternates: { canonical: canonicalUrl },
+    openGraph: {
+      title: post.ogTitle || post.title,
+      description: post.ogDescription || post.excerpt,
+      url: canonicalUrl,
+      siteName: "Paham Digital Agency",
+      locale: "id_ID",
+      type: "article",
+      publishedTime: `${post.publishedAt}T08:00:00+07:00`,
+      authors: [post.author],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 675,
+          alt: post.coverAlt || post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.ogTitle || post.title,
+      description: post.ogDescription || post.excerpt,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -29,178 +70,339 @@ function formatDate(dateStr: string) {
   });
 }
 
+const TOC_DOMAIN_HOSTING_ITEMS = [
+  { id: "01-hosting", number: "01", title: "Hosting — Rumah Tempat Website Tinggal" },
+  { id: "02-domain", number: "02", title: "Domain — Alamat Rumahnya" },
+  { id: "03-tld", number: "03", title: "Kenapa Ada .COM, .ID, dan .ONLINE?" },
+  { id: "04-custom-tld", number: "04", title: "Kenapa Nggak Buat Ekstensi Sendiri?" },
+  { id: "05-pilih-ekstensi", number: "05", title: "Jadi, Harus Pakai .COM atau .ID?" },
+  { id: "06-gabungan-keduanya", number: "06", title: "Sekarang, Coba Bayangkan Keduanya!" },
+  { id: "07-hanya-domain", number: "07", title: "Apa yang Terjadi Kalau Hanya Punya Domain?" },
+  { id: "08-tempat-beli", number: "08", title: "Harus Dibeli di Tempat yang Sama?" },
+  { id: "09-kebutuhan-bisnis", number: "09", title: "Kenapa Bisnis Membutuhkan Keduanya?" },
+  { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
+];
+
+const TOC_SEO_ITEMS = [
+  { id: "01-pak-rt-google-search", number: "01", title: "Kenalan dengan Pak RT — Google Search" },
+  { id: "02-cara-pak-rt-tahu", number: "02", title: "Kok Pak RT Bisa Tahu Rumah Kita?" },
+  { id: "03-apa-itu-seo", number: "03", title: "Apa Itu SEO?" },
+  { id: "04-cara-memilih-rekomendasi", number: "04", title: "Bagaimana Pak RT Memilih Rumah?" },
+  { id: "05-pengalaman-pengunjung", number: "05", title: "Kalau Rumah Bagus, tapi Isinya Berantakan?" },
+  { id: "06-langkah-optimasi", number: "06", title: "Cara Membuat Pak RT Mengenal Bisnis Kita" },
+  { id: "07-mitos-halaman-pertama", number: "07", title: "Apakah SEO Menjamin Halaman Pertama?" },
+  { id: "08-website-baru-butuh-waktu", number: "08", title: "Kenapa Website Baru Belum Ramai?" },
+  { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
+];
+
+const TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS = [
+  { id: "pendahuluan", number: "00", title: "Pendahuluan — Tinggal di Kos-Kosan Komplek A" },
+  { id: "01-media-sosial-ngekos", number: "01", title: "Media Sosial Seperti Ngekos di Kompleks" },
+  { id: "02-website-toko-sendiri", number: "02", title: "Website Itu Seperti Memiliki Toko Sendiri" },
+  { id: "03-aktivitas-digital-2026", number: "03", title: "Aktivitas Digital Indonesia 2026" },
+  { id: "04-google-dan-ai", number: "04", title: "Mencari di Google & Bertanya kepada AI" },
+  { id: "05-website-dan-rekomendasi-ai", number: "05", title: "Apakah Otomatis Direkomendasikan AI?" },
+  { id: "06-langkah-pemilik-bisnis", number: "06", title: "Apa yang Harus Dilakukan Pemilik Bisnis?" },
+  { id: "07-website-sesuai-kebutuhan", number: "07", title: "Website Mengikuti Kebutuhan Bisnis" },
+  { id: "kesimpulan", number: "★", title: "Kesimpulan & Fondasi Digital" },
+  { id: "referensi", number: "★", title: "Referensi dan Sumber Data" },
+];
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!post) notFound();
 
-  const relatedPosts = BLOG_POSTS.filter((p) => p.id !== post.id).slice(0, 2);
-  const articleContent = getArticleContent(post.id);
-  const waShareUrl = `https://wa.me/?text=${encodeURIComponent(`${post.title} — Paham Digital Agency\nhttps://pahamdigital.online/blog/${post.slug}`)}`;
+  const canonicalUrl = `https://pahamdigital.online/blog/${post.slug}/`;
+  const imageUrl = `https://pahamdigital.online${post.coverImage || "/images/blog/domain-vs-hosting-cover.jpg"}`;
+  
+  const waShareUrl = `https://wa.me/?text=${encodeURIComponent(
+    `${post.title} — Paham Digital Agency\n${canonicalUrl}`
+  )}`;
 
-  return (
-    <div className="bg-[#0B0807] bg-grid-texture min-h-screen text-[#F7F1EB] font-body pt-32 pb-24">
-      
-      {/* Back button container */}
-      <div className="container-site mb-8">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#A99A90] hover:text-[#F45B1A] transition-colors"
-        >
-          <ArrowLeft size={16} />
-          <span>Kembali ke Indeks Blog</span>
-        </Link>
-      </div>
+  const isArticle03 = post.slug === "kenapa-bisnis-perlu-website";
+  const isArticle02 = post.slug === "apa-itu-seo-website-sepi-pengunjung";
 
-      {/* Article Header Container */}
-      <div className="container-site mb-12">
-        <div className="max-w-3xl">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-[#F45B1A] text-white text-xs font-bold uppercase tracking-wider font-display mb-4">
-            {post.category}
-          </span>
+  const tocItems = isArticle03
+    ? TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS
+    : isArticle02
+    ? TOC_SEO_ITEMS
+    : TOC_DOMAIN_HOSTING_ITEMS;
 
-          <h1 className="font-display font-extrabold text-[32px] sm:text-[46px] lg:text-[54px] text-[#F7F1EB] leading-[1.1] mb-6">
-            {post.title}
-          </h1>
+  const waConsultMessage = isArticle03
+    ? "Halo Tim Paham Digital! Saya membaca artikel 'Bisnismu Sudah Ada di Media Sosial, Tapi Apa Sudah Punya Rumah Digital Sendiri?' dan ingin berdiskusi mengenai pembuatan website bisnis saya."
+    : isArticle02
+    ? "Halo Tim Paham Digital! Saya membaca artikel SEO 'Sudah Punya Website, Kok Belum Ada yang Berkunjung?' dan ingin berdiskusi mengenai optimasi dan pembuatan website bisnis saya."
+    : "Halo Tim Paham Digital! Saya membaca artikel 'Domain vs Hosting' di website dan ingin berdiskusi mengenai pembuatan website bisnis saya.";
 
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#A99A90] pb-8 border-b border-white/10">
-            <span>Oleh: <strong className="text-[#F7F1EB]">{post.author}</strong></span>
-            <span>·</span>
-            <span>{formatDate(post.publishedAt)}</span>
-            <span>·</span>
-            <span>{post.readingTime} menit baca</span>
-          </div>
-        </div>
-      </div>
+  const waConsultUrl = buildWAUrl(waConsultMessage);
 
-      {/* Main Reading Area & Sidebar */}
-      <div className="container-site">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Article Main Text (8 cols) */}
-          <div className="lg:col-span-8">
-            <div className="prose prose-invert max-w-none text-base sm:text-lg leading-relaxed text-[#A99A90] space-y-6">
-              <p className="text-lg sm:text-xl font-medium text-[#F7F1EB] leading-relaxed border-l-2 border-[#F45B1A] pl-5 italic">
-                {post.excerpt}
-              </p>
-              <div
-                className="article-rich-body space-y-6 text-[#A99A90]"
-                dangerouslySetInnerHTML={{ __html: articleContent }}
-              />
-            </div>
-
-            {/* Share via WhatsApp */}
-            <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-              <span className="text-sm font-semibold text-[#F7F1EB]">
-                Bagikan artikel ini ke rekan bisnis Anda:
-              </span>
-              <a
-                href={waShareUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#16A34A] hover:bg-[#15803d] text-white text-xs font-bold transition-all shadow-md shadow-[#16A34A]/30"
-              >
-                <MessageCircle size={16} />
-                <span>Bagikan via WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Sticky Sidebar (4 cols) */}
-          <div className="lg:col-span-4 sticky top-28 space-y-6">
-            
-            {/* Consultation Card */}
-            <div className="p-7 rounded-3xl bg-[#17100D] border border-white/12 shadow-xl">
-              <div className="eyebrow-label mb-3">
-                <span className="eyebrow-dot" />
-                <span>KONSULTASI GRATIS</span>
-              </div>
-              <h3 className="font-display font-bold text-xl text-[#F7F1EB] mb-3">
-                Ingin Menerapkan Solusi Serupa?
-              </h3>
-              <p className="text-sm text-[#A99A90] leading-relaxed mb-6">
-                Tim Paham Digital siap membantu merancang website, AI, atau automasi bisnis yang pas untuk operasional usaha Anda.
-              </p>
-              <a
-                href={buildWAUrl(`Halo Paham Digital! Saya membaca artikel *${post.title}* dan ingin konsultasi solusi untuk bisnis saya.`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary-orange w-full text-sm py-3"
-              >
-                <span>Konsultasi Sekarang</span>
-                <ArrowUpRight size={16} />
-              </a>
-            </div>
-
-            {/* Related Articles */}
-            {relatedPosts.length > 0 && (
-              <div className="p-7 rounded-3xl bg-[#17100D] border border-white/10">
-                <h4 className="font-display font-bold text-sm text-[#F45B1A] uppercase tracking-wider mb-4">
-                  Artikel Rekomendasi
-                </h4>
-                <div className="space-y-4">
-                  {relatedPosts.map((rel) => (
-                    <Link
-                      key={rel.id}
-                      href={`/blog/${rel.slug}`}
-                      className="block group no-underline"
-                    >
-                      <h5 className="font-display font-bold text-sm text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors leading-snug mb-1">
-                        {rel.title}
-                      </h5>
-                      <span className="text-[11px] text-[#A99A90]">
-                        {rel.readingTime} menit baca
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  );
-}
-
-function getArticleContent(postId: string): string {
-  const contents: Record<string, string> = {
-    "mengapa-umkm-butuh-website": `
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">1. Kredibilitas Instan di Mata Pelanggan Baru</h3>
-      <p>Ketika calon pelanggan mendengar tentang usaha Anda, hal pertama yang mereka lakukan adalah mencari nama bisnis Anda di Google. Jika usaha Anda memiliki website profesional, rasa percaya langsung terbentuk. Tanpa website, calon pelanggan seringkali ragu dan beralih ke kompetitor yang tampak lebih mapan.</p>
-      
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">2. Bekerja Nonstop 24 Jam Tanpa Biaya Lembur</h3>
-      <p>Website adalah kantor digital Anda yang tidak pernah tutup. Pelanggan dapat mengeksplorasi katalog produk, mengecek daftar harga, dan mempelajari portofolio Anda bahkan di tengah malam saat Anda sedang beristirahat.</p>
-
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">3. Landasan Kuat untuk AI dan Automasi</h3>
-      <p>Di era AI saat ini, website adalah pusat data yang dapat dihubungkan dengan AI Customer Service otomatis dan sistem pesanan WhatsApp. Anda tidak hanya memiliki website, tetapi ekosistem penjualan yang terautomasi.</p>
-    `,
-    "ai-customer-service-untuk-umkm": `
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">Kecepatan Balas Adalah Kunci Konversi</h3>
-      <p>Studi menunjukkan bahwa calon pembeli yang menerima respons dalam waktu kurang dari 5 menit memiliki tingkat konversi 4x lebih tinggi dibandingkan mereka yang harus menunggu berjam-jam. Asisten AI Paham Digital merespons dalam 3 detik dengan nada bahasa ramah khas Indonesia.</p>
-
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">Dilatih dengan Data Bisnis Anda Sendiri</h3>
-      <p>AI Customer Service tidak memberikan jawaban acak. Kami melatihnya khusus dengan daftar menu, spesifikasi produk, ketentuan garansi, dan jadwal buka usaha Anda. Ketika ada pesanan serius, AI langsung mengarahkannya ke kasir manusia dengan format rapi.</p>
-    `,
-    "panduan-seo-lokal-aceh": `
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">Mengapa SEO Lokal Sangat Menentukan di Aceh Barat</h3>
-      <p>Warga Meulaboh dan Aceh Barat kini mengandalkan smartphone mereka untuk mencari jasa terdekat: "bengkel terbaik Meulaboh", "toko oleh-oleh Aceh Barat", atau "klinik gigi terdekat". Usaha yang dioptimasi dengan SEO lokal akan langsung muncul di 3 besar Google Maps.</p>
-
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">Optimasi Google Bisnis & Mesin Pencari AI</h3>
-      <p>Selain Google Search, kini mesin pencari AI seperti ChatGPT, Perplexity, dan Gemini merekomendasikan bisnis yang memiliki informasi digital yang terstruktur dan terverifikasi. Kami memastikan brand Anda siap untuk era pencarian masa depan.</p>
-    `,
-    "automasi-bisnis-bukan-sekedar-tren": `
-      <h3 class="font-display font-bold text-2xl text-[#F7F1EB] mt-8 mb-4">Hemat Puluhan Jam Waktu Operasional Setiap Minggu</h3>
-      <p>Tugas-tugas berulang seperti mengirim rekap nota, update status order, dan mengirim notifikasi WhatsApp kepada pelanggan dapat dijalankan 100% otomatis. Tim Anda bisa fokus pada pengembangan produk dan pelayanan pelanggan tingkat lanjut.</p>
-    `,
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${canonicalUrl}#article`,
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://pahamdigital.online/#website",
+          "name": "Paham Digital Agency",
+          "url": "https://pahamdigital.online"
+        },
+        "headline": post.title,
+        "name": post.seoTitle || post.title,
+        "description": post.metaDescription || post.excerpt,
+        "image": imageUrl,
+        "datePublished": `${post.publishedAt}T08:00:00+07:00`,
+        "dateModified": `${post.publishedAt}T08:00:00+07:00`,
+        "inLanguage": "id-ID",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+        },
+        "author": {
+          "@type": "Person",
+          "name": post.author,
+          "jobTitle": post.authorRole,
+          "url": "https://pahamdigital.online",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Paham Digital Agency",
+          },
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Paham Digital Agency",
+          "url": "https://pahamdigital.online",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://pahamdigital.online/images/logo-paham.png",
+          },
+        },
+        "keywords": [post.primaryKeyword, ...(post.additionalKeywords || [])].filter(Boolean).join(", "),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://pahamdigital.online/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://pahamdigital.online/blog/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": canonicalUrl,
+          },
+        ],
+      },
+    ],
   };
 
+  const figCaption = isArticle03
+    ? "Ilustrasi visual: Lingkungan bisnis, media sosial (smartphone), pencarian (kaca pembesar), dan toko digital (layar komputer) sebagai gambaran pentingnya website untuk bisnis."
+    : isArticle02
+    ? "Ilustrasi visual: Analogi Pak RT (Google Search), warga yang bertanya (pengguna internet), petugas pendata (Googlebot), dan buku catatan warga (Google Index) untuk memahami cara kerja SEO."
+    : "Ilustrasi visual: Analogi rumah untuk memahami peran Domain (alamat), Hosting (bangunan server), dan File Website (perabot & isi rumah).";
+
   return (
-    contents[postId] ||
-    `<p>Artikel ini menyajikan panduan mendalam seputar transformasi digital untuk bisnis dan UMKM.</p>`
+    <>
+      {/* ── JSON-LD Structured Data ───────────────────────────────── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* ── Reading Progress Bar ──────────────────────────────────── */}
+      <ReadingProgressBar />
+
+      <article className="bg-[#0B0807] bg-grid-texture min-h-screen text-[#F7F1EB] font-outfit pt-28 sm:pt-32 pb-24">
+        
+        {/* ── 01. BREADCRUMB NAVIGATION ─────────────────────────────── */}
+        <div className="container-site mb-6 sm:mb-8 sr-auto" style={{ "--sr-duration": "850ms" } as React.CSSProperties}>
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#A99A90]">
+            <Link href="/" className="hover:text-[#F45B1A] transition-colors">
+              Beranda
+            </Link>
+            <span>/</span>
+            <Link href="/blog/" className="hover:text-[#F45B1A] transition-colors">
+              Blog
+            </Link>
+            <span>/</span>
+            <span className="text-[#F7F1EB] font-medium truncate max-w-[200px] sm:max-w-none">
+              {post.articleNumber ? `Artikel ${post.articleNumber}: ${post.title}` : post.title}
+            </span>
+          </nav>
+        </div>
+
+        {/* ── 02. ARTICLE HEADER ────────────────────────────────────── */}
+        <header className="container-site mb-10 sm:mb-14 sr-auto" style={{ "--sr-duration": "900ms", "--sr-delay": "100ms" } as React.CSSProperties}>
+          <div className="max-w-4xl">
+            {/* Category & Series Pill */}
+            <div className="flex flex-wrap items-center gap-2 mb-5">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17100D] border border-white/10 text-xs text-[#A99A90] uppercase tracking-wider font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A]" />
+                <span>{post.category}</span>
+              </span>
+              {post.articleNumber && (
+                <span className="px-3 py-1 rounded-full bg-[#F45B1A]/15 border border-[#F45B1A]/30 text-xs font-geom text-[#F45B1A] font-bold uppercase tracking-wider">
+                  ARTIKEL {post.articleNumber}
+                </span>
+              )}
+            </div>
+
+            {/* Title (H1 in Geom) */}
+            {isArticle03 ? (
+              <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[50px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Bisnismu Sudah Ada di Media Sosial,{" "}
+                <span className="text-[#F45B1A]">
+                  Tapi Apa Sudah Punya Rumah Digital Sendiri?
+                </span>
+              </h1>
+            ) : isArticle02 ? (
+              <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[52px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Sudah Punya Website, Kok Belum Ada yang Berkunjung?{" "}
+                <span className="text-[#F45B1A]">
+                  Kenalan dengan SEO!
+                </span>
+              </h1>
+            ) : (
+              <h1 className="font-geom font-bold text-[32px] sm:text-[44px] lg:text-[54px] text-[#F7F1EB] leading-[1.12] tracking-tight mb-5">
+                Domain vs Hosting:{" "}
+                <span className="text-[#F45B1A]">
+                  Sebenarnya Apa Bedanya?
+                </span>
+              </h1>
+            )}
+
+            {/* Subtitle */}
+            <p className="font-outfit text-base sm:text-lg lg:text-xl text-[#A99A90] leading-relaxed mb-6 max-w-3xl">
+              {post.subtitle || post.excerpt}
+            </p>
+
+            {/* Metadata Bar */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-[#A99A90] pt-5 border-t border-white/10">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-[#F45B1A]/20 border border-[#F45B1A]/30 flex items-center justify-center text-[#F45B1A]">
+                  <User className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <span className="text-[#F7F1EB] font-bold">{post.author}</span>
+                  <span className="text-[#A99A90] text-xs block sm:inline sm:ml-1">
+                    ({post.authorRole})
+                  </span>
+                </div>
+              </div>
+
+              <span className="hidden sm:inline">·</span>
+
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-[#F45B1A]" />
+                <span>{formatDate(post.publishedAt)}</span>
+              </div>
+
+              <span>·</span>
+
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-[#F45B1A]" />
+                <span>{post.readingTime} menit baca</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* ── 03. EDITORIAL COVER ILLUSTRATION (16:9) ───────────────── */}
+        <div className="container-site mb-12 sm:mb-16 sr-auto" style={{ "--sr-duration": "900ms", "--sr-delay": "150ms" } as React.CSSProperties}>
+          <div className="max-w-5xl mx-auto">
+            <figure className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-white/12 bg-[#0B0807] shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+              <img
+                src={post.coverImage || "/images/blog/domain-vs-hosting-cover.jpg"}
+                alt={post.coverAlt || post.title}
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </figure>
+            <figcaption className="mt-3 text-center text-xs text-[#A99A90] font-outfit">
+              {figCaption}
+            </figcaption>
+          </div>
+        </div>
+
+        {/* ── 04. EDITORIAL BODY & SIDEBAR CONTAINER ────────────────── */}
+        <div className="container-site">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start max-w-6xl mx-auto">
+            
+            {/* ── Left Column: Editorial Content (Max ~780px) ───────── */}
+            <div className="lg:col-span-8">
+              {isArticle03 ? (
+                <ArticleKenapaBisnisPerluWebsite waShareUrl={waShareUrl} />
+              ) : isArticle02 ? (
+                <ArticleSeoWebsiteSepi waShareUrl={waShareUrl} />
+              ) : (
+                <ArticleDomainVsHosting waShareUrl={waShareUrl} />
+              )}
+            </div>
+
+            {/* ── Right Column: Sticky Sidebar (Desktop Only) ──────── */}
+            <aside className="lg:col-span-4 sticky top-28 space-y-6">
+              
+              {/* Table of Contents Component */}
+              <TableOfContents items={tocItems} />
+
+              {/* Branded Consultation Card */}
+              <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-[#17100D] to-[#120C09] border border-[#F45B1A]/35 shadow-xl space-y-4 sr-auto" style={{ "--sr-duration": "900ms", "--sr-delay": "200ms" } as React.CSSProperties}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F45B1A]/10 border border-[#F45B1A]/20 text-xs font-geom text-[#F45B1A] font-semibold">
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>KONSULTASI GRATIS</span>
+                </div>
+
+                <h3 className="font-geom font-bold text-xl text-[#F7F1EB] leading-snug">
+                  {isArticle03
+                    ? "Mau Punya Rumah Digital Sendiri untuk Bisnismu?"
+                    : isArticle02
+                    ? "Website Bisnismu Masih Sepi Pengunjung?"
+                    : "Mau Membangun Website untuk Bisnismu?"}
+                </h3>
+
+                <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
+                  {isArticle03
+                    ? "Paham Digital Agency membantu UMKM membangun website profesional yang siap ditemukan di Google dan sistem pencarian AI, bukan sekadar ramai saat viral."
+                    : isArticle02
+                    ? "Paham Digital Agency membantu bisnismu membangun website profesional yang cepat, ramah mobile, dan terstruktur rapi untuk mempermudah Google Search mengenali bisnis Anda."
+                    : "Paham Digital Agency siap membantu bisnis membangun kehadiran digital melalui website profesional, web application, AI Customer Service, dan automasi bisnis."}
+                </p>
+
+                <p className="font-geom font-bold text-xs uppercase tracking-wider text-[#F45B1A]">
+                  Paham Bisnisnya, Otomatiskan Sistemnya.
+                </p>
+
+                <a
+                  href={waConsultUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-[#F45B1A] hover:bg-[#FF6A2A] text-white font-outfit font-bold text-sm transition-all shadow-lg shadow-[#F45B1A]/30 active:scale-95"
+                >
+                  <span>Diskusikan Proyek</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+
+            </aside>
+
+          </div>
+        </div>
+
+      </article>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import { ExternalLink, MapPin, Sparkles, TrendingUp, ArrowRight, MessageCircle } from "lucide-react";
+import { ExternalLink, MapPin, TrendingUp, ArrowRight, MessageCircle } from "lucide-react";
 import { MOCK_RECENT_WORKS } from "@/data/mock-home";
 
 export default function RecentWorksSection() {
@@ -72,7 +72,7 @@ export default function RecentWorksSection() {
 
                   <div className="rounded-xl bg-emerald-50 border border-emerald-100 p-3 mb-5">
                     <div className="text-xs font-bold text-emerald-900 mb-1 flex items-center gap-1.5">
-                      <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
+                      <TrendingUp className="h-3.5 w-3.5 text-emerald-600" />
                       Hasil Transformasi:
                     </div>
                     <p className="text-xs text-emerald-800 leading-relaxed">

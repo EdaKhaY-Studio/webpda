@@ -1,6 +1,6 @@
 import React from "react";
 import { mockTestimonials } from "@/data/mockData";
-import { Star, Quote, Sparkles, MapPin } from "lucide-react";
+import { Star, Quote, MapPin } from "lucide-react";
 
 export default function TestimonialSection() {
   return (
@@ -8,7 +8,7 @@ export default function TestimonialSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700 mb-3">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Quote className="h-3.5 w-3.5" />
             <span>Cerita Sukses Pelanggan</span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">

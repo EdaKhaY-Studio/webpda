@@ -49,7 +49,7 @@ export default function LayananPage() {
         "@id": "https://pahamdigital.online/#organization",
         name: "Paham Digital Agency",
         url: "https://pahamdigital.online",
-        logo: "https://pahamdigital.online/images/logo-paham-light.png",
+        logo: "https://pahamdigital.online/paham-logo-512.png",
         slogan: "Paham Bisnisnya, Otomatiskan Sistemnya.",
         contactPoint: {
           "@type": "ContactPoint",

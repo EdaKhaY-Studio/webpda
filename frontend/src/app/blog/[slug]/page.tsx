@@ -177,7 +177,7 @@ export default async function BlogPostPage({ params }: Props) {
           "url": "https://pahamdigital.online",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://pahamdigital.online/images/logo-paham.png",
+            "url": "https://pahamdigital.online/paham-logo-512.png",
           },
         },
         "keywords": [post.primaryKeyword, ...(post.additionalKeywords || [])].filter(Boolean).join(", "),

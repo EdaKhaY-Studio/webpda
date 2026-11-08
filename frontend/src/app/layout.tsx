@@ -49,12 +49,14 @@ export const metadata: Metadata = {
   verification: {
     google: "U0tXufVqzwPOhQeKO2oB622IRUg91LnStT1Du00voJM",
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
@@ -70,7 +72,7 @@ const structuredData = {
       "@id": "https://pahamdigital.online/#organization",
       name: "Paham Digital Agency",
       url: "https://pahamdigital.online",
-      logo: "https://pahamdigital.online/images/logo-paham.png",
+      logo: "https://pahamdigital.online/paham-logo-512.png",
       description:
         "Partner solusi digital untuk website profesional, web application, AI customer service, automasi bisnis, dan optimasi SEO.",
       telephone: "+6282311307556",

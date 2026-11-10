@@ -16,16 +16,24 @@ import { SITE_CONFIG, buildWAUrl } from "@/lib/site-config";
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Aplikasi Web Kustom — Paham Digital Agency",
+  title: "Jasa Pembuatan Web Application Custom di Aceh — Paham Digital",
   description:
-    "Layanan pembuatan aplikasi web custom untuk operasional bisnis, dashboard internal, sistem manajemen data, dan otomasi alur kerja digital.",
+    "Jasa pembuatan aplikasi web custom di Aceh untuk operasional bisnis, dashboard internal, sistem manajemen data, dan otomasi alur kerja digital.",
+  keywords: [
+    "jasa pembuatan web application Aceh",
+    "web application custom",
+    "dashboard operasional bisnis",
+    "aplikasi web Aceh",
+    "sistem informasi bisnis Aceh",
+    "software house Aceh",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/web-application/",
   },
   openGraph: {
-    title: "Jasa Pembuatan Aplikasi Web Kustom — Paham Digital Agency",
+    title: "Jasa Pembuatan Web Application Custom di Aceh — Paham Digital",
     description:
-      "Pengembangan aplikasi web custom yang dirancang khusus untuk mengelola data, aktivitas operasional, dan alur kerja bisnis secara terstruktur.",
+      "Jasa pembuatan aplikasi web custom di Aceh untuk operasional bisnis, dashboard internal, sistem manajemen data, dan otomasi alur kerja digital.",
     url: "https://pahamdigital.online/layanan/web-application/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -105,15 +113,20 @@ export default function WebApplicationPage() {
       },
       {
         "@type": "Service",
-        name: "Website Application Development",
+        "@id": "https://pahamdigital.online/layanan/web-application/#service",
+        name: "Pengembangan Web Application Custom di Aceh",
         provider: {
-          "@type": "Organization",
-          name: "Paham Digital Agency",
-          url: "https://pahamdigital.online",
+          "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Pengembangan aplikasi berbasis web khusus untuk membantu bisnis mengelola operasional, database, dan alur kerja digital.",
-        areaServed: "ID",
+          "Pengembangan aplikasi berbasis web khusus untuk membantu bisnis mengelola operasional, database, dan alur kerja digital di Aceh.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "City", name: "Banda Aceh" },
+          { "@type": "City", name: "Meulaboh" },
+          { "@type": "AdministrativeArea", name: "Aceh Barat" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
     ],
   };

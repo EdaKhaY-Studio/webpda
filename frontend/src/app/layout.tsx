@@ -14,17 +14,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Paham Digital Agency — Modern Creative Technology & Automation",
+  title: "Paham Digital Agency Aceh | Website, AI & Automasi Bisnis",
   description:
-    "Kami membantu bisnis berkembang melalui website profesional, web application, AI, dan sistem automasi yang bekerja lebih cerdas.",
+    "Paham Digital Agency membantu bisnis dan UMKM di Aceh melalui jasa pembuatan website profesional, Web Application, AI Customer Service humanis, dan automasi bisnis.",
   keywords: SITE_CONFIG.seo.keywords,
   authors: [{ name: SITE_CONFIG.name }],
   metadataBase: new URL("https://pahamdigital.online"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Paham Digital Agency — Paham Bisnisnya, Otomatiskan Sistemnya.",
+    title: "Paham Digital Agency Aceh | Website, AI & Automasi Bisnis",
     description:
-      "Kami membantu bisnis berkembang melalui website profesional, web application, AI, dan sistem automasi yang bekerja lebih cerdas.",
+      "Paham Digital Agency membantu bisnis dan UMKM di Aceh melalui jasa pembuatan website profesional, Web Application, AI Customer Service humanis, dan automasi bisnis.",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
     type: "website",
@@ -32,8 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paham Digital Agency",
-    description: "Paham Bisnisnya, Otomatiskan Sistemnya.",
+    title: "Paham Digital Agency Aceh | Website, AI & Automasi Bisnis",
+    description:
+      "Paham Digital Agency membantu bisnis dan UMKM di Aceh melalui jasa pembuatan website profesional, Web Application, AI Customer Service humanis, dan automasi bisnis.",
   },
   robots: {
     index: true,
@@ -71,10 +72,11 @@ const structuredData = {
       "@type": "Organization",
       "@id": "https://pahamdigital.online/#organization",
       name: "Paham Digital Agency",
+      alternateName: "Paham Digital Agency Aceh",
       url: "https://pahamdigital.online",
       logo: "https://pahamdigital.online/paham-logo-512.png",
       description:
-        "Partner solusi digital untuk website profesional, web application, AI customer service, automasi bisnis, dan optimasi SEO.",
+        "Partner solusi digital di Aceh untuk jasa pembuatan website profesional, web application, AI customer service humanis, automasi bisnis, dan optimasi SEO.",
       telephone: "+6282311307556",
       email: "halo@pahamdigital.id",
       address: {
@@ -82,6 +84,73 @@ const structuredData = {
         addressLocality: "Meulaboh",
         addressRegion: "Aceh Barat, Aceh",
         addressCountry: "ID",
+      },
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Aceh" },
+        { "@type": "City", name: "Banda Aceh" },
+        { "@type": "City", name: "Meulaboh" },
+        { "@type": "AdministrativeArea", name: "Aceh Barat" },
+        { "@type": "Country", name: "Indonesia" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Layanan Paham Digital Agency",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Jasa Pembuatan Website Profesional",
+              description:
+                "Layanan perancangan dan pembuatan website modern, cepat, mobile-friendly, dan SEO-ready untuk bisnis dan UMKM di Aceh.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Pengembangan Web Application",
+              description:
+                "Pembangunan aplikasi web kustom untuk sistem operasional bisnis, portal pelanggan, dan dashboard manajemen.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "AI Customer Service Humanis",
+              description:
+                "Integrasi AI customer service cerdas dengan pendekatan human-centered di WhatsApp untuk merespons pertanyaan pelanggan secara natural 24/7.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Automasi Bisnis",
+              description:
+                "Otomatisasi alur kerja digital, sinkronisasi data antar tools, dan efisiensi operasional bisnis.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Optimasi SEO & Local Search",
+              description:
+                "Optimasi mesin pencari teknis dan lokal untuk meningkatkan peringkat website di pencarian Google Aceh dan nasional.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Generative Engine Optimization (GEO)",
+              description:
+                "Optimasi struktur informasi dan entitas data agar bisnis direferensikan secara akurat oleh mesin AI generatif seperti ChatGPT, Claude, dan Perplexity.",
+            },
+          },
+        ],
       },
       sameAs: [
         "https://www.instagram.com/pahamdigitall.id/",

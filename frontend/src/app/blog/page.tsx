@@ -5,10 +5,31 @@ import { ArrowUpRight, Clock, Calendar, User, ArrowRight } from "lucide-react";
 import { EducationBookBulbIcon } from "@/components/icons/EducationBookBulbIcon";
 
 export const metadata: Metadata = {
-  title: "Blog & Digital Knowledge — Paham Digital Agency",
+  title: "Blog & Edukasi Digital Bisnis — Paham Digital Agency Aceh",
   description:
-    "Kenali teknologi yang ada di balik bisnis digital. Mulai dari website, SEO, Google Search, hingga automasi, kita pelajari bersama dengan cara yang lebih mudah.",
+    "Artikel edukasi seputar pembuatan website, SEO, Google Search, AI Customer Service, dan strategi digital untuk bisnis & UMKM di Aceh.",
+  keywords: [
+    "blog digital agency Aceh",
+    "edukasi website bisnis",
+    "tips SEO Google",
+    "AI Customer Service bisnis",
+    "panduan UMKM digital",
+    "belajar SEO website",
+  ],
   alternates: { canonical: "/blog/" },
+  openGraph: {
+    title: "Blog & Edukasi Digital Bisnis — Paham Digital Agency Aceh",
+    description:
+      "Artikel edukasi seputar pembuatan website, SEO, Google Search, AI Customer Service, dan strategi digital untuk bisnis & UMKM di Aceh.",
+    url: "https://pahamdigital.online/blog/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog & Edukasi Digital Bisnis — Paham Digital Agency Aceh",
+    description:
+      "Artikel edukasi seputar pembuatan website, SEO, Google Search, AI Customer Service, dan strategi digital untuk bisnis & UMKM di Aceh.",
+  },
 };
 
 function formatDate(dateStr: string) {

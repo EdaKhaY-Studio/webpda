@@ -8,16 +8,26 @@ import ServicesComparisonSection from "@/components/services/ServicesComparisonS
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Layanan Paham Digital Agency | Website, AI, SEO & Automasi",
+  title: "Jasa Website, Web App & AI Customer Service di Aceh | Paham Digital",
   description:
-    "Jelajahi layanan Paham Digital Agency: pembuatan website profesional, web application, WhatsApp AI Customer Service, SEO, GEO, dan automasi bisnis untuk UMKM.",
+    "Temukan solusi digital Paham Digital Agency: jasa pembuatan website profesional, Web Application, AI Customer Service humanis, automasi bisnis, SEO, dan GEO.",
+  keywords: [
+    "jasa pembuatan website di Aceh",
+    "jasa pembuatan website profesional",
+    "AI Customer Service humanis di Aceh",
+    "Web Application Aceh",
+    "automasi bisnis",
+    "SEO Aceh",
+    "GEO Optimization",
+    "digital agency Aceh",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/",
   },
   openGraph: {
-    title: "Layanan Paham Digital Agency | Website, AI & Automasi",
+    title: "Jasa Website, Web App & AI Customer Service di Aceh | Paham Digital",
     description:
-      "Solusi website profesional, web application, WhatsApp AI Customer Service, SEO, GEO, dan automasi untuk membantu bisnis berkembang.",
+      "Temukan solusi digital Paham Digital Agency: jasa pembuatan website profesional, Web Application, AI Customer Service humanis, automasi bisnis, SEO, dan GEO.",
     url: "https://pahamdigital.online/layanan/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -27,15 +37,15 @@ export const metadata: Metadata = {
         url: "https://pahamdigital.online/images/logo-paham-light.png",
         width: 1200,
         height: 630,
-        alt: "Layanan Paham Digital Agency",
+        alt: "Layanan Paham Digital Agency Aceh",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Layanan Paham Digital Agency",
+    title: "Jasa Website, Web App & AI Customer Service di Aceh | Paham Digital",
     description:
-      "Solusi digital untuk website, AI Customer Service, SEO, GEO, dan automasi bisnis.",
+      "Temukan solusi digital Paham Digital Agency: jasa pembuatan website profesional, Web Application, AI Customer Service humanis, automasi bisnis, SEO, dan GEO.",
     images: ["https://pahamdigital.online/images/logo-paham-light.png"],
   },
 };
@@ -92,13 +102,16 @@ export default function LayananPage() {
       {
         "@type": "Service",
         "@id": "https://pahamdigital.online/layanan/#service-web",
-        name: "Professional Website Development",
+        name: "Jasa Pembuatan Website Profesional",
         provider: {
           "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Pembuatan website company profile, katalog produk, dan landing page modern yang cepat, responsif, dan siap SEO.",
-        areaServed: "ID",
+          "Pembuatan website company profile, katalog produk, dan landing page modern yang cepat, responsif, dan siap SEO untuk bisnis di Aceh.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
       {
         "@type": "Service",
@@ -109,18 +122,24 @@ export default function LayananPage() {
         },
         description:
           "Pengembangan aplikasi berbasis web khusus untuk membantu bisnis mengelola operasional, database, dan alur kerja digital.",
-        areaServed: "ID",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
       {
         "@type": "Service",
         "@id": "https://pahamdigital.online/layanan/#service-ai",
-        name: "WhatsApp AI Customer Service",
+        name: "AI Customer Service Humanis & WhatsApp Automation",
         provider: {
           "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Layanan asisten AI cerdas terintegrasi n8n dan WAHA untuk menjawab pertanyaan pelanggan via WhatsApp otomatis 24/7.",
-        areaServed: "ID",
+          "Layanan AI customer service humanis terintegrasi WhatsApp untuk menjawab pertanyaan pelanggan secara natural 24/7 dengan knowledge base bisnis.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
       {
         "@type": "Service",
@@ -131,7 +150,10 @@ export default function LayananPage() {
         },
         description:
           "Optimasi website teknis, struktur semantik, Google Search Console, dan Generative Engine Optimization untuk mesin pencari AI.",
-        areaServed: "ID",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
       {
         "@type": "Offer",

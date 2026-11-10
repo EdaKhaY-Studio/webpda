@@ -11,9 +11,25 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: SITE_CONFIG.seo.title,
-  description: SITE_CONFIG.seo.description,
+  title: "Paham Digital Agency Aceh | Website, AI & Automasi Bisnis",
+  description:
+    "Paham Digital Agency membantu bisnis dan UMKM di Aceh melalui jasa pembuatan website profesional, Web Application, AI Customer Service humanis, dan automasi bisnis.",
   alternates: { canonical: "/" },
+  keywords: [
+    "Paham Digital Agency Aceh",
+    "Digital Agency Aceh",
+    "jasa pembuatan website di Aceh",
+    "jasa pembuatan website profesional",
+    "AI Customer Service humanis di Aceh",
+    "Web Application Aceh",
+    "automasi bisnis Aceh",
+  ],
+  openGraph: {
+    title: "Paham Digital Agency Aceh | Website, AI & Automasi Bisnis",
+    description:
+      "Paham Digital Agency membantu bisnis dan UMKM di Aceh melalui jasa pembuatan website profesional, Web Application, AI Customer Service humanis, dan automasi bisnis.",
+    url: "https://pahamdigital.online",
+  },
 };
 
 export default function HomePage() {

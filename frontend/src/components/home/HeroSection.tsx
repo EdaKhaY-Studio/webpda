@@ -230,7 +230,7 @@ export default function HeroSection() {
               className="mt-4 sm:mt-5 text-[14px] sm:text-[15px] lg:text-[16px] text-[#A99A90] font-normal leading-relaxed max-w-[540px]"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Kami membantu bisnis berkembang melalui website profesional, web application, AI customer service, dan sistem automasi yang bekerja lebih cerdas.
+              Kami membantu bisnis dan UMKM di Aceh berkembang melalui jasa pembuatan website profesional, web application, AI customer service humanis, dan sistem automasi yang bekerja lebih cerdas.
             </p>
 
             {/* Two Action CTAs (Directly beneath description, guaranteed above the fold) */}

@@ -11,21 +11,37 @@ import {
   ShieldAlert,
   ArrowUpRight,
   CheckCircle2,
+  FileText,
+  UserCheck,
+  HelpCircle,
+  ShieldCheck,
+  MessageSquare,
+  Layers,
 } from "lucide-react";
 import { SITE_CONFIG, buildWAUrl } from "@/lib/site-config";
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Layanan WhatsApp AI Customer Service & Automasi — Paham Digital Agency",
+  title: "AI Customer Service Humanis di Aceh & WhatsApp — Paham Digital Agency",
   description:
-    "Hadirkan WhatsApp AI Customer Service 24/7 untuk bisnis Anda. Terintegrasi n8n dan WAHA dengan model OpenAI atau Claude untuk melayani pelanggan secara otomatis.",
+    "Layanan AI Customer Service humanis terintegrasi WhatsApp untuk bisnis di Aceh. Menjawab pelanggan secara natural, 24/7, dengan knowledge base bisnis dan handover admin.",
+  keywords: [
+    "AI customer service humanis di Aceh",
+    "AI Customer Service human-centered",
+    "human-centered AI",
+    "AI customer service untuk bisnis",
+    "AI Customer Service WhatsApp",
+    "AI pelayanan pelanggan yang humanis",
+    "chatbot bisnis dengan pendekatan humanis",
+    "AI Customer Service Aceh",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/ai-customer-service/",
   },
   openGraph: {
-    title: "Layanan WhatsApp AI Customer Service & Automasi — Paham Digital Agency",
+    title: "AI Customer Service Humanis di Aceh & WhatsApp — Paham Digital Agency",
     description:
-      "Asisten AI WhatsApp cerdas yang menjawab pertanyaan pelanggan, mengenalkan produk, dan merespons 24/7 dengan karakter bisnis Anda.",
+      "Layanan AI Customer Service humanis terintegrasi WhatsApp untuk bisnis di Aceh. Menjawab pelanggan secara natural, 24/7, dengan knowledge base bisnis dan handover admin.",
     url: "https://pahamdigital.online/layanan/ai-customer-service/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -105,15 +121,20 @@ export default function AICustomerServicePage() {
       },
       {
         "@type": "Service",
-        name: "WhatsApp AI Customer Service & AI Agents",
+        "@id": "https://pahamdigital.online/layanan/ai-customer-service/#service",
+        name: "AI Customer Service Humanis di Aceh & WhatsApp",
         provider: {
-          "@type": "Organization",
-          name: "Paham Digital Agency",
-          url: "https://pahamdigital.online",
+          "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Layanan asisten AI cerdas terintegrasi n8n dan WAHA untuk menjawab pertanyaan pelanggan via WhatsApp otomatis 24/7.",
-        areaServed: "ID",
+          "Layanan AI Customer Service humanis terintegrasi WhatsApp untuk bisnis di Aceh. Menjawab pelanggan secara natural, 24/7, dengan knowledge base bisnis dan handover admin.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "City", name: "Banda Aceh" },
+          { "@type": "City", name: "Meulaboh" },
+          { "@type": "AdministrativeArea", name: "Aceh Barat" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
     ],
   };
@@ -163,12 +184,12 @@ export default function AICustomerServicePage() {
             </div>
 
             <h1 className="font-geom font-bold text-[34px] sm:text-[48px] lg:text-[56px] leading-[1.1] text-[#F7F1EB] tracking-tight mb-5">
-              WhatsApp AI Customer Service{" "}
-              <span className="text-[#F45B1A]">& Automasi Bisnis 24/7.</span>
+              AI Customer Service Humanis{" "}
+              <span className="text-[#F45B1A]">di Aceh &amp; WhatsApp.</span>
             </h1>
 
             <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed mb-8">
-              Bantu tim Anda melayani ratusan pertanyaan pelanggan tanpa kewalahan. Kami mengonfigurasi asisten AI cerdas di nomor WhatsApp bisnis Anda menggunakan teknologi engine n8n, WAHA, dan model AI OpenAI atau Claude yang dilatih sesuai informasi bisnis Anda.
+              Hadirkan AI Customer Service human-centered yang merespons pertanyaan pelanggan secara natural, kontekstual, dan solutif 24/7 via WhatsApp bisnis Anda. Dikonfigurasi berbasis knowledge base dan SOP usaha Anda, dengan transparansi biaya serta sistem serah terima (handover) ke admin manusia kapan saja.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -226,6 +247,121 @@ export default function AICustomerServicePage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 02B. HUMAN-CENTERED AI SECTION (DEDICATED) ── */}
+      <section className="section-py bg-[#17100D] border-b border-white/10 relative overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute -top-24 right-0 w-96 h-96 rounded-full bg-[#F45B1A]/10 pointer-events-none blur-3xl"
+        />
+
+        <div className="container-site relative z-10">
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0B0807] border border-white/10 text-xs font-geom uppercase tracking-wider text-[#A99A90] font-medium mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A]" />
+              <span>PENDEKATAN HUMAN-CENTERED AI</span>
+            </div>
+
+            <h2 className="font-geom font-bold text-2xl sm:text-4xl lg:text-5xl text-[#F7F1EB] tracking-tight mb-5 leading-tight">
+              AI Customer Service yang Lebih Humanis untuk Bisnis Modern
+            </h2>
+
+            <p className="font-outfit text-base sm:text-lg text-[#D5CBC3] leading-relaxed">
+              Kami membantu bisnis menghadirkan AI Customer Service yang dirancang untuk memahami konteks pertanyaan, mengikuti karakter komunikasi brand, dan memberikan respons yang natural kepada pelanggan. Teknologi AI digunakan untuk membantu pelayanan menjadi lebih praktis tanpa menghilangkan pentingnya sentuhan manusia.
+            </p>
+          </div>
+
+          {/* 7 Configuration Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                num: "01",
+                title: "Knowledge Base Bisnis",
+                desc: "Profil perusahaan, jenis layanan, jam operasional, lokasi, dan SOP resmi usaha Anda.",
+                icon: FileText,
+              },
+              {
+                num: "02",
+                title: "Katalog & Daftar Harga",
+                desc: "Spesifikasi produk, variasi layanan, daftar harga terkini, dan kebijakan pemesanan.",
+                icon: Layers,
+              },
+              {
+                num: "03",
+                title: "Tone of Voice Brand",
+                desc: "Gaya bahasa disesuaikan secara khusus — ramah, sopan, formal, atau santai khas audiens bisnis Anda.",
+                icon: Sparkles,
+              },
+              {
+                num: "04",
+                title: "FAQ Pelanggan Komprehensif",
+                desc: "Jawaban terstruktur atas pertanyaan yang paling sering ditanyakan oleh pelanggan bisnis.",
+                icon: HelpCircle,
+              },
+              {
+                num: "05",
+                title: "Contoh Percakapan Riil",
+                desc: "Pola dialog WhatsApp nyata (few-shot context) agar balasan AI terdengar luwes dan empatik.",
+                icon: MessageSquare,
+              },
+              {
+                num: "06",
+                title: "Instruksi & Guardrails",
+                desc: "Batasan tegas agar asisten AI hanya menjawab fakta terverifikasi dan tidak berspekulasi di luar domain bisnis.",
+                icon: ShieldCheck,
+              },
+              {
+                num: "07",
+                title: "Panduan Serah Terima (Escalation)",
+                desc: "Protokol otomatis pengalihan ke admin manusia ketika pelanggan membutuhkan penanganan personal khusus.",
+                icon: UserCheck,
+              },
+            ].map((item, idx) => {
+              const ItemIcon = item.icon;
+              return (
+                <div
+                  key={item.num}
+                  className={`p-6 sm:p-7 rounded-2xl bg-[#0B0807] border border-white/10 hover:border-[#F45B1A]/40 transition-all flex flex-col justify-between ${
+                    idx === 6 ? "md:col-span-2 lg:col-span-1" : ""
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#17100D] border border-white/10 flex items-center justify-center text-[#F45B1A]">
+                        <ItemIcon className="w-5 h-5" />
+                      </div>
+                      <span className="font-geom font-bold text-xs text-[#A99A90] tracking-widest">
+                        {item.num}
+                      </span>
+                    </div>
+                    <h3 className="font-geom font-bold text-lg text-[#F7F1EB] mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-outfit text-sm text-[#A99A90] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Realistic Clarity & Governance Note */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#0B0807]/80 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+            <div className="w-12 h-12 rounded-xl bg-[#F45B1A]/10 border border-[#F45B1A]/20 flex items-center justify-center text-[#F45B1A] shrink-0">
+              <Bot className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="font-geom font-bold text-base sm:text-lg text-[#F7F1EB] mb-1">
+                Transparansi Konfigurasi &amp; Kolaborasi Human-AI
+              </h4>
+              <p className="font-outfit text-sm text-[#A99A90] leading-relaxed">
+                Asisten AI dikonfigurasi melalui teknik prompt engineering terarah dan database internal bisnis, bukan melalui pelatihan model dari nol (scratch training). Kami percaya AI terbaik bekerja sebagai penguat tim manusia — melayani pertanyaan repetitif dengan sigap, sementara kasus rumit tetap dapat ditangani langsung oleh admin Anda.
+              </p>
+            </div>
           </div>
         </div>
       </section>

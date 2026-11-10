@@ -16,16 +16,25 @@ import { SITE_CONFIG, buildWAUrl } from "@/lib/site-config";
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Jasa Pembuatan Website Profesional & Responsif — Paham Digital Agency",
+  title: "Jasa Pembuatan Website Profesional di Aceh — Paham Digital Agency",
   description:
-    "Layanan pembuatan website profesional untuk UMKM, profil bisnis, dan katalog produk. Desain modern, cepat, mobile-friendly, dan siap dioptimalkan SEO.",
+    "Jasa pembuatan website profesional untuk bisnis dan UMKM di Aceh. Desain modern, cepat, mobile-friendly, terintegrasi WhatsApp, dan siap SEO Google.",
+  keywords: [
+    "jasa pembuatan website",
+    "jasa pembuatan website profesional",
+    "jasa pembuatan website di Aceh",
+    "jasa website untuk UMKM",
+    "jasa website bisnis",
+    "jasa web development Aceh",
+    "website profesional untuk bisnis lokal",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/website-development/",
   },
   openGraph: {
-    title: "Jasa Pembuatan Website Profesional & Responsif — Paham Digital Agency",
+    title: "Jasa Pembuatan Website Profesional di Aceh — Paham Digital Agency",
     description:
-      "Website profesional, responsif, dan siap SEO untuk membangun kredibilitas dan memperluas jangkauan bisnis Anda.",
+      "Jasa pembuatan website profesional untuk bisnis dan UMKM di Aceh. Desain modern, cepat, mobile-friendly, terintegrasi WhatsApp, dan siap SEO Google.",
     url: "https://pahamdigital.online/layanan/website-development/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -126,15 +135,20 @@ export default function WebsiteDevelopmentPage() {
       },
       {
         "@type": "Service",
-        name: "Professional Website Development",
+        "@id": "https://pahamdigital.online/layanan/website-development/#service",
+        name: "Jasa Pembuatan Website Profesional di Aceh",
         provider: {
-          "@type": "Organization",
-          name: "Paham Digital Agency",
-          url: "https://pahamdigital.online",
+          "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Layanan pembuatan website profesional untuk UMKM, profil bisnis, dan katalog produk. Desain modern, cepat, mobile-friendly, dan siap dioptimalkan SEO.",
-        areaServed: "ID",
+          "Jasa pembuatan website profesional untuk bisnis dan UMKM di Aceh. Desain modern, cepat, mobile-friendly, terintegrasi WhatsApp, dan siap SEO Google.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "City", name: "Banda Aceh" },
+          { "@type": "City", name: "Meulaboh" },
+          { "@type": "AdministrativeArea", name: "Aceh Barat" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
     ],
   };
@@ -185,11 +199,11 @@ export default function WebsiteDevelopmentPage() {
 
             <h1 className="font-geom font-bold text-[34px] sm:text-[48px] lg:text-[56px] leading-[1.1] text-[#F7F1EB] tracking-tight mb-5">
               Jasa Pembuatan Website{" "}
-              <span className="text-[#F45B1A]">Profesional & Responsif.</span>
+              <span className="text-[#F45B1A]">Profesional di Aceh.</span>
             </h1>
 
             <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed mb-8">
-              Mulai dari landing page konversi tinggi hingga profil perusahaan dan katalog interaktif, kami membangun website yang tidak sekadar tampil bagus, tetapi dirancang untuk memperkuat kepercayaan pelanggan dan mendukung pertumbuhan bisnis Anda.
+              Mulai dari profil perusahaan, katalog produk interaktif, hingga landing page konversi tinggi, kami menghadirkan jasa pembuatan website profesional untuk pelaku usaha dan UMKM di Aceh. Dirancang modern, responsif, terintegrasi WhatsApp, dan siap bersaing di halaman Google.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">

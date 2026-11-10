@@ -8,16 +8,24 @@ import ServicesComparisonSection from "@/components/services/ServicesComparisonS
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Harga Paket & Perbandingan Layanan — Paham Digital Agency",
+  title: "Harga Paket Website & AI Customer Service Aceh — Paham Digital",
   description:
-    "Bandingkan harga promo, spesifikasi teknis, dan fasilitas paket website profesional, WhatsApp AI Customer Service, dan web app Paham Digital Agency: Start, Suite, dan Elite.",
+    "Daftar harga promo dan perbandingan paket website profesional, WhatsApp AI Customer Service, dan web app Paham Digital Agency di Aceh: Start, Suite, dan Elite.",
+  keywords: [
+    "harga paket website Aceh",
+    "biaya pembuatan website di Aceh",
+    "harga website UMKM",
+    "paket AI Customer Service Aceh",
+    "jasa pembuatan website murah Aceh",
+    "biaya web development Aceh",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/harga-paket/",
   },
   openGraph: {
-    title: "Harga Paket & Perbandingan Layanan — Paham Digital Agency",
+    title: "Harga Paket Website & AI Customer Service Aceh — Paham Digital",
     description:
-      "Bandingkan spesifikasi lengkap tiga paket andalan Paham Digital Agency: Meugah Digital Start, Meugah AI Business Suite, dan Meugah AI Business Elite.",
+      "Daftar harga promo dan perbandingan paket website profesional, WhatsApp AI Customer Service, dan web app Paham Digital Agency di Aceh: Start, Suite, dan Elite.",
     url: "https://pahamdigital.online/layanan/harga-paket/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -27,15 +35,15 @@ export const metadata: Metadata = {
         url: "https://pahamdigital.online/images/logo-paham-light.png",
         width: 1200,
         height: 630,
-        alt: "Harga Paket Layanan Paham Digital Agency",
+        alt: "Harga Paket Layanan Paham Digital Agency Aceh",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harga Paket & Perbandingan Layanan — Paham Digital Agency",
+    title: "Harga Paket Website & AI Customer Service Aceh — Paham Digital",
     description:
-      "Investasi transparan untuk website profesional, WhatsApp AI, dan automasi bisnis.",
+      "Investasi transparan untuk website profesional, WhatsApp AI, dan automasi bisnis di Aceh.",
     images: ["https://pahamdigital.online/images/logo-paham-light.png"],
   },
 };

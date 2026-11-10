@@ -100,7 +100,7 @@ export default function BrandIntroSection() {
               {
                 number: "02",
                 title: "Pengembangan Presisi & Teruji",
-                desc: "Website responsif cepat, web application scalable, dan asisten AI yang dilatih dengan data bisnis Anda untuk hasil yang terukur.",
+                desc: "Website responsif cepat, web application scalable, dan asisten AI customer service humanis yang dikonfigurasi dengan knowledge base bisnis Anda untuk hasil yang terukur.",
               },
               {
                 number: "03",

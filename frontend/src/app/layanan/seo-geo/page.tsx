@@ -16,16 +16,25 @@ import { SITE_CONFIG, buildWAUrl } from "@/lib/site-config";
 import ServicesCTASection from "@/components/services/ServicesCTASection";
 
 export const metadata: Metadata = {
-  title: "Layanan Optimasi SEO & GEO Digital — Paham Digital Agency",
+  title: "Jasa Optimasi SEO & GEO di Aceh — Paham Digital Agency",
   description:
-    "Layanan optimasi Technical SEO, Google Search Console, dan Generative Engine Optimization (GEO) agar bisnis Anda mudah ditemukan di Google Search dan mesin pencari AI.",
+    "Layanan optimasi Technical SEO, Google Search Console, dan Generative Engine Optimization (GEO) di Aceh agar bisnis Anda ditemukan di Google dan mesin pencari AI.",
+  keywords: [
+    "jasa SEO Aceh",
+    "GEO optimization",
+    "generative engine optimization",
+    "local SEO Aceh",
+    "technical SEO",
+    "Google Search Console Aceh",
+    "optimasi mesin pencari AI",
+  ],
   alternates: {
     canonical: "https://pahamdigital.online/layanan/seo-geo/",
   },
   openGraph: {
-    title: "Layanan Optimasi SEO & GEO Digital — Paham Digital Agency",
+    title: "Jasa Optimasi SEO & GEO di Aceh — Paham Digital Agency",
     description:
-      "Optimasi website menyeluruh untuk Google Search dan mesin pencari AI generatif (ChatGPT, Claude, Perplexity, Gemini) dengan struktur data yang presisi.",
+      "Layanan optimasi Technical SEO, Google Search Console, dan Generative Engine Optimization (GEO) di Aceh agar bisnis Anda ditemukan di Google dan mesin pencari AI.",
     url: "https://pahamdigital.online/layanan/seo-geo/",
     siteName: SITE_CONFIG.name,
     locale: "id_ID",
@@ -105,15 +114,20 @@ export default function SeoGeoPage() {
       },
       {
         "@type": "Service",
-        name: "SEO & GEO Optimization",
+        "@id": "https://pahamdigital.online/layanan/seo-geo/#service",
+        name: "Layanan Optimasi SEO & GEO di Aceh",
         provider: {
-          "@type": "Organization",
-          name: "Paham Digital Agency",
-          url: "https://pahamdigital.online",
+          "@id": "https://pahamdigital.online/#organization",
         },
         description:
-          "Optimasi website teknis, struktur semantik, Google Search Console, dan Generative Engine Optimization untuk mesin pencari AI.",
-        areaServed: "ID",
+          "Optimasi website teknis, struktur semantik, Google Search Console, dan Generative Engine Optimization (GEO) untuk bisnis di Aceh.",
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Aceh" },
+          { "@type": "City", name: "Banda Aceh" },
+          { "@type": "City", name: "Meulaboh" },
+          { "@type": "AdministrativeArea", name: "Aceh Barat" },
+          { "@type": "Country", name: "Indonesia" },
+        ],
       },
     ],
   };

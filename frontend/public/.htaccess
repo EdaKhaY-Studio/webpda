@@ -12,35 +12,66 @@
 # Custom 404 Error Document
 ErrorDocument 404 /_not-found/index.html
 
-# Rewrite Engine for Clean Static Routing
+# Rewrite Engine for Canonical Hostname, HTTPS & Clean Static Routing
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
 
-    # Force HTTPS
+    # ------------------------------------------------------------
+    # 01. CANONICAL HOSTNAME & HTTPS REDIRECTS (HTTP 301)
+    # Target: https://pahamdigital.online/
+    # ------------------------------------------------------------
+
+    # Rule A: Redirect www to non-www (both HTTP and HTTPS)
+    # Matches www.pahamdigital.online -> https://pahamdigital.online/$1
+    RewriteCond %{HTTP_HOST} ^www\.pahamdigital\.online$ [NC]
+    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L]
+
+    # Rule B: Force HTTPS for non-www
+    # Matches http://pahamdigital.online -> https://pahamdigital.online/$1
     RewriteCond %{HTTPS} !=on
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L]
 
-    # Redirect /index.html to /
+    # ------------------------------------------------------------
+    # 02. CLEAN TRAILING-SLASH AND INDEX.HTML NORMALIZATION
+    # ------------------------------------------------------------
+
+    # Redirect /index.html directly to root /
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
-    RewriteRule ^index\.html$ / [R=301,L]
+    RewriteRule ^index\.html$ https://pahamdigital.online/ [R=301,L]
 
     # Redirect /subpath/index.html to /subpath/
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)/index\.html\ HTTP/
-    RewriteRule ^(.*)/index\.html$ /$1/ [R=301,L]
+    RewriteRule ^(.*)/index\.html$ https://pahamdigital.online/$1/ [R=301,L]
 
-    # If request is a real file or directory, serve it
+    # ------------------------------------------------------------
+    # 03. SERVE REAL FILES AND DIRECTORIES
+    # ------------------------------------------------------------
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # If path exists as folder with index.html, rewrite to it
+    # ------------------------------------------------------------
+    # 04. NEXT.JS STATIC EXPORT CLEAN ROUTING
+    # If path exists as folder with index.html, serve it internally
+    # ------------------------------------------------------------
     RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
     RewriteRule ^(.*)/?$ /$1/index.html [L]
 </IfModule>
 
-# Caching Configuration
+# ------------------------------------------------------------
+# 05. CORS & FAVICON ACCESS FOR CRAWLERS
+# ------------------------------------------------------------
+<FilesMatch "\.(ico|png|svg|json)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</FilesMatch>
+
+# ------------------------------------------------------------
+# 06. CACHING HEADERS (Short cache for HTML and favicon during updates)
+# ------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
@@ -48,16 +79,19 @@ ErrorDocument 404 /_not-found/index.html
     ExpiresByType text/xml "access plus 0 seconds"
     ExpiresByType application/xml "access plus 0 seconds"
     ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType image/x-icon "access plus 1 hour"
+    ExpiresByType image/png "access plus 1 week"
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
-# Security Headers
+# ------------------------------------------------------------
+# 07. SECURITY HEADERS
+# ------------------------------------------------------------
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"

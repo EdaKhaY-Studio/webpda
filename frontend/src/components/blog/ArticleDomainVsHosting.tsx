@@ -22,10 +22,13 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
       {/* Lead Paragraph */}
       <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
-          Pernah nggak kamu bertanya, sebuah website itu sebenarnya tinggal di mana?
+          Masih bingung apa beda antara hosting dan domain saat ingin membuat website bisnis?
         </p>
-        <p className="font-outfit text-base text-[#A99A90] leading-relaxed">
-          Kita setiap hari membuka website. Mulai dari Google, YouTube, sampai toko online. Tinggal ketik alamatnya, klik, lalu websitenya langsung muncul di layar. Tapi pernah kepikiran nggak, bagaimana sebuah website bisa punya alamat dan menyimpan begitu banyak informasi di dalamnya?
+        <p className="font-outfit text-base text-[#A99A90] leading-relaxed mb-3">
+          Bagi pemula, pertanyaan <strong className="text-[#F7F1EB]">apakah domain dan hosting berbeda</strong> sering kali membingungkan. Kita setiap hari membuka Google, YouTube, hingga toko online—cukup mengetikkan alamatnya di browser, lalu halaman website langsung muncul. Tapi bagaimana sebenarnya cara kerja keduanya?
+        </p>
+        <p className="font-outfit text-base text-[#D5CBC3] leading-relaxed">
+          Memahami <strong className="text-[#F45B1A]">apa perbedaan domain dan hosting</strong> serta fungsi domain dan hosting adalah langkah awal terpenting sebelum Anda membangun kehadiran online yang profesional.
         </p>
       </div>
 
@@ -39,7 +42,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
           Kalau website itu ibarat sebuah rumah, apa yang menjadi alamatnya dan di mana semua barang di dalamnya disimpan?
         </p>
         <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
-          Nah, ada dua teknologi penting yang membuat hal tersebut bisa terjadi: <strong className="text-[#F45B1A]">Domain dan Hosting</strong>. Yuk, kita pahami teknologi di balik website pakai bahasa sederhana tanpa istilah teknis yang ribet!
+          Nah, ada dua teknologi penting yang membuat website bisa diakses: <strong className="text-[#F45B1A]">Domain dan Hosting</strong>. Yuk, kenali apa beda antara hosting dan domain lewat analogi rumah yang santai dan mudah dipahami!
         </p>
       </div>
 
@@ -258,7 +261,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
           <span>BAGIAN 05</span>
         </div>
         <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          05. JADI, HARUS PAKAI .COM ATAU .ID?
+          05. JADI, HARUS PAKAI .COM ATAU .ID? PERBEDAAN EKSTENSI .COM DAN .ID
         </h2>
 
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
@@ -346,7 +349,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
       <div className="my-8 overflow-hidden rounded-2xl border border-white/10 bg-[#140E0B]">
         <div className="p-4 sm:p-5 bg-[#17100D] border-b border-white/10">
           <h3 className="font-geom font-bold text-base sm:text-lg text-[#F7F1EB]">
-            Tabel Perbandingan Ringkas: Domain vs Hosting
+            Tabel Ringkas: Apa Beda Antara Hosting dan Domain?
           </h3>
         </div>
         <div className="overflow-x-auto">
@@ -414,7 +417,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
           <span>BAGIAN 08</span>
         </div>
         <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          08. APA DOMAIN DAN HOSTING HARUS DIBELI DI TEMPAT YANG SAMA?
+          08. APAKAH DOMAIN DAN HOSTING HARUS DIBELI BERSAMAAN ATAU DI TEMPAT YANG SAMA?
         </h2>
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
           <strong className="text-[#F7F1EB]">Nggak harus!</strong> Kamu bebas membeli domain di registrar A (seperti Hostinger, Niagahoster, atau Namecheap) dan menyewa hosting di provider B. Keduanya dapat dihubungkan dengan mudah melalui pengaturan <em>Nameserver</em> atau DNS Records (A Record &amp; CNAME).
@@ -482,7 +485,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
             LANJUT KE ARTIKEL BERIKUTNYA · ARTIKEL 02
           </span>
           <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
-            Sudah Punya Website, Kok Belum Ada yang Berkunjung?
+            Cara Agar Website Muncul di Google: Kenali Apa Itu SEO
           </h3>
           <p className="font-outfit text-sm text-[#A99A90] max-w-xl">
             Punya rumah dan alamat saja belum cukup. Yuk, kenali SEO lewat analogi Pak RT dan Google Search agar bisnismu lebih mudah ditemukan!
@@ -617,10 +620,10 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
               ARTIKEL 02 · SEO &amp; DIGITAL MARKETING
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Sudah Punya Website, Kok Belum Ada yang Berkunjung? Kenalan dengan SEO!
+              Cara Agar Website Muncul di Google: Kenali Apa Itu SEO
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Punya rumah dan alamat saja belum cukup. Kenali SEO melalui analogi Pak RT, warga, dan Google Search dengan bahasa yang gampang dipahami.
+              Punya rumah dan alamat saja belum cukup. Kenali cara agar website muncul di Google dan memahami SEO melalui analogi Pak RT yang gampang dipahami.
             </p>
           </Link>
 
@@ -633,10 +636,10 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
               ARTIKEL 03 · WEBSITE &amp; TECHNOLOGY
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Bisnismu Sudah Ada di Media Sosial, Tapi Apa Sudah Punya Rumah Digital Sendiri?
+              Kenapa Bisnis Perlu Website? Manfaatnya untuk UMKM di Era AI
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Jangan hanya mengandalkan konten yang sedang viral. Kenali mengapa bisnis kecil maupun besar membutuhkan website di era Google dan AI.
+              Kenapa bisnis perlu website meski sudah punya media sosial? Kenali manfaat website profesional untuk bisnis dan UMKM di era Google dan AI.
             </p>
           </Link>
         </div>

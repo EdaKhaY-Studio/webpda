@@ -89,7 +89,7 @@ const TOC_SEO_ITEMS = [
   { id: "03-apa-itu-seo", number: "03", title: "Apa Itu SEO?" },
   { id: "04-cara-memilih-rekomendasi", number: "04", title: "Bagaimana Pak RT Memilih Rumah?" },
   { id: "05-pengalaman-pengunjung", number: "05", title: "Kalau Rumah Bagus, tapi Isinya Berantakan?" },
-  { id: "06-langkah-optimasi", number: "06", title: "Cara Membuat Pak RT Mengenal Bisnis Kita" },
+  { id: "06-langkah-optimasi", number: "06", title: "Cara Agar Website Muncul di Google: 5 Langkah" },
   { id: "07-mitos-halaman-pertama", number: "07", title: "Apakah SEO Menjamin Halaman Pertama?" },
   { id: "08-website-baru-butuh-waktu", number: "08", title: "Kenapa Website Baru Belum Ramai?" },
   { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
@@ -98,7 +98,7 @@ const TOC_SEO_ITEMS = [
 const TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS = [
   { id: "pendahuluan", number: "00", title: "Pendahuluan — Tinggal di Kos-Kosan Komplek A" },
   { id: "01-media-sosial-ngekos", number: "01", title: "Media Sosial Seperti Ngekos di Kompleks" },
-  { id: "02-website-toko-sendiri", number: "02", title: "Website Itu Seperti Memiliki Toko Sendiri" },
+  { id: "02-website-toko-sendiri", number: "02", title: "Kenapa Bisnis Perlu Website? Seperti Toko Sendiri" },
   { id: "03-aktivitas-digital-2026", number: "03", title: "Aktivitas Digital Indonesia 2026" },
   { id: "04-google-dan-ai", number: "04", title: "Mencari di Google & Bertanya kepada AI" },
   { id: "05-website-dan-rekomendasi-ai", number: "05", title: "Apakah Otomatis Direkomendasikan AI?" },
@@ -131,10 +131,10 @@ export default async function BlogPostPage({ params }: Props) {
     : TOC_DOMAIN_HOSTING_ITEMS;
 
   const waConsultMessage = isArticle03
-    ? "Halo Tim Paham Digital! Saya membaca artikel 'Bisnismu Sudah Ada di Media Sosial, Tapi Apa Sudah Punya Rumah Digital Sendiri?' dan ingin berdiskusi mengenai pembuatan website bisnis saya."
+    ? "Halo Tim Paham Digital! Saya membaca artikel 'Kenapa Bisnis Perlu Website? Manfaatnya untuk UMKM di Era AI' dan ingin berdiskusi mengenai pembuatan website bisnis saya."
     : isArticle02
-    ? "Halo Tim Paham Digital! Saya membaca artikel SEO 'Sudah Punya Website, Kok Belum Ada yang Berkunjung?' dan ingin berdiskusi mengenai optimasi dan pembuatan website bisnis saya."
-    : "Halo Tim Paham Digital! Saya membaca artikel 'Domain vs Hosting' di website dan ingin berdiskusi mengenai pembuatan website bisnis saya.";
+    ? "Halo Tim Paham Digital! Saya membaca artikel SEO 'Cara Agar Website Muncul di Google: Kenali Apa Itu SEO' dan ingin berdiskusi mengenai optimasi dan pembuatan website bisnis saya."
+    : "Halo Tim Paham Digital! Saya membaca artikel 'Apa Beda Hosting dan Domain? Kenali Fungsi dan Perbedaannya' di website dan ingin berdiskusi mengenai pembuatan website bisnis saya.";
 
   const waConsultUrl = buildWAUrl(waConsultMessage);
 
@@ -264,23 +264,23 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Title (H1 in Geom) */}
             {isArticle03 ? (
               <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[50px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
-                Bisnismu Sudah Ada di Media Sosial,{" "}
+                Bisnismu Ada di Media Sosial, Tapi{" "}
                 <span className="text-[#F45B1A]">
-                  Tapi Apa Sudah Punya Rumah Digital Sendiri?
+                  Kenapa Bisnis Perlu Website?
                 </span>
               </h1>
             ) : isArticle02 ? (
               <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[52px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
-                Sudah Punya Website, Kok Belum Ada yang Berkunjung?{" "}
+                Cara Agar Website Muncul di Google:{" "}
                 <span className="text-[#F45B1A]">
-                  Kenalan dengan SEO!
+                  Kenali Apa Itu SEO!
                 </span>
               </h1>
             ) : (
               <h1 className="font-geom font-bold text-[32px] sm:text-[44px] lg:text-[54px] text-[#F7F1EB] leading-[1.12] tracking-tight mb-5">
-                Domain vs Hosting:{" "}
+                Apa Beda Hosting dan Domain?{" "}
                 <span className="text-[#F45B1A]">
-                  Sebenarnya Apa Bedanya?
+                  Kenali Fungsi &amp; Perbedaannya
                 </span>
               </h1>
             )}

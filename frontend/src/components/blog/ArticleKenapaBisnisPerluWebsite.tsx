@@ -61,13 +61,16 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
         {/* Narrative Flow */}
         <div className="space-y-4 text-base sm:text-lg text-[#A99A90] font-outfit leading-relaxed pt-2">
           <p>
-            Sekarang bayangkan kamu mempromosikan usahamu melalui media sosial. Kamu mengunggah foto produk, membuat video TikTok, membagikan promosi, dan mulai mendapatkan perhatian banyak orang.
+            Banyak pemilik usaha bertanya: <strong className="text-[#F7F1EB]">kenapa bisnis perlu website</strong> jika sudah aktif di media sosial? <strong className="text-[#F45B1A]">Apakah bisnis cukup dengan Instagram</strong> dan TikTok saja, atau <strong className="text-[#F7F1EB]">apakah UMKM perlu website</strong> resmi sendiri?
           </p>
           <p>
-            Hari ini kontenmu viral. Besok banyak yang mengunjungi profilmu. Tetapi beberapa waktu kemudian, tren berubah dan perhatian pengguna beralih ke konten atau bisnis lain.
+            Sekarang bayangkan kamu mempromosikan usahamu melalui media sosial. Kamu mengunggah foto produk, membuat video reel, membagikan promosi, dan mulai mendapatkan perhatian audiens.
           </p>
           <p>
-            Bukan berarti bisnismu langsung dilupakan. Namun, jumlah orang yang melihat kontenmu bisa berubah-ubah mengikuti minat pengguna dan sistem rekomendasi platform.
+            Hari ini kontenmu viral. Besok banyak yang mengunjungi profilmu. Namun beberapa waktu kemudian, tren berubah dan algoritma platform beralih ke konten kreator lain.
+          </p>
+          <p>
+            Memahami dinamika <strong className="text-[#F7F1EB]">website vs media sosial</strong> serta berbagai <strong className="text-[#F45B1A]">manfaat website untuk bisnis</strong> dan pentingnya website untuk usaha kecil akan membantu bisnismu membangun aset digital jangka panjang yang kokoh.
           </p>
         </div>
 
@@ -78,10 +81,10 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
             <span>SATU PERTANYAAN MENDASAR</span>
           </div>
           <p className="font-geom font-bold text-lg sm:text-xl text-[#F7F1EB] leading-snug">
-            Media sosial memang penting untuk membuat bisnis dikenal. Namun, apakah seluruh keberadaan bisnismu sebaiknya hanya bergantung pada media sosial?
+            Media sosial memang penting untuk membuat bisnis dikenal. Namun, kenapa bisnis perlu website mandiri yang bisa kamu kelola seutuhnya?
           </p>
           <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
-            Menurut kami, bisnis juga membutuhkan tempat digital yang dapat dikelola sendiri, yaitu <strong className="text-[#F45B1A]">website</strong>. Mari kita bahas alasannya!
+            Mengetahui <strong className="text-[#F45B1A]">alasan bisnis harus punya website</strong> dan manfaat website untuk UMKM di era pencarian Google dan AI modern akan membuka peluang pasar baru yang tidak bergantung pada nasib algoritma sosial semata.
           </p>
         </div>
       </section>
@@ -146,14 +149,14 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
           <span>BAGIAN 02</span>
         </div>
         <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          02. Website Itu Seperti Memiliki Toko Sendiri
+          02. Kenapa Bisnis Perlu Website? Seperti Memiliki Toko Sendiri
         </h2>
 
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
           Sekarang bayangkan kamu tidak hanya tinggal di kos-kosan.
         </p>
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
-          Kamu juga memiliki toko sendiri dengan nama, alamat, papan informasi, dan tempat untuk memperlihatkan semua produk yang kamu jual.
+          Salah satu <strong className="text-[#F7F1EB]">manfaat website profesional</strong> adalah bisnismu memiliki toko sendiri dengan nama, alamat resmi, papan informasi, dan ruang etalase untuk memperlihatkan semua produk yang kamu jual.
         </p>
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
           Pelanggan bisa datang untuk melihat katalog, mengetahui harga, membaca informasi, dan mengetahui cara menghubungimu.
@@ -214,7 +217,7 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
             href="/blog/domain-vs-hosting/"
             className="inline-flex items-center gap-1.5 text-xs font-geom font-bold text-[#F45B1A] hover:text-[#FF6A2A] transition-colors shrink-0 group"
           >
-            <span>Baca Artikel 01: Domain vs Hosting</span>
+            <span>Baca Artikel 01: Apa Beda Hosting dan Domain?</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -1055,10 +1058,10 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
               ARTIKEL 01 · WEBSITE &amp; TECHNOLOGY
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Domain vs Hosting: Sebenarnya Apa Bedanya?
+              Apa Beda Hosting dan Domain? Kenali Fungsi dan Perbedaannya
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Kenali perbedaan domain dan hosting menggunakan analogi rumah yang sederhana. Pelajari juga arti ekstensi .com, .id, dan .online.
+              Masih bingung apa beda antara hosting dan domain? Kenali fungsi, cara kerja, dan perbedaannya melalui analogi rumah yang mudah dipahami.
             </p>
           </Link>
 
@@ -1071,10 +1074,10 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
               ARTIKEL 02 · SEO &amp; DIGITAL MARKETING
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Sudah Punya Website, Kok Belum Ada yang Berkunjung? Kenalan dengan SEO!
+              Cara Agar Website Muncul di Google: Kenali Apa Itu SEO
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Punya rumah dan alamat saja belum cukup. Kenali SEO melalui analogi Pak RT, warga, dan Google Search dengan bahasa yang gampang dipahami.
+              Website sudah online tetapi belum ditemukan pelanggan? Pelajari cara agar website muncul di Google, memahami SEO, Googlebot, dan indexing.
             </p>
           </Link>
         </div>

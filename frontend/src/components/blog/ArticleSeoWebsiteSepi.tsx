@@ -30,16 +30,16 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
       {/* ── LEAD PARAGRAPH ───────────────────────────────────── */}
       <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
-          Pernah nggak kamu membangun sebuah rumah, melengkapi semua perabotannya, bahkan sudah punya alamat yang jelas, tetapi kok nggak ada tetangga yang datang berkunjung?
+          Website sudah dibuat bagus, tapi kenapa website tidak muncul di Google dan sepi pengunjung?
         </p>
         <p className="font-outfit text-base text-[#A99A90] leading-relaxed mb-3">
-          Rumahnya bagus, alamatnya juga sudah ada. Tapi sepi banget!
+          Pernah nggak kamu membangun sebuah rumah, melengkapi semua perabotannya, bahkan sudah punya alamat yang jelas, tetapi kok nggak ada tetangga yang datang berkunjung? Rumahnya megah, alamatnya ada, tapi suasananya sepi sekali.
         </p>
         <p className="font-outfit text-base text-[#A99A90] leading-relaxed mb-3">
-          Nah, ternyata masalahnya bukan selalu karena rumahmu jelek. Bisa jadi, orang-orang di sekitar sana bahkan belum tahu kalau rumahmu itu ada.
+          Ternyata masalahnya bukan karena desain websitemu buruk. Bisa jadi, mesin pencari dan calon pelanggan di internet bahkan belum tahu kalau websitemu itu ada di dunia digital!
         </p>
         <p className="font-outfit text-base text-[#D5CBC3] leading-relaxed">
-          Sekarang coba kita pindah ke dunia website. Kamu sudah membeli domain, menyewa hosting, membuat website yang bagus, memasukkan foto produk, dan menampilkan semua informasi bisnis. Tapi kenapa pengunjung masih sedikit?
+          Kamu sudah membeli domain, menyewa hosting, dan menampilkan seluruh profil produk. Lalu, bagaimana langkah nyata dan <strong className="text-[#F45B1A]">cara agar website muncul di Google</strong> serta cara meningkatkan pengunjung website secara berkelanjutan?
         </p>
       </div>
 
@@ -53,15 +53,15 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
         
         <p className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB] leading-snug mb-4">
-          Kalau rumah sudah punya alamat, tetapi belum ada yang bertamu, bagaimana caranya supaya orang-orang tahu rumah kita ada dan mau berkunjung?
+          Kalau website sudah punya alamat, bagaimana cara agar website muncul di Google dan direkomendasikan kepada pencari informasi?
         </p>
         
         <p className="font-outfit text-base text-[#D5CBC3] leading-relaxed mb-3">
-          Nah, sekarang mari kita kenalan dengan seseorang di lingkungan kita.
+          Bagi pemula, istilah Search Engine Optimization terdengar rumit. Namun melalui panduan <strong className="text-[#F45B1A]">SEO website untuk pemula</strong> ini, kita akan memahami apa itu SEO dengan analogi yang sangat akrab di kehidupan kita.
         </p>
         
         <p className="font-outfit text-base text-[#D5CBC3] leading-relaxed">
-          Kita sebut saja dia <strong className="text-[#F45B1A] font-semibold">Pak RT atau Pak Lurah</strong>. Bayangkan di sebuah lingkungan ada seorang Pak RT yang sangat dikenal dan dipercaya oleh warganya. Beliau sudah lama tinggal di sana, mengenal banyak warga, mengetahui berbagai kegiatan di lingkungannya, dan sering menjadi tempat bertanya ketika seseorang membutuhkan informasi.
+          Kita sebut saja dia <strong className="text-[#F45B1A] font-semibold">Pak RT atau Pak Lurah</strong>. Bayangkan di sebuah lingkungan ada seorang Pak RT yang sangat dikenal dan dipercaya warganya. Beliau sudah lama bertugas, mengenal peta lingkungan, mengetahui kegiatan warga, dan menjadi tempat pertama yang dituju ketika seseorang membutuhkan rekomendasi.
         </p>
       </div>
 
@@ -157,7 +157,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
             </div>
             <h4 className="font-geom font-bold text-base text-[#F7F1EB]">1. Googlebot (Crawling)</h4>
             <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
-              Petugas keliling otomatis yang menjelajahi internet untuk menemukan dan membaca halaman-halaman website baru maupun yang diperbarui.
+              <strong className="text-[#F7F1EB]">Googlebot adalah</strong> robot perayap atau petugas keliling otomatis yang menjelajahi internet untuk menemukan dan membaca halaman-halaman website baru maupun yang diperbarui.
             </p>
           </div>
 
@@ -167,7 +167,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
             </div>
             <h4 className="font-geom font-bold text-base text-[#F7F1EB]">2. Google Index (Indexing)</h4>
             <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
-              Buku catatan raksasa tempat informasi dan konten dari halaman website yang berhasil di-crawl disimpan agar siap dipanggil kembali.
+              <strong className="text-[#F7F1EB]">Google Index</strong> adalah perpustakaan atau buku catatan raksasa tempat informasi dan konten dari halaman website yang berhasil di-crawl disimpan agar siap dipanggil kembali saat dicari.
             </p>
           </div>
 
@@ -213,7 +213,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
 
         <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          02. KOK PAK RT BISA TAHU RUMAH KITA?
+          02. CARA GOOGLE MENEMUKAN WEBSITE: KOK PAK RT BISA TAHU RUMAH KITA?
         </h2>
 
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
@@ -223,7 +223,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
           Bagaimana caranya Pak RT bisa tahu rumahmu itu ada?
         </p>
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
-          Dalam dunia website, Google perlu menemukan halaman kita terlebih dahulu. Ada 3 cara utama agar website kita bisa ditemukan dan dicatat:
+          Dalam dunia website, Google perlu menemukan halaman kita terlebih dahulu. Memahami <strong className="text-[#F7F1EB]">cara Google menemukan website</strong> dan <strong className="text-[#F45B1A]">cara mengindeks website di Google</strong> sangat penting. Ada 3 cara utama agar website kita bisa ditemukan dan dicatat:
         </p>
 
         <div className="space-y-4 pt-2 font-outfit">
@@ -518,7 +518,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
       </section>
 
-      {/* ── SECTION 06: CARA MEMBUAT PAK RT MENGENAL KITA ─────── */}
+      {/* ── SECTION 06: CARA AGAR WEBSITE MUNCUL DI GOOGLE ─── */}
       <section id="06-langkah-optimasi" className="scroll-mt-28 space-y-6 pt-6 border-t border-white/10">
         <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
           <Layers className="w-4 h-4" />
@@ -526,11 +526,11 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
 
         <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          06. LALU, BAGAIMANA CARA KITA MEMBUAT PAK RT SEMAKIN MENGENAL BISNIS KITA?
+          06. CARA AGAR WEBSITE MUNCUL DI GOOGLE: MEMBUAT PAK RT MENGENAL BISNIS KITA
         </h2>
 
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
-          Sekarang kamu sudah tahu bahwa Google perlu mengenali, memahami, dan memverifikasi website. Terus, apa langkah nyata yang bisa kita lakukan mulai hari ini? Yuk, ikuti 5 langkah praktis ini:
+          Sekarang kamu sudah tahu bahwa Google perlu mengenali, memahami, dan memverifikasi website. Terus, apa langkah nyata cara agar website muncul di Google yang bisa kita lakukan mulai hari ini? Yuk, ikuti 5 langkah praktis ini:
         </p>
 
         <div className="space-y-4 font-outfit pt-2">
@@ -730,10 +730,10 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
             SUDAH MEMBACA ARTIKEL SEBELUMNYA? · ARTIKEL 01
           </span>
           <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
-            Domain vs Hosting: Sebenarnya Apa Bedanya?
+            Apa Beda Hosting dan Domain? Kenali Fungsi dan Perbedaannya
           </h3>
           <p className="font-outfit text-sm text-[#A99A90] max-w-xl">
-            Artikel 01: Membangun rumah digitalmu. Artikel 02: Membantu orang lain menemukan rumah digitalmu.
+            Artikel 01: Memahami apa beda antara hosting dan domain sebelum membangun rumah digital bisnismu.
           </p>
         </div>
 
@@ -865,10 +865,10 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
               ARTIKEL 01 · WEBSITE &amp; TECHNOLOGY
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Domain vs Hosting: Sebenarnya Apa Bedanya?
+              Apa Beda Hosting dan Domain? Kenali Fungsi dan Perbedaannya
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Kenali perbedaan domain dan hosting menggunakan analogi rumah yang sederhana. Pelajari juga arti ekstensi .com, .id, dan .online.
+              Masih bingung apa beda antara hosting dan domain? Kenali fungsi, cara kerja, dan perbedaannya melalui analogi rumah yang mudah dipahami.
             </p>
           </Link>
 
@@ -881,10 +881,10 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
               ARTIKEL 03 · WEBSITE &amp; TECHNOLOGY
             </span>
             <h4 className="font-geom font-bold text-sm sm:text-base text-[#F7F1EB] group-hover:text-[#F45B1A] transition-colors line-clamp-2 mb-2">
-              Bisnismu Sudah Ada di Media Sosial, Tapi Apa Sudah Punya Rumah Digital Sendiri?
+              Kenapa Bisnis Perlu Website? Manfaatnya untuk UMKM di Era AI
             </h4>
             <p className="font-outfit text-xs text-[#A99A90] line-clamp-2">
-              Jangan hanya mengandalkan konten yang sedang viral. Kenali mengapa bisnis kecil maupun besar membutuhkan website di era Google dan AI.
+              Kenapa bisnis perlu website meski sudah punya media sosial? Kenali manfaat website untuk UMKM, Google Search, dan AI melalui analogi sederhana.
             </p>
           </Link>
         </div>

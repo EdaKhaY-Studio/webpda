@@ -70,7 +70,18 @@ ErrorDocument 404 /_not-found/index.html
 </FilesMatch>
 
 # ------------------------------------------------------------
-# 06. CACHING HEADERS (Short cache for HTML and favicon during updates)
+# 06. ZERO-CACHE FOR HTML (Prevents Stale Cache in Edge / Chrome / CDN)
+# ------------------------------------------------------------
+<FilesMatch "\.(html|htm)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </IfModule>
+</FilesMatch>
+
+# ------------------------------------------------------------
+# 07. CACHING HEADERS FOR STATIC ASSETS
 # ------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -90,7 +101,7 @@ ErrorDocument 404 /_not-found/index.html
 </IfModule>
 
 # ------------------------------------------------------------
-# 07. SECURITY HEADERS
+# 08. SECURITY HEADERS
 # ------------------------------------------------------------
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"

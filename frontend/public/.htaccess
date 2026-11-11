@@ -9,8 +9,9 @@
     DirectoryIndex index.html
 </IfModule>
 
-# Custom 404 Error Document
+# Custom Error Documents (Genuine 404 Not Found & 410 Gone)
 ErrorDocument 404 /_not-found/index.html
+ErrorDocument 410 /_not-found/index.html
 
 # Rewrite Engine for Canonical Hostname, HTTPS & Clean Static Routing
 <IfModule mod_rewrite.c>
@@ -20,21 +21,38 @@ ErrorDocument 404 /_not-found/index.html
     # ------------------------------------------------------------
     # 01. CANONICAL HOSTNAME & HTTPS REDIRECTS (HTTP 301)
     # Target: https://pahamdigital.online/
+    # Preserves path and query string (QSA)
     # ------------------------------------------------------------
 
-    # Rule A: Redirect www to non-www (both HTTP and HTTPS)
-    # Matches www.pahamdigital.online -> https://pahamdigital.online/$1
+    # Rule A: Redirect any www request (HTTP or HTTPS) directly to canonical https://pahamdigital.online/
     RewriteCond %{HTTP_HOST} ^www\.pahamdigital\.online$ [NC]
-    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L]
+    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L,QSA]
 
-    # Rule B: Force HTTPS for non-www
-    # Matches http://pahamdigital.online -> https://pahamdigital.online/$1
-    RewriteCond %{HTTPS} !=on
+    # Rule B: Force HTTPS for non-www requests
+    RewriteCond %{HTTPS} !=on [OR]
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^pahamdigital\.online$ [NC]
+    RewriteRule ^(.*)$ https://pahamdigital.online/$1 [R=301,L,QSA]
 
     # ------------------------------------------------------------
-    # 02. CLEAN TRAILING-SLASH AND INDEX.HTML NORMALIZATION
+    # 02. HISTORICAL / DELETED BLOG URL MIGRATIONS & REMOVALS
+    # ------------------------------------------------------------
+    # Case B: Renamed articles -> Permanent HTTP 301 redirect to closest new equivalent slug
+    # "Mengapa UMKM di Aceh Barat Butuh Website Profesional di 2025" -> "Kenapa Bisnis Perlu Website? Manfaatnya untuk UMKM di Era AI"
+    RewriteRule ^blog/mengapa-umkm-butuh-website/?$ https://pahamdigital.online/blog/kenapa-bisnis-perlu-website/ [R=301,L]
+
+    # "Panduan Lengkap SEO Lokal untuk Bisnis di Aceh Barat" -> "Cara Agar Website Muncul di Google: Kenali Apa Itu SEO"
+    RewriteRule ^blog/panduan-seo-lokal-aceh/?$ https://pahamdigital.online/blog/apa-itu-seo-website-sepi-pengunjung/ [R=301,L]
+
+    # Case A: Permanently deleted articles with no direct equivalent -> HTTP 410 Gone
+    # "Bagaimana AI Customer Service Mengubah Cara UMKM Melayani Pelanggan"
+    RewriteRule ^blog/ai-customer-service-untuk-umkm/?$ - [G,L]
+
+    # "Automasi Bisnis: Bukan Sekadar Tren, Tapi Kebutuhan Operasional"
+    RewriteRule ^blog/automasi-bisnis-bukan-sekedar-tren/?$ - [G,L]
+
+    # ------------------------------------------------------------
+    # 03. CLEAN TRAILING-SLASH AND INDEX.HTML NORMALIZATION
     # ------------------------------------------------------------
 
     # Redirect /index.html directly to root /
@@ -46,14 +64,14 @@ ErrorDocument 404 /_not-found/index.html
     RewriteRule ^(.*)/index\.html$ https://pahamdigital.online/$1/ [R=301,L]
 
     # ------------------------------------------------------------
-    # 03. SERVE REAL FILES AND DIRECTORIES
+    # 04. SERVE REAL FILES AND DIRECTORIES
     # ------------------------------------------------------------
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
     # ------------------------------------------------------------
-    # 04. NEXT.JS STATIC EXPORT CLEAN ROUTING
+    # 05. NEXT.JS STATIC EXPORT CLEAN ROUTING
     # If path exists as folder with index.html, serve it internally
     # ------------------------------------------------------------
     RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
@@ -61,7 +79,7 @@ ErrorDocument 404 /_not-found/index.html
 </IfModule>
 
 # ------------------------------------------------------------
-# 05. CORS & FAVICON ACCESS FOR CRAWLERS
+# 06. CORS & FAVICON ACCESS FOR CRAWLERS
 # ------------------------------------------------------------
 <FilesMatch "\.(ico|png|svg|json)$">
     <IfModule mod_headers.c>
@@ -70,7 +88,7 @@ ErrorDocument 404 /_not-found/index.html
 </FilesMatch>
 
 # ------------------------------------------------------------
-# 06. ZERO-CACHE FOR HTML (Prevents Stale Cache in Edge / Chrome / CDN)
+# 07. ZERO-CACHE FOR HTML (Prevents Stale Cache in Edge / Chrome / CDN)
 # ------------------------------------------------------------
 <FilesMatch "\.(html|htm)$">
     <IfModule mod_headers.c>
@@ -81,7 +99,7 @@ ErrorDocument 404 /_not-found/index.html
 </FilesMatch>
 
 # ------------------------------------------------------------
-# 07. CACHING HEADERS FOR STATIC ASSETS
+# 08. CACHING HEADERS FOR STATIC ASSETS
 # ------------------------------------------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -101,7 +119,7 @@ ErrorDocument 404 /_not-found/index.html
 </IfModule>
 
 # ------------------------------------------------------------
-# 08. SECURITY HEADERS
+# 09. SECURITY HEADERS
 # ------------------------------------------------------------
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"

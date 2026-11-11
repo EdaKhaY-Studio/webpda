@@ -9,55 +9,55 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date("2026-11-04"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/tentang-kami/`,
-      lastModified: new Date("2026-11-04"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/layanan/`,
-      lastModified: new Date("2026-11-05"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.95,
     },
     {
       url: `${baseUrl}/layanan/harga-paket/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.95,
     },
     {
       url: `${baseUrl}/layanan/website-development/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/layanan/web-application/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/layanan/ai-customer-service/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/layanan/seo-geo/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog/`,
-      lastModified: new Date("2026-11-08"),
+      lastModified: new Date("2026-11-10"),
       changeFrequency: "daily",
       priority: 0.85,
     },
@@ -72,4 +72,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...blogRoutes];
 }
-

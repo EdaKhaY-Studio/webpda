@@ -287,7 +287,14 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Title (H1 in Geom) */}
-            {isArticle03 ? (
+            {isArticle04 ? (
+              <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[50px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Apa Itu GEO?{" "}
+                <span className="text-[#F45B1A]">
+                  Cara Agar Bisnis Lebih Mudah Dikenal dan Direkomendasikan oleh AI
+                </span>
+              </h1>
+            ) : isArticle03 ? (
               <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[50px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
                 Bisnismu Ada di Media Sosial, Tapi{" "}
                 <span className="text-[#F45B1A]">

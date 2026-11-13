@@ -39,7 +39,7 @@ export default function ArticleApaItuGeo({ waShareUrl }: Props) {
     <div className="space-y-12">
       {/* ── BAGIAN 01: PENDAHULUAN ──────────────────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg space-y-3.5">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-3.5">
           <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
             <Globe2 className="w-4 h-4" />
             <span>BAGIAN 01 · PERUBAHAN PERILAKU PENCARIAN</span>
@@ -193,9 +193,9 @@ export default function ArticleApaItuGeo({ waShareUrl }: Props) {
             <p>
               Ketika suatu pagi Si AI ingin mencari rekomendasi jasa profesional, ia tidak langsung mengarang jawaban. Ia mendatangi <strong>Pak RT</strong> dan menyimak obrolan warga setempat:
             </p>
-            <blockquote className="pl-4 border-l-2 border-[#F45B1A] italic text-[#F7F1EB]">
+            <div className="p-4 rounded-xl bg-[#0B0807] border border-white/10 italic text-[#F7F1EB]">
               "Pak RT, di lingkungan komplek kita ini, siapa yang menyediakan jasa pembuatan website dan AI Customer Service yang terpercaya?"
-            </blockquote>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -294,7 +294,7 @@ export default function ArticleApaItuGeo({ waShareUrl }: Props) {
           ))}
         </div>
 
-        <div className="p-5 rounded-2xl bg-[#17100D] border-l-4 border-amber-500 border-y border-r border-white/10 space-y-2 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 space-y-2 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
           <p className="font-semibold text-[#F7F1EB] flex items-center gap-1.5">
             <AlertTriangle className="w-4 h-4 text-amber-500" />
             Batasan Realistis yang Perlu Diketahui:
@@ -592,7 +592,7 @@ Sitemap: https://pahamdigital.online/sitemap.xml`}
               *Catatan Edukatif: Kode di atas adalah contoh referensi penulisan skema entitas, bukan instruksi untuk menyalin ulang skema ke halaman artikel ini. Implementasi skema situs yang sesungguhnya dipasang terpusat pada halaman yang sesuai tanpa menduplikasi atau membuat entitas yang saling bertentangan.
             </p>
           </div>
-          <div className="p-4 rounded-xl bg-[#17100D] border-l-4 border-amber-500 border-y border-r border-white/10 space-y-2 text-xs font-outfit text-[#D5CBC3] leading-relaxed">
+          <div className="p-4 sm:p-5 rounded-xl bg-[#17100D] border border-white/10 space-y-2 text-xs font-outfit text-[#D5CBC3] leading-relaxed">
             <p className="font-semibold text-[#F7F1EB] flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
               Peringatan Etika &amp; Batasan Structured Data:

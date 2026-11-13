@@ -20,7 +20,7 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
   return (
     <div className="space-y-10">
       {/* Lead Paragraph */}
-      <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg">
+      <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
           Masih bingung apa beda antara hosting dan domain saat ingin membuat website bisnis?
         </p>
@@ -296,8 +296,8 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
         </div>
 
         {/* Google SEO Fact Callout */}
-        <div className="p-5 rounded-2xl bg-[#17100D] border border-amber-500/30 text-sm font-outfit text-[#D5CBC3] leading-relaxed">
-          <strong className="text-amber-400 block mb-1 font-geom">📌 Fakta Penting Google SEO:</strong>
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 text-sm font-outfit text-[#D5CBC3] leading-relaxed">
+          <strong className="text-amber-400 block mb-1 font-geom">Fakta Penting Google SEO:</strong>
           Ekstensi <code className="text-white">.com</code> tidak otomatis membuat website lebih mudah masuk halaman 1 Google dibanding <code className="text-white">.id</code> atau <code className="text-white">.online</code>. Dokumentasi resmi Google Search Central menegaskan bahwa TLD itu sendiri bukan faktor penentu peringkat pencarian algoritma, melainkan kualitas konten, relevansi, dan kecepatan teknis website.
         </div>
       </section>

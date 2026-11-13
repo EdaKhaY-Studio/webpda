@@ -30,7 +30,7 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
     <div className="space-y-12">
       {/* ── LEAD PARAGRAPH: PENDAHULUAN ──────────────────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg space-y-3.5">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-3.5">
           <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
             <Building2 className="w-4 h-4" />
             <span>PENDAHULUAN</span>
@@ -793,13 +793,12 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
           </p>
         </div>
 
-        {/* ── MANDATORY CALLOUT BLOCK (HIGHLIGHTED EXACTLY ONCE) ── */}
-        <blockquote className="my-8 p-7 sm:p-9 rounded-2xl bg-gradient-to-r from-[#21140F] via-[#1A110D] to-[#140E0B] border-l-4 border-[#F45B1A] border-y border-r border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#F45B1A]/10 rounded-full blur-2xl pointer-events-none" />
+        {/* ── CALLOUT CARD ── */}
+        <div className="my-8 p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-xl space-y-2">
           <p className="font-geom font-bold text-lg sm:text-xl md:text-2xl text-[#F7F1EB] leading-snug">
             &ldquo;Jangan hanya membangun bisnis yang ramai ketika sedang viral. Bangun juga fondasi digital yang bisa terus kamu kelola ketika tren sudah berganti.&rdquo;
           </p>
-        </blockquote>
+        </div>
 
         <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
           Karena bisnis yang ingin berkembang bukan hanya membutuhkan perhatian sesaat, tetapi juga identitas dan informasi yang bisa ditemukan oleh orang-orang yang membutuhkannya.

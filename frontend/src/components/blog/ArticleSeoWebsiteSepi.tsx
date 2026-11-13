@@ -28,7 +28,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
   return (
     <div className="space-y-12">
       {/* ── LEAD PARAGRAPH ───────────────────────────────────── */}
-      <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg">
+      <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
           Website sudah dibuat bagus, tapi kenapa website tidak muncul di Google dan sepi pengunjung?
         </p>
@@ -199,7 +199,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
 
         {/* Technical Accuracy Notice Box */}
-        <div className="p-5 rounded-2xl bg-[#17100D] border border-amber-500/30 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
           <strong className="text-amber-400 block mb-1 font-geom">Catatan Akurasi Teknis:</strong>
           Pak RT adalah analogi sederhana untuk memudahkan pemahaman. Secara teknis, Google Search bukan manusia dan tidak bekerja berdasarkan kepercayaan emosional personal, melainkan kumpulan algoritma otomatis berskala global yang memproses miliaran sinyal web secara independen.
         </div>
@@ -259,8 +259,8 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </div>
 
         {/* Warning Callout */}
-        <div className="p-5 rounded-xl bg-[#17100D] border border-rose-500/30 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
-          <strong className="text-rose-400 block mb-1 font-geom">⚠️ Catatan Penting:</strong>
+        <div className="p-5 sm:p-6 rounded-xl bg-[#17100D] border border-white/10 text-xs sm:text-sm font-outfit text-[#D5CBC3] leading-relaxed">
+          <strong className="text-rose-400 block mb-1 font-geom">Catatan Penting:</strong>
           Mengirim sitemap atau meminta pengindeksan di Google Search Console <strong>tidak menjamin</strong> websitemu langsung masuk indeks seketika atau langsung nangkring di halaman pertama. Google tetap menjalankan proses kurasi dan pemeriksaan kualitas secara independen.
         </div>
       </section>
@@ -636,7 +636,7 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
         </p>
 
         {/* Mythbuster Callout */}
-        <div className="p-6 rounded-2xl bg-[#17100D] border border-amber-500/30 space-y-2">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 space-y-2">
           <h4 className="font-geom font-bold text-base text-amber-400">
             💡 Hindari Janji Manis "Pasti Halaman 1 Dalam 3 Hari"
           </h4>

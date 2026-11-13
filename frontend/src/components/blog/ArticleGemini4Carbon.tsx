@@ -38,7 +38,7 @@ export default function ArticleGemini4Carbon({ waShareUrl }: Props) {
     <div className="space-y-12">
       {/* ── SECTION 00: PENDAHULUAN & STORYTELLING SATPAM ────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/[0.08] shadow-lg space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-4">
           <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
             <Atom className="w-4 h-4" />
             <span>PENGANTAR · FRONTIER AI GOOGLE DEEPMIND</span>
@@ -366,7 +366,7 @@ export default function ArticleGemini4Carbon({ waShareUrl }: Props) {
           ))}
         </div>
 
-        <div className="p-5 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] space-y-2 font-outfit text-sm text-[#D5CBC3] leading-relaxed">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 space-y-2 font-outfit text-sm text-[#D5CBC3] leading-relaxed">
           <p className="font-bold text-[#F7F1EB]">
             Catatan Penting Build-and-Verify Workflow:
           </p>
@@ -1062,7 +1062,7 @@ export default function ArticleGemini4Carbon({ waShareUrl }: Props) {
           </div>
 
           {/* Demo D */}
-          <div className="p-5 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] space-y-2 font-outfit text-sm text-[#D5CBC3] leading-relaxed">
+          <div className="p-5 sm:p-6 rounded-2xl bg-[#17100D] border border-white/10 space-y-2 font-outfit text-sm text-[#D5CBC3] leading-relaxed">
             <h3 className="font-geom font-bold text-base text-[#F7F1EB]">
               D. Mengapa Demonstrasi Ini Menarik?
             </h3>
@@ -1666,7 +1666,7 @@ Berikan rekomendasi perbaikan spesifik dengan standar OWASP Top 10.`,
           </h2>
         </div>
 
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border-l-4 border-[#F45B1A] border-y border-r border-white/10 space-y-4 font-outfit text-base sm:text-lg leading-relaxed text-[#D5CBC3]">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-4 font-outfit text-base sm:text-lg leading-relaxed text-[#D5CBC3]">
           <p>
             Kehadiran <strong className="text-[#F7F1EB]">Gemini 4 Carbon</strong> menandai babak baru dalam evolusi kecerdasan buatan global. Lanskap industri AI kini bergerak meninggalkan era chatbot sederhana yang hanya bisa menjawab satu prompt teks, menuju era <strong>Agentic AI</strong> yang mampu bekerja secara otonom, mengoperasikan tools komputasi nyata, memeriksa hasil pekerjaannya sendiri, dan menuntaskan proyek berskala besar.
           </p>

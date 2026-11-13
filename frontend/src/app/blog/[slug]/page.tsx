@@ -16,6 +16,7 @@ import ArticleDomainVsHosting from "@/components/blog/ArticleDomainVsHosting";
 import ArticleSeoWebsiteSepi from "@/components/blog/ArticleSeoWebsiteSepi";
 import ArticleKenapaBisnisPerluWebsite from "@/components/blog/ArticleKenapaBisnisPerluWebsite";
 import ArticleApaItuGeo from "@/components/blog/ArticleApaItuGeo";
+import ArticleGemini4Carbon from "@/components/blog/ArticleGemini4Carbon";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -126,6 +127,29 @@ const TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS = [
   { id: "referensi", number: "★", title: "Referensi dan Sumber Data" },
 ];
 
+const TOC_GEMINI_4_CARBON_ITEMS = [
+  { id: "pendahuluan", number: "00", title: "Kisah Dua Petugas Keamanan Komplek" },
+  { id: "01-apa-itu-gemini-4-carbon", number: "01", title: "Apa Itu Gemini 4 Carbon?" },
+  { id: "02-argon-vs-carbon-satpam", number: "02", title: "Argon & Carbon: Cerita Satpam Komplek" },
+  { id: "03-cara-kerja-tugas-kompleks", number: "03", title: "Cara Kerja Carbon pada Tugas Kompleks" },
+  { id: "04-agentic-workflow-swarm", number: "04", title: "Agentic Workflow & Fitur /swarm" },
+  { id: "05-kemampuan-utama", number: "05", title: "Kemampuan: Coding, Cyber & Sains" },
+  { id: "06-perbandingan-benchmark", number: "06", title: "Benchmark: Argon, GPT-6 & Claude" },
+  { id: "07-deepseek-grok-qwen", number: "07", title: "Bagaimana DeepSeek, Grok & Qwen?" },
+  { id: "08-pembuatan-3d-dan-game", number: "08", title: "Gemini 4 Carbon untuk 3D & Game" },
+  { id: "09-evaluasi-game-dev", number: "09", title: "Apakah Selalu Terbaik untuk 3D?" },
+  { id: "10-panduan-memilih-model", number: "10", title: "Kapan Memilih Argon atau Carbon?" },
+  { id: "11-cara-mengakses", number: "11", title: "Di Mana Bisa Mengakses Carbon?" },
+  { id: "12-google-ai-pro-vs-ultra", number: "12", title: "Google AI Pro vs Ultra & Biaya API" },
+  { id: "13-apakah-selalu-lebih-baik", number: "13", title: "Apakah Selalu Lebih Baik?" },
+  { id: "14-batasan-dan-risiko", number: "14", title: "Batasan dan Risiko Carbon" },
+  { id: "15-contoh-prompt", number: "15", title: "Contoh Prompt Gemini 4 Carbon" },
+  { id: "16-siapa-yang-cocok", number: "16", title: "Siapa yang Sebaiknya Menggunakan?" },
+  { id: "17-kesimpulan", number: "17", title: "Kesimpulan & Pesan Penutup" },
+  { id: "18-faq", number: "18", title: "FAQ Pertanyaan yang Sering Ditanyakan" },
+  { id: "referensi", number: "★", title: "Daftar Sumber Resmi & Rujukan Ilmiah" },
+];
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
@@ -139,11 +163,14 @@ export default async function BlogPostPage({ params }: Props) {
     `${post.title} — Paham Digital Agency\n${canonicalUrl}`
   )}`;
 
+  const isArticle05 = post.slug === "apa-itu-gemini-4-carbon";
   const isArticle04 = post.slug === "apa-itu-geo";
   const isArticle03 = post.slug === "kenapa-bisnis-perlu-website";
   const isArticle02 = post.slug === "apa-itu-seo-website-sepi-pengunjung";
 
-  const tocItems = isArticle04
+  const tocItems = isArticle05
+    ? TOC_GEMINI_4_CARBON_ITEMS
+    : isArticle04
     ? TOC_GEO_ITEMS
     : isArticle03
     ? TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS
@@ -151,7 +178,9 @@ export default async function BlogPostPage({ params }: Props) {
     ? TOC_SEO_ITEMS
     : TOC_DOMAIN_HOSTING_ITEMS;
 
-  const waConsultMessage = isArticle04
+  const waConsultMessage = isArticle05
+    ? "Halo Tim Paham Digital! Saya membaca artikel 'Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia! Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks' dan ingin berdiskusi mengenai integrasi AI dan pengembangan sistem bisnis saya."
+    : isArticle04
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Apa Itu GEO? Cara Agar Bisnis Lebih Mudah Dikenal dan Direkomendasikan oleh AI' dan ingin berdiskusi mengenai optimasi website dan kehadiran bisnis saya untuk sistem AI."
     : isArticle03
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Kenapa Bisnis Perlu Website? Manfaatnya untuk UMKM di Era AI' dan ingin berdiskusi mengenai pembuatan website bisnis saya."
@@ -232,7 +261,9 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const figCaption = isArticle04
+  const figCaption = isArticle05
+    ? "Ilustrasi visual konsep Gemini 4 Carbon Google DeepMind: struktur orbital atom karbon, dualitas Argon dan Carbon, dan sirkuit komputasi canggih untuk proyek kompleks."
+    : isArticle04
     ? "Ilustrasi visual: Diorama 3D miniatur komplek perumahan analogi Pak RT dan Tetangga Baru untuk memahami konsep Generative Engine Optimization (GEO) dan AI Search."
     : isArticle03
     ? "Ilustrasi visual: Lingkungan bisnis, media sosial (smartphone), pencarian (kaca pembesar), dan toko digital (layar komputer) sebagai gambaran pentingnya website untuk bisnis."
@@ -287,7 +318,14 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Title (H1 in Geom) */}
-            {isArticle04 ? (
+            {isArticle05 ? (
+              <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia!{" "}
+                <span className="text-[#F45B1A]">
+                  Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks
+                </span>
+              </h1>
+            ) : isArticle04 ? (
               <h1 className="font-geom font-bold text-[30px] sm:text-[42px] lg:text-[50px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
                 Apa Itu GEO?{" "}
                 <span className="text-[#F45B1A]">
@@ -376,7 +414,9 @@ export default async function BlogPostPage({ params }: Props) {
             
             {/* ── Left Column: Editorial Content (Max ~780px) ───────── */}
             <div className="lg:col-span-8">
-              {isArticle04 ? (
+              {isArticle05 ? (
+                <ArticleGemini4Carbon waShareUrl={waShareUrl} />
+              ) : isArticle04 ? (
                 <ArticleApaItuGeo waShareUrl={waShareUrl} />
               ) : isArticle03 ? (
                 <ArticleKenapaBisnisPerluWebsite waShareUrl={waShareUrl} />
@@ -401,7 +441,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
 
                 <h3 className="font-geom font-bold text-xl text-[#F7F1EB] leading-snug">
-                  {isArticle04
+                  {isArticle05
+                    ? "Ingin Mengintegrasikan Solusi AI ke Bisnis Anda?"
+                    : isArticle04
                     ? "Mau Bisnismu Siap Dikenal & Direkomendasikan AI?"
                     : isArticle03
                     ? "Mau Punya Rumah Digital Sendiri untuk Bisnismu?"
@@ -411,7 +453,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </h3>
 
                 <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
-                  {isArticle04
+                  {isArticle05
+                    ? "Paham Digital Agency membantu bisnis merancang website profesional, sistem automasi alur kerja, dan integrasi kecerdasan buatan terapan yang aman dan teruji."
+                    : isArticle04
                     ? "Paham Digital Agency membantu bisnis membangun website profesional berarsitektur semantik yang siap dipahami Google dan sistem pencarian AI generasi baru."
                     : isArticle03
                     ? "Paham Digital Agency membantu UMKM membangun website profesional yang siap ditemukan di Google dan sistem pencarian AI, bukan sekadar ramai saat viral."

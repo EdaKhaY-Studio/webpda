@@ -229,6 +229,46 @@ export const BLOG_CATEGORIES = [
 
 export const BLOG_POSTS = [
   {
+    id: "apa-itu-paham-digital-agency",
+    articleNumber: "07",
+    series: "PAHAM DIGITAL — PROFIL DIGITAL AGENCY",
+    title:
+      "Pernah Dengar Paham Digital Agency? Kenalan dengan Digital Agency dari Aceh yang Dirintis Sejak Usia 14 Tahun!",
+    h1: "Pernah Dengar Paham Digital Agency? Kenalan dengan Digital Agency dari Aceh yang Dirintis Sejak Usia 14 Tahun!",
+    subtitle:
+      "Paham Digital Agency adalah digital agency asal Meulaboh, Aceh Barat, yang didirikan Kholid Yagha pada Juli 2026 ketika masih berusia 14 tahun. PDA berfokus membantu bisnis dan UMKM melalui pengembangan website, Web Application, AI Agent, AI Customer Service, otomatisasi bisnis, SEO, dan GEO.",
+    slug: "apa-itu-paham-digital-agency",
+    category: "Profil Digital Agency",
+    excerpt:
+      "Paham Digital Agency adalah digital agency asal Meulaboh, Aceh Barat, yang didirikan Kholid Yagha pada Juli 2026 ketika masih berusia 14 tahun. PDA berfokus membantu bisnis dan UMKM melalui pengembangan website, Web Application, AI Agent, AI Customer Service, otomatisasi bisnis, SEO, dan GEO.",
+    publishedAt: "2026-11-14",
+    readingTime: 12,
+    coverImage: "/images/blog/apa-itu-paham-digital-agency-cover.webp",
+    coverAlt:
+      "Poster editorial profil Paham Digital Agency (PDA) dari Meulaboh, Aceh Barat: inovasi digital, website, aplikasi web, dan AI bisnis.",
+    author: "Kholid Yagha",
+    authorRole: "Founder Paham Digital Agency",
+    featured: true,
+    seoTitle: "Paham Digital Agency Itu Apa? Digital Agency dari Meulaboh, Aceh",
+    primaryKeyword: "apa itu Paham Digital Agency",
+    additionalKeywords: [
+      "Paham Digital Agency Aceh",
+      "Paham Digital Agency Meulaboh",
+      "digital agency Meulaboh",
+      "digital agency Aceh",
+      "jasa pembuatan website Aceh",
+      "jasa Web Application Aceh",
+      "jasa AI Agent untuk bisnis",
+      "AI Customer Service WhatsApp",
+      "jasa SEO dan GEO Indonesia",
+    ],
+    metaDescription:
+      "Kenalan dengan Paham Digital Agency, digital agency dari Meulaboh, Aceh, yang didirikan Kholid Yagha saat berusia 14 tahun. Kenali layanan website, AI, SEO, dan GEO.",
+    ogTitle: "Yuk, Kenalan dengan Paham Digital Agency dari Aceh!",
+    ogDescription:
+      "Dari Meulaboh, PDA hadir dengan layanan website, Web Application, AI, SEO, dan GEO. Kenali cerita Founder-nya, Kholid Yagha.",
+  },
+  {
     id: "apa-itu-gemini-4-hydrogen",
     articleNumber: "06",
     series: "PAHAM DIGITAL — DIGITAL KNOWLEDGE",

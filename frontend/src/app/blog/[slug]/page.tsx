@@ -18,6 +18,7 @@ import ArticleKenapaBisnisPerluWebsite from "@/components/blog/ArticleKenapaBisn
 import ArticleApaItuGeo from "@/components/blog/ArticleApaItuGeo";
 import ArticleGemini4Carbon from "@/components/blog/ArticleGemini4Carbon";
 import ArticleGemini4Hydrogen from "@/components/blog/ArticleGemini4Hydrogen";
+import ArticlePahamDigitalAgency from "@/components/blog/ArticlePahamDigitalAgency";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -72,6 +73,18 @@ function formatDate(dateStr: string) {
     day: "numeric",
   });
 }
+
+const TOC_PAHAM_DIGITAL_AGENCY_ITEMS = [
+  { id: "01-apa-itu-pda", number: "01", title: "Apa Itu Paham Digital Agency?" },
+  { id: "02-cerita-founder-kholid-yagha", number: "02", title: "Dari Meulaboh, Aceh: Cerita Kholid Yagha, Founder PDA yang Memulai di Usia 14 Tahun" },
+  { id: "03-layanan-pda", number: "03", title: "Apa Saja Layanan Paham Digital Agency?" },
+  { id: "04-bagaimana-teknologi-membantu", number: "04", title: "Bagaimana Teknologi PDA Bisa Membantu Bisnismu?" },
+  { id: "05-siapa-partner-pda", number: "05", title: "Siapa yang Bisa Menjadi Partner Paham Digital Agency?" },
+  { id: "06-faq", number: "06", title: "FAQ — Pertanyaan yang Sering Ditanyakan" },
+  { id: "07-kesimpulan", number: "07", title: "Kesimpulan: Sebuah Digital Agency dari Aceh dengan Cita-Cita untuk Terus Berkembang" },
+  { id: "08-rangkuman-pembahasan", number: "08", title: "Rangkuman Pembahasan" },
+  { id: "referensi", number: "★", title: "Referensi dan Kanal Resmi" },
+];
 
 const TOC_DOMAIN_HOSTING_ITEMS = [
   { id: "01-hosting", number: "01", title: "Hosting — Rumah Tempat Website Tinggal" },
@@ -194,13 +207,16 @@ export default async function BlogPostPage({ params }: Props) {
     `${post.title} — Paham Digital Agency\n${canonicalUrl}`
   )}`;
 
+  const isArticle07 = post.slug === "apa-itu-paham-digital-agency";
   const isArticle06 = post.slug === "apa-itu-gemini-4-hydrogen";
   const isArticle05 = post.slug === "apa-itu-gemini-4-carbon";
   const isArticle04 = post.slug === "apa-itu-geo";
   const isArticle03 = post.slug === "kenapa-bisnis-perlu-website";
   const isArticle02 = post.slug === "apa-itu-seo-website-sepi-pengunjung";
 
-  const tocItems = isArticle06
+  const tocItems = isArticle07
+    ? TOC_PAHAM_DIGITAL_AGENCY_ITEMS
+    : isArticle06
     ? TOC_GEMINI_4_HYDROGEN_ITEMS
     : isArticle05
     ? TOC_GEMINI_4_CARBON_ITEMS
@@ -212,7 +228,9 @@ export default async function BlogPostPage({ params }: Props) {
     ? TOC_SEO_ITEMS
     : TOC_DOMAIN_HOSTING_ITEMS;
 
-  const waConsultMessage = isArticle06
+  const waConsultMessage = isArticle07
+    ? "Halo Tim Paham Digital Agency! Saya membaca artikel profil 'Pernah Dengar Paham Digital Agency? Kenalan dengan Digital Agency dari Aceh yang Dirintis Sejak Usia 14 Tahun!' dan ingin berdiskusi mengenai solusi digital untuk bisnis saya."
+    : isArticle06
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Gemini 4 Hydrogen Itu Apa? Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!' dan ingin berdiskusi mengenai implementasi AI dan automasi sistem bisnis saya."
     : isArticle05
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia! Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks' dan ingin berdiskusi mengenai integrasi AI dan pengembangan sistem bisnis saya."
@@ -297,7 +315,9 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const figCaption = isArticle06
+  const figCaption = isArticle07
+    ? "Poster editorial profil Paham Digital Agency (PDA) dari Meulaboh, Aceh Barat: inovasi digital, website, aplikasi web, AI bisnis, automasi, SEO, dan GEO."
+    : isArticle06
     ? "Ilustrasi visual perbandingan tiga model Google AI: Gemini 4 Argon (satpam junior terlatih), Gemini 4 Hydrogen (satpam senior muda yang gesit, 2.5x lebih cepat), dan Gemini 4 Carbon (satpam senior spesialis untuk tugas kompleks)."
     : isArticle05
     ? "Poster edukasi Paham Digital Agency tentang Gemini 4 Argon dan Gemini 4 Carbon untuk coding, cybersecurity, agentic workflow, dan pengembangan 3D."
@@ -356,7 +376,14 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Title (H1 in Geom) */}
-            {isArticle06 ? (
+            {isArticle07 ? (
+              <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Pernah Dengar Paham Digital Agency?{" "}
+                <span className="text-[#F45B1A]">
+                  Kenalan dengan Digital Agency dari Aceh yang Dirintis Sejak Usia 14 Tahun!
+                </span>
+              </h1>
+            ) : isArticle06 ? (
               <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
                 Gemini 4 Hydrogen Itu Apa?{" "}
                 <span className="text-[#F45B1A]">
@@ -459,7 +486,9 @@ export default async function BlogPostPage({ params }: Props) {
             
             {/* ── Left Column: Editorial Content (Max ~780px) ───────── */}
             <div className="lg:col-span-8">
-              {isArticle06 ? (
+              {isArticle07 ? (
+                <ArticlePahamDigitalAgency waShareUrl={waShareUrl} />
+              ) : isArticle06 ? (
                 <ArticleGemini4Hydrogen waShareUrl={waShareUrl} />
               ) : isArticle05 ? (
                 <ArticleGemini4Carbon waShareUrl={waShareUrl} />
@@ -488,7 +517,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
 
                 <h3 className="font-geom font-bold text-xl text-[#F7F1EB] leading-snug">
-                  {isArticle06
+                  {isArticle07
+                    ? "Mau Berkonsultasi Solusi Website, AI, atau Sistem Bisnismu?"
+                    : isArticle06
                     ? "Ingin Mengintegrasikan Solusi AI & Automasi ke Bisnis Anda?"
                     : isArticle05
                     ? "Ingin Mengintegrasikan Solusi AI ke Bisnis Anda?"
@@ -502,7 +533,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </h3>
 
                 <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
-                  {isArticle06
+                  {isArticle07
+                    ? "Paham Digital Agency siap menjadi partner digital bisnismu di Aceh melalui website profesional, aplikasi web, AI customer service, dan automasi sistem."
+                    : isArticle06
                     ? "Paham Digital Agency membantu bisnis merancang website modern, sistem automasi alur kerja, dan integrasi AI cerdas yang cepat, aman, dan efisien."
                     : isArticle05
                     ? "Paham Digital Agency membantu bisnis merancang website profesional, sistem automasi alur kerja, dan integrasi kecerdasan buatan terapan yang aman dan teruji."

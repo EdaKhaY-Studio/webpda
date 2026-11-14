@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070504" />
+      <stop offset="35%" stop-color="#0E0A08" />
+      <stop offset="70%" stop-color="#160E0B" />
+      <stop offset="100%" stop-color="#060403" />
+    </linearGradient>
+
+    <!-- Glowing Auras -->
+    <radialGradient id="meulabohGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.65" />
+      <stop offset="35%" stop-color="#FF7A3D" stop-opacity="0.30" />
+      <stop offset="75%" stop-color="#F45B1A" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#F45B1A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="techAuraRight" cx="60%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#F45B1A" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#B94312" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#B94312" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="strongGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Card Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A120E" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0F0A08" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <!-- 2. Ambient Lights -->
+  <circle cx="280" cy="330" r="260" fill="url(#meulabohGlow)" />
+  <circle cx="850" cy="320" r="320" fill="url(#techAuraRight)" />
+
+  <!-- 3. Grid Pattern -->
+  <g stroke="#F45B1A" stroke-opacity="0.06" stroke-width="1">
+    <line x1="80" y1="90" x2="1120" y2="90" />
+    <line x1="80" y1="210" x2="1120" y2="210" />
+    <line x1="80" y1="337" x2="1120" y2="337" />
+    <line x1="80" y1="465" x2="1120" y2="465" />
+    <line x1="80" y1="585" x2="1120" y2="585" />
+
+    <line x1="160" y1="60" x2="160" y2="615" />
+    <line x1="380" y1="60" x2="380" y2="615" />
+    <line x1="600" y1="60" x2="600" y2="615" />
+    <line x1="820" y1="60" x2="820" y2="615" />
+    <line x1="1040" y1="60" x2="1040" y2="615" />
+  </g>
+
+  <!-- 4. Abstract Stylized Aceh Map Silhouette (Left Half) -->
+  <g id="acehMap" transform="translate(130, 110)">
+    <!-- Stylized North Sumatra / Aceh Tip Outline -->
+    <path d="M 120 40 
+             C 170 30, 220 50, 260 80 
+             C 285 100, 310 135, 330 180 
+             C 340 205, 345 240, 320 280 
+             C 290 325, 270 350, 240 375 
+             C 210 400, 175 410, 130 400 
+             C 95 390, 75 365, 60 330 
+             C 45 295, 40 250, 48 200 
+             C 55 150, 75 90, 120 40 Z" 
+          fill="#17100D" 
+          fill-opacity="0.65" 
+          stroke="#F45B1A" 
+          stroke-opacity="0.35" 
+          stroke-width="1.8" 
+          stroke-dasharray="8 4" />
+
+    <!-- Topographic / Circuit Overlay Contour Lines -->
+    <path d="M 140 80 C 180 70, 220 90, 250 120 C 275 145, 290 190, 280 230 C 265 280, 230 320, 180 340 C 130 360, 95 330, 80 280 C 68 230, 80 160, 140 80 Z"
+          fill="none" stroke="#F45B1A" stroke-opacity="0.15" stroke-width="1.2" />
+
+    <path d="M 155 120 C 190 110, 225 130, 245 160 C 260 185, 260 220, 240 250 C 215 285, 175 300, 140 285 C 105 270, 95 230, 105 185 C 115 145, 130 125, 155 120 Z"
+          fill="none" stroke="#F45B1A" stroke-opacity="0.1" stroke-width="1" />
+
+    <!-- Meulaboh Coordinate Node (Southwest Coast of Aceh) -->
+    <!-- Meulaboh Beacon -->
+    <g transform="translate(108, 255)">
+      <!-- Concentric Ripple Rings -->
+      <circle cx="0" cy="0" r="32" fill="none" stroke="#F45B1A" stroke-opacity="0.25" stroke-width="1.5">
+        <animate attributeName="r" values="12;40;12" dur="4s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#F45B1A" stroke-opacity="0.5" stroke-width="1.5" />
+      
+      <!-- Core Beacon Dot -->
+      <circle cx="0" cy="0" r="7" fill="#F45B1A" filter="url(#softGlow)" />
+      <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
+
+      <!-- Location Pin Label -->
+      <g transform="translate(-15, -45)">
+        <rect x="-10" y="0" width="130" height="26" rx="13" fill="#17100D" stroke="#F45B1A" stroke-width="1.2" />
+        <circle cx="2" cy="13" r="3" fill="#F45B1A" />
+        <text x="14" y="17" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="11" fill="#F7F1EB" letter-spacing="0.5">MEULABOH, ACEH</text>
+      </g>
+    </g>
+
+    <!-- Digital Connection Beams radiating from Meulaboh -->
+    <g stroke="#F45B1A" stroke-width="1.2">
+      <path d="M 108 255 L 240 180 L 390 180" stroke-opacity="0.4" stroke-dasharray="3 3" />
+      <circle cx="240" cy="180" r="4" fill="#F45B1A" />
+      <circle cx="390" cy="180" r="4" fill="#F45B1A" />
+
+      <path d="M 108 255 L 210 320 L 410 320" stroke-opacity="0.4" stroke-dasharray="3 3" />
+      <circle cx="210" cy="320" r="4" fill="#F45B1A" />
+      <circle cx="410" cy="320" r="4" fill="#F45B1A" />
+
+      <path d="M 108 255 L 180 120 L 360 120" stroke-opacity="0.3" stroke-dasharray="3 3" />
+      <circle cx="180" cy="120" r="3" fill="#FF7A3D" />
+      <circle cx="360" cy="120" r="3" fill="#FF7A3D" />
+    </g>
+  </g>
+
+  <!-- 5. Editorial Center-Right Hero Card & Typographic Panel -->
+  <g transform="translate(560, 110)">
+    <!-- Backdrop Card -->
+    <rect x="0" y="0" width="550" height="455" rx="24" fill="url(#cardGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2" />
+    <rect x="0" y="0" width="550" height="455" rx="24" fill="none" stroke="#F45B1A" stroke-opacity="0.25" stroke-width="1" />
+
+    <!-- Corner Accents -->
+    <path d="M 0 30 L 0 0 L 30 0" stroke="#F45B1A" stroke-width="2.5" fill="none" transform="translate(1, 1)" />
+    <path d="M 520 0 L 550 0 L 550 30" stroke="#F45B1A" stroke-width="2.5" fill="none" transform="translate(-1, 1)" />
+
+    <!-- Category Pill -->
+    <g transform="translate(36, 40)">
+      <rect x="0" y="0" width="220" height="28" rx="14" fill="#17100D" stroke="#F45B1A" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="16" cy="14" r="3.5" fill="#F45B1A" />
+      <text x="28" y="18" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="10.5" fill="#F45B1A" letter-spacing="1.2">PAHAM DIGITAL · ARTIKEL 07</text>
+    </g>
+
+    <!-- Main Headline in Geom style -->
+    <text x="36" y="115" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="38" fill="#F7F1EB" letter-spacing="-1">
+      PAHAM DIGITAL
+    </text>
+    <text x="36" y="160" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="900" font-size="38" fill="#F45B1A" letter-spacing="-1">
+      AGENCY
+    </text>
+
+    <!-- Editorial Subtitle -->
+    <text x="36" y="200" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="600" font-size="16" fill="#D5CBC3" letter-spacing="1.8">
+      DIGITAL INNOVATION BORN IN ACEH
+    </text>
+
+    <!-- Divider -->
+    <line x1="36" y1="225" x2="514" y2="225" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1" />
+
+    <!-- Founder & Origin Meta Badge -->
+    <g transform="translate(36, 245)">
+      <!-- Origin Badge -->
+      <rect x="0" y="0" width="225" height="52" rx="12" fill="#110C0A" stroke="#FFFFFF" stroke-opacity="0.08" />
+      <text x="16" y="22" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="600" font-size="10" fill="#A99A90" letter-spacing="1">FOUNDER &amp; TAHUN</text>
+      <text x="16" y="40" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="13" fill="#F7F1EB">Kholid Yagha · Juli 2026</text>
+
+      <!-- Age Spotlight Badge -->
+      <rect x="240" y="0" width="238" height="52" rx="12" fill="#110C0A" stroke="#F45B1A" stroke-opacity="0.3" />
+      <text x="256" y="22" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="600" font-size="10" fill="#F45B1A" letter-spacing="1">USIA DIRINTIS</text>
+      <text x="256" y="40" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="800" font-size="13" fill="#F7F1EB">14 Tahun (Siswa MTs)</text>
+    </g>
+
+    <!-- Core Services Grid Pill Blocks -->
+    <g transform="translate(36, 318)">
+      <!-- Website -->
+      <rect x="0" y="0" width="150" height="34" rx="8" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.1" />
+      <circle cx="16" cy="17" r="3" fill="#F45B1A" />
+      <text x="28" y="21" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="11" fill="#F7F1EB">Website &amp; Web App</text>
+
+      <!-- AI Agents -->
+      <rect x="160" y="0" width="150" height="34" rx="8" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.1" />
+      <circle cx="176" cy="17" r="3" fill="#F45B1A" />
+      <text x="188" y="21" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="11" fill="#F7F1EB">AI Agent &amp; CS Chat</text>
+
+      <!-- SEO / GEO -->
+      <rect x="320" y="0" width="158" height="34" rx="8" fill="#17100D" stroke="#FFFFFF" stroke-opacity="0.1" />
+      <circle cx="336" cy="17" r="3" fill="#F45B1A" />
+      <text x="348" y="21" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="11" fill="#F7F1EB">Automasi, SEO &amp; GEO</text>
+    </g>
+
+    <!-- Tagline Footer in Card -->
+    <g transform="translate(36, 375)">
+      <rect x="0" y="0" width="478" height="50" rx="12" fill="#F45B1A" fill-opacity="0.12" stroke="#F45B1A" stroke-opacity="0.3" />
+      <text x="24" y="28" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="12" fill="#F45B1A" letter-spacing="1">TAGLINE RESMI</text>
+      <text x="24" y="42" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-style="italic" font-weight="600" font-size="13" fill="#F7F1EB">"Paham Bisnisnya, Otomatiskan Sistemnya."</text>
+    </g>
+  </g>
+
+  <!-- 6. Bottom Banner / Micro Footer -->
+  <g transform="translate(600, 625)">
+    <text x="0" y="0" font-family="'Geist', 'Segoe UI', system-ui, sans-serif" font-weight="500" font-size="12" fill="#A99A90" text-anchor="middle" letter-spacing="2">
+      MEULABOH · ACEH BARAT · WEBSITE · WEB APP · AI AGENTS · AUTOMATION · SEO · GEO
+    </text>
+  </g>
+</svg>

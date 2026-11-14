@@ -275,30 +275,49 @@ export default function ArticlePahamDigitalAgency({ waShareUrl }: Props) {
           </h2>
         </div>
 
-        {/* Compact Horizontal Founder Milestone Card */}
-        <div className="rounded-2xl bg-[#17100D] border border-white/10 p-5 sm:p-6 md:px-8 md:py-6 flex items-center gap-5 sm:gap-8 max-w-full">
-          {/* Left Area: Bold Orange 14 (~30–35% of card) */}
-          <div className="w-[30%] sm:w-[32%] md:w-[30%] flex items-center justify-center shrink-0">
-            <span className="font-geom font-black text-[72px] sm:text-[84px] md:text-[96px] leading-none text-[#F45B1A] select-none tracking-tight">
-              14
-            </span>
-          </div>
+        {/* Horizontal Founder Milestone Card */}
+        <div className="rounded-2xl bg-[#17100D] border border-white/10 p-5 sm:p-6 md:py-6 md:px-8 shadow-lg">
+          <div className="flex flex-row items-center gap-4 sm:gap-6 md:gap-8">
+            {/* Left Area: Large Orange 14 (30-35% width) */}
+            <div className="w-[30%] sm:w-[32%] shrink-0 flex items-center justify-center">
+              <span className="font-geom font-black text-6xl sm:text-7xl md:text-[96px] leading-none text-[#F45B1A] select-none tracking-tight">
+                14
+              </span>
+            </div>
 
-          {/* Right Area: Supporting Information in a Compact Vertical Group */}
-          <div className="flex-1 min-w-0 flex flex-col justify-center space-y-1 sm:space-y-1.5">
-            <p className="font-geom font-bold text-sm sm:text-base md:text-lg text-[#F7F1EB] tracking-wide uppercase">
-              USIA SAAT MENDIRIKAN PDA
-            </p>
-            <p className="font-outfit text-xs sm:text-sm text-[#A99A90]">
-              Siswa MTs di Meulaboh, Aceh
-            </p>
-            <p className="font-geom font-bold text-xs sm:text-sm text-[#F45B1A] tracking-wider uppercase pt-0.5">
-              JULI 2026
-            </p>
+            {/* Subtle Vertical Divider */}
+            <div className="w-px h-16 sm:h-20 bg-white/10 shrink-0" aria-hidden="true" />
+
+            {/* Right Area: Supporting Information in Compact Vertical Group */}
+            <div className="flex-1 min-w-0 flex flex-col justify-center space-y-1 sm:space-y-1.5">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] sm:text-xs font-geom font-bold tracking-widest text-[#F45B1A] uppercase">
+                  FOUNDER SPOTLIGHT
+                </span>
+                <span className="text-white/20">·</span>
+                <span className="text-xs sm:text-sm font-geom font-bold text-[#F7F1EB]">
+                  Kholid Yagha
+                </span>
+              </div>
+
+              <h3 className="font-geom font-bold text-xs sm:text-sm md:text-base text-[#F7F1EB] tracking-wide uppercase">
+                USIA SAAT MENDIRIKAN PDA
+              </h3>
+
+              <p className="font-outfit text-xs sm:text-sm text-[#A99A90]">
+                Siswa MTs di Meulaboh, Aceh
+              </p>
+
+              <div className="pt-0.5">
+                <span className="text-[11px] sm:text-xs font-geom font-bold text-[#F45B1A] uppercase tracking-wider">
+                  JULI 2026
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Founder Storytelling Content & Pull Quote */}
+        {/* Full Storytelling Content & Pull Quote */}
         <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
           <div className="space-y-4 font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
             <p>

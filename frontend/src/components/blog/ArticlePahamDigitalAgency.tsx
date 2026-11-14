@@ -275,85 +275,70 @@ export default function ArticlePahamDigitalAgency({ waShareUrl }: Props) {
           </h2>
         </div>
 
-        {/* Split Composition */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-          {/* Left Column: Big Typographic 14 Treatment */}
-          <div className="md:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-[#1C120D] to-[#120B08] border border-[#F45B1A]/35 text-center flex flex-col justify-between items-center shadow-xl">
-            <div className="space-y-1">
-              <span className="text-[10px] font-geom font-bold tracking-widest text-[#F45B1A] uppercase">
-                SPOTLIGHT FOUNDER
-              </span>
-              <p className="font-geom font-bold text-lg text-[#F7F1EB]">
-                Kholid Yagha
-              </p>
-            </div>
-
-            <div className="my-6">
-              <div className="font-geom font-black text-[96px] sm:text-[110px] leading-none text-[#F45B1A] select-none tracking-tight">
-                14
-              </div>
-              <p className="text-xs font-geom font-bold text-[#D5CBC3] tracking-wider uppercase mt-1">
-                USIA SAAT MENDIRIKAN PDA
-              </p>
-              <p className="text-[11px] font-outfit text-[#A99A90] mt-0.5">
-                Siswa MTs di Meulaboh, Aceh
-              </p>
-            </div>
-
-            <div className="w-full pt-4 border-t border-white/10 space-y-1.5 text-xs font-outfit text-[#A99A90]">
-              <div className="flex justify-between">
-                <span>Tanggal Rintis:</span>
-                <strong className="text-[#F7F1EB]">Juli 2026</strong>
-              </div>
-              <div className="flex justify-between">
-                <span>Kota Asal:</span>
-                <strong className="text-[#F7F1EB]">Meulaboh, Aceh</strong>
-              </div>
-            </div>
+        {/* Compact Horizontal Founder Milestone Card */}
+        <div className="rounded-2xl bg-[#17100D] border border-white/10 p-5 sm:p-6 md:px-8 md:py-6 flex items-center gap-5 sm:gap-8 max-w-full">
+          {/* Left Area: Bold Orange 14 (~30–35% of card) */}
+          <div className="w-[30%] sm:w-[32%] md:w-[30%] flex items-center justify-center shrink-0">
+            <span className="font-geom font-black text-[72px] sm:text-[84px] md:text-[96px] leading-none text-[#F45B1A] select-none tracking-tight">
+              14
+            </span>
           </div>
 
-          {/* Right Column: Full Storytelling Content & Pull Quote */}
-          <div className="md:col-span-8 p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5 flex flex-col justify-between">
-            <div className="space-y-4 font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
-              <p>
-                Sebuah digital agency tidak selalu harus lahir dari gedung perkantoran besar di kota metropolitan.
-              </p>
-              <p>
-                Paham Digital Agency memulai perjalanannya dari Meulaboh, Aceh Barat.
-              </p>
-              <p>
-                PDA didirikan pada <strong className="text-[#F7F1EB]">Juli 2026 oleh Kholid Yagha</strong>, seorang siswa MTs yang ketika itu masih berusia <strong className="text-[#F45B1A]">14 tahun</strong>.
-              </p>
-              <p className="italic text-[#F7F1EB]">
-                Mungkin muncul pertanyaan: &ldquo;Usia 14 tahun sudah berani mendirikan digital agency?&rdquo;
-              </p>
-              <p>
-                Tentu, memulai sesuatu pada usia tersebut bukan hal yang selalu mudah. Ada tantangan dalam membangun kemampuan teknis, memahami kebutuhan klien, berkomunikasi secara profesional, mengatur pekerjaan, dan menjaga kualitas hasil.
-              </p>
-              <p>
-                Namun, Kholid memiliki keyakinan bahwa usia tidak seharusnya menjadi penghalang untuk mengejar cita-cita yang tinggi.
-              </p>
-            </div>
+          {/* Right Area: Supporting Information in a Compact Vertical Group */}
+          <div className="flex-1 min-w-0 flex flex-col justify-center space-y-1 sm:space-y-1.5">
+            <p className="font-geom font-bold text-sm sm:text-base md:text-lg text-[#F7F1EB] tracking-wide uppercase">
+              USIA SAAT MENDIRIKAN PDA
+            </p>
+            <p className="font-outfit text-xs sm:text-sm text-[#A99A90]">
+              Siswa MTs di Meulaboh, Aceh
+            </p>
+            <p className="font-geom font-bold text-xs sm:text-sm text-[#F45B1A] tracking-wider uppercase pt-0.5">
+              JULI 2026
+            </p>
+          </div>
+        </div>
 
-            {/* Editorial Pull Quote */}
-            <div className="my-2 p-5 rounded-xl bg-[#110C0A] border border-[#F45B1A]/30 relative overflow-hidden">
-              <Quote className="w-8 h-8 text-[#F45B1A]/20 absolute top-2 right-2 pointer-events-none" />
-              <p className="font-outfit italic font-medium text-sm sm:text-base text-[#F7F1EB] leading-relaxed">
-                &ldquo;Umur tidak seharusnya menjadi penghalang untuk mengejar cita-cita yang tinggi, selama kita mau belajar, berusaha, dan bertanggung jawab atas apa yang sedang dibangun.&rdquo;
-              </p>
-            </div>
+        {/* Founder Storytelling Content & Pull Quote */}
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="space-y-4 font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+            <p>
+              Sebuah digital agency tidak selalu harus lahir dari gedung perkantoran besar di kota metropolitan.
+            </p>
+            <p>
+              Paham Digital Agency memulai perjalanannya dari Meulaboh, Aceh Barat.
+            </p>
+            <p>
+              PDA didirikan pada <strong className="text-[#F7F1EB]">Juli 2026 oleh Kholid Yagha</strong>, seorang siswa MTs yang ketika itu masih berusia <strong className="text-[#F45B1A]">14 tahun</strong>.
+            </p>
+            <p className="italic text-[#F7F1EB]">
+              Mungkin muncul pertanyaan: &ldquo;Usia 14 tahun sudah berani mendirikan digital agency?&rdquo;
+            </p>
+            <p>
+              Tentu, memulai sesuatu pada usia tersebut bukan hal yang selalu mudah. Ada tantangan dalam membangun kemampuan teknis, memahami kebutuhan klien, berkomunikasi secara profesional, mengatur pekerjaan, dan menjaga kualitas hasil.
+            </p>
+            <p>
+              Namun, Kholid memiliki keyakinan bahwa usia tidak seharusnya menjadi penghalang untuk mengejar cita-cita yang tinggi.
+            </p>
+          </div>
 
-            <div className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
-              <p>
-                Bukan berarti umur tidak penting atau pengalaman bisa diabaikan. Justru, semakin muda seseorang memulai sesuatu, semakin besar pula kemauan untuk belajar, memperbaiki kesalahan, dan membangun pengalaman secara bertahap.
-              </p>
-              <p>
-                Mendirikan agency juga bukan hanya tentang memiliki nama dan layanan. Kepercayaan harus dibangun melalui komunikasi yang baik, ruang lingkup pekerjaan yang jelas, kemampuan yang terus berkembang, serta hasil yang dapat dipertanggungjawabkan.
-              </p>
-              <p>
-                PDA masih berada pada tahap awal perjalanannya. Karena itu, membangun kualitas layanan, portofolio, pengalaman, dan kepercayaan pelanggan menjadi bagian penting dari proses pengembangannya.
-              </p>
-            </div>
+          {/* Editorial Pull Quote */}
+          <div className="my-2 p-5 rounded-xl bg-[#110C0A] border border-[#F45B1A]/30 relative overflow-hidden">
+            <Quote className="w-8 h-8 text-[#F45B1A]/20 absolute top-2 right-2 pointer-events-none" />
+            <p className="font-outfit italic font-medium text-sm sm:text-base text-[#F7F1EB] leading-relaxed">
+              &ldquo;Umur tidak seharusnya menjadi penghalang untuk mengejar cita-cita yang tinggi, selama kita mau belajar, berusaha, dan bertanggung jawab atas apa yang sedang dibangun.&rdquo;
+            </p>
+          </div>
+
+          <div className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+            <p>
+              Bukan berarti umur tidak penting atau pengalaman bisa diabaikan. Justru, semakin muda seseorang memulai sesuatu, semakin besar pula kemauan untuk belajar, memperbaiki kesalahan, dan membangun pengalaman secara bertahap.
+            </p>
+            <p>
+              Mendirikan agency juga bukan hanya tentang memiliki nama dan layanan. Kepercayaan harus dibangun melalui komunikasi yang baik, ruang lingkup pekerjaan yang jelas, kemampuan yang terus berkembang, serta hasil yang dapat dipertanggungjawabkan.
+            </p>
+            <p>
+              PDA masih berada pada tahap awal perjalanannya. Karena itu, membangun kualitas layanan, portofolio, pengalaman, dan kepercayaan pelanggan menjadi bagian penting dari proses pengembangannya.
+            </p>
           </div>
         </div>
 

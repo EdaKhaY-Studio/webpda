@@ -298,6 +298,16 @@ export default function ArticleGemini4Carbon({ waShareUrl }: Props) {
           </div>
         </div>
 
+        {/* ── CATATAN EDITORIAL ANALOGI KREATIF ── */}
+        <div className="p-4 rounded-xl bg-[#0B0807] border border-white/10 text-xs font-outfit text-[#A99A90] space-y-1">
+          <p className="font-geom font-bold text-[#F45B1A] uppercase tracking-wider text-[11px]">
+            CATATAN EDITORIAL PAHAM DIGITAL AGENCY:
+          </p>
+          <p>
+            Analogi &ldquo;Satpam Junior Terlatih&rdquo; untuk Gemini 4 Argon dan &ldquo;Satpam Senior Spesialis&rdquo; untuk Gemini 4 Carbon merupakan ilustrasi kreatif dari Paham Digital Agency untuk mempermudah masyarakat memahami perbedaan tingkatan penalaran, bukan klasifikasi atau terminologi resmi dari Google.
+          </p>
+        </div>
+
         {/* H3: Biaya */}
         <div className="space-y-3 pt-2">
           <h3 className="font-geom font-bold text-xl text-[#F7F1EB]">

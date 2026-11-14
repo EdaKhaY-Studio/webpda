@@ -267,7 +267,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   const figCaption = isArticle05
-    ? "Ilustrasi visual konsep Gemini 4 Carbon Google DeepMind: struktur orbital atom karbon, dualitas Argon dan Carbon, dan sirkuit komputasi canggih untuk proyek kompleks."
+    ? "Poster edukasi Paham Digital Agency tentang Gemini 4 Argon dan Gemini 4 Carbon untuk coding, cybersecurity, agentic workflow, dan pengembangan 3D."
     : isArticle04
     ? "Ilustrasi visual: Diorama 3D miniatur komplek perumahan analogi Pak RT dan Tetangga Baru untuk memahami konsep Generative Engine Optimization (GEO) dan AI Search."
     : isArticle03
@@ -325,9 +325,9 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Title (H1 in Geom) */}
             {isArticle05 ? (
               <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
-                Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia!{" "}
+                Gemini 4 Carbon:{" "}
                 <span className="text-[#F45B1A]">
-                  Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks
+                  AI untuk Proyek Kompleks, Bukan Sekadar Chatbot
                 </span>
               </h1>
             ) : isArticle04 ? (

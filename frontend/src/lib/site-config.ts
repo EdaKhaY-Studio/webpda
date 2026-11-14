@@ -219,6 +219,7 @@ export const PORTFOLIO_PROJECTS = [
 
 export const BLOG_CATEGORIES = [
   "Semua",
+  "AI & Technology",
   "SEO & Digital Marketing",
   "Website & Technology",
   "AI & Automasi",
@@ -231,26 +232,28 @@ export const BLOG_POSTS = [
     articleNumber: "05",
     series: "PAHAM DIGITAL — DIGITAL KNOWLEDGE",
     title:
-      "Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia! Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks",
-    h1: "Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia! Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks",
+      "Gemini 4 Carbon: AI untuk Proyek Kompleks, Bukan Sekadar Chatbot",
+    h1: "Gemini 4 Carbon: AI untuk Proyek Kompleks, Bukan Sekadar Chatbot",
     subtitle:
-      "Gemini 4 Carbon bukan unsur kimia, melainkan model AI terbaru Google DeepMind yang dirancang untuk pekerjaan kompleks. Kenali kemampuan coding, cybersecurity, agentic workflow, pembuatan game 3D, perbandingan model, harga, dan cara mengaksesnya.",
+      "Mengenal perbedaan Gemini 4 Argon dan Carbon, serta bagaimana AI generasi baru menangani coding, agentic workflow, cybersecurity, dan proyek yang membutuhkan penalaran mendalam.",
     slug: "apa-itu-gemini-4-carbon",
-    category: "Teknologi AI",
+    category: "AI & Technology",
     excerpt:
-      "Gemini 4 Carbon bukan unsur kimia, melainkan model AI terbaru Google DeepMind yang dirancang untuk pekerjaan kompleks. Kenali kemampuan coding, cybersecurity, agentic workflow, pembuatan game 3D, perbandingan model, harga, dan cara mengaksesnya.",
-    publishedAt: "2026-11-13",
+      "Mengenal perbedaan Gemini 4 Argon dan Carbon, serta bagaimana AI generasi baru menangani coding, agentic workflow, cybersecurity, dan proyek yang membutuhkan penalaran mendalam.",
+    publishedAt: "2026-11-14",
     readingTime: 27,
-    coverImage: "/images/blog/apa-itu-gemini-4-carbon-cover.webp",
+    coverImage: "/images/blog/gemini-4-carbon-article-05.png",
     coverAlt:
-      "Ilustrasi visual konsep Gemini 4 Carbon Google DeepMind: struktur orbital atom karbon, dualitas Argon dan Carbon, dan sirkuit komputasi canggih untuk proyek kompleks.",
+      "Poster edukasi Paham Digital Agency tentang Gemini 4 Argon dan Gemini 4 Carbon untuk coding, cybersecurity, agentic workflow, dan pengembangan 3D.",
     author: "Kholid Yagha",
     authorRole: "Founder Paham Digital Agency",
     featured: true,
-    seoTitle: "Gemini 4 Carbon Itu Apa? Kenali AI Google untuk Proyek Kompleks",
-    primaryKeyword: "apa itu Gemini 4 Carbon",
+    seoTitle: "Gemini 4 Carbon: AI untuk Proyek Kompleks | Paham Digital",
+    primaryKeyword: "Gemini 4 Carbon",
     additionalKeywords: [
       "Gemini 4 Carbon",
+      "apa itu Gemini 4 Carbon",
+      "Gemini 4 Argon dan Carbon",
       "cara menggunakan Gemini 4 Carbon",
       "Gemini 4 Carbon Google AI Ultra",
       "perbedaan Google AI Pro dan Ultra",
@@ -261,10 +264,10 @@ export const BLOG_POSTS = [
       "AI untuk membuat game 3D",
     ],
     metaDescription:
-      "Apa itu Gemini 4 Carbon? Kenali analogi Argon dan Carbon, kemampuan coding, cybersecurity, game 3D, benchmark AI, harga, dan cara mengaksesnya.",
-    ogTitle: "Gemini 4 Carbon: AI Google untuk Proyek Kompleks",
+      "Kenali Gemini 4 Carbon, perbedaannya dengan Argon, serta kemampuannya dalam coding, agentic workflow, cybersecurity dan proyek kompleks.",
+    ogTitle: "Gemini 4 Carbon: AI untuk Proyek Kompleks | Paham Digital",
     ogDescription:
-      "Kenali Gemini 4 Carbon melalui analogi satpam komplek, perbandingan model AI, demonstrasi 3D, coding, keamanan, dan harga aksesnya.",
+      "Kenali Gemini 4 Carbon, perbedaannya dengan Argon, serta kemampuannya dalam coding, agentic workflow, cybersecurity dan proyek kompleks.",
   },
   {
     id: "apa-itu-geo",

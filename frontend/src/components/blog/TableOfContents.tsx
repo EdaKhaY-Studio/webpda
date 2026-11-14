@@ -19,12 +19,37 @@ const DEFAULT_TOC_ITEMS: TOCItem[] = [
   { id: "07-hanya-domain", number: "07", title: "Apa yang Terjadi Kalau Hanya Punya Domain?" },
   { id: "08-tempat-beli", number: "08", title: "Harus Dibeli di Tempat yang Sama?" },
   { id: "09-kebutuhan-bisnis", number: "09", title: "Kenapa Bisnis Membutuhkan Keduanya?" },
-  { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
-  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
+  { id: "kesimpulan", number: "10", title: "Kesimpulan & Solusi Bisnis" },
+  { id: "rangkuman-pembahasan", number: "11", title: "Rangkuman Pembahasan" },
 ];
 
 export interface TableOfContentsProps {
   items?: TOCItem[];
+}
+
+/**
+ * Removes any leading section numbering prefix (e.g. "1. ", "02. ", "10 — ", etc.)
+ * so the TOC title never duplicates the orange index number shown on the left.
+ */
+function stripNumberPrefix(title: string): string {
+  if (!title) return "";
+  // Strip leading pattern like "1. ", "01. ", "10. ", "1 - ", "01 — ", etc.
+  return title.replace(/^\d{1,2}(?:\.|\s*[\-—])\s*/, "").trim();
+}
+
+/**
+ * Ensures numbers are formatted as 2-digit strings ("00", "01", etc.)
+ */
+function formatTwoDigitNumber(num?: string, fallbackIndex?: number): string {
+  if (!num && fallbackIndex !== undefined) {
+    return String(fallbackIndex).padStart(2, "0");
+  }
+  if (!num) return "00";
+  const parsed = parseInt(num, 10);
+  if (!isNaN(parsed)) {
+    return String(parsed).padStart(2, "0");
+  }
+  return num;
 }
 
 export default function TableOfContents({ items }: TableOfContentsProps) {
@@ -48,7 +73,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
         <button
           type="button"
           onClick={() => setIsOpenMobile(!isOpenMobile)}
-          className="lg:hidden p-1.5 rounded-lg bg-white/5 text-[#A99A90] hover:text-[#F7F1EB]"
+          className="lg:hidden p-1.5 rounded-lg bg-white/5 text-[#A99A90] hover:text-[#F7F1EB] transition-colors"
           aria-expanded={isOpenMobile}
           aria-label="Buka/Tutup Daftar Isi"
         >
@@ -59,25 +84,29 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
       {/* Item List (Always visible on desktop, toggleable on mobile) */}
       <div className={`${isOpenMobile ? "block" : "hidden"} lg:block mt-4 pt-4 border-t border-white/10`}>
         <ol className="space-y-2.5 text-xs sm:text-sm font-outfit">
-          {activeItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                onClick={() => setIsOpenMobile(false)}
-                className="group flex items-start gap-2.5 text-[#A99A90] hover:text-[#F7F1EB] transition-colors py-1 leading-snug"
-              >
-                <span className="font-geom font-semibold text-[#F45B1A] shrink-0 opacity-80 group-hover:opacity-100">
-                  {item.number}
-                </span>
-                <span className="group-hover:translate-x-0.5 transition-transform">
-                  {item.title}
-                </span>
-              </a>
-            </li>
-          ))}
+          {activeItems.map((item, idx) => {
+            const displayNum = formatTwoDigitNumber(item.number, idx);
+            const cleanTitle = stripNumberPrefix(item.title);
+
+            return (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={() => setIsOpenMobile(false)}
+                  className="group flex items-start gap-2.5 text-[#A99A90] hover:text-[#F7F1EB] transition-colors py-1 leading-snug"
+                >
+                  <span className="font-geom font-bold text-[#F45B1A] shrink-0 opacity-90 group-hover:opacity-100 min-w-[1.4rem] text-left">
+                    {displayNum}
+                  </span>
+                  <span className="flex-1 group-hover:translate-x-0.5 transition-transform text-[#D5CBC3] group-hover:text-[#F7F1EB]">
+                    {cleanTitle}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </nav>
   );
 }
-

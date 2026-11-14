@@ -10,6 +10,9 @@ import {
   ExternalLink,
   Share2,
   ArrowRight,
+  BookOpenText,
+  ListChecks,
+  Lightbulb,
 } from "lucide-react";
 
 interface Props {
@@ -19,6 +22,20 @@ interface Props {
 export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
   return (
     <div className="space-y-10">
+      {/* ── SINOPSIS ARTIKEL ─────────────────────────────────── */}
+      <section aria-label="Sinopsis Artikel" className="p-6 sm:p-7 rounded-2xl bg-[#17100D] border border-white/10 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+          <BookOpenText className="w-4 h-4" />
+          <span>SINOPSIS ARTIKEL</span>
+        </div>
+        <p className="text-xs font-outfit text-[#A99A90]">
+          Kenali apa yang akan kamu pelajari dalam artikel ini.
+        </p>
+        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+          Membangun website bisnis yang profesional sering kali diawali dengan kebingungan teknis, terutama dalam membedakan antara domain dan hosting. Artikel ini membedah kedua komponen fundamental tersebut secara sederhana melalui analogi sebuah rumah fisik. Anda akan mempelajari pengertian hosting sebagai bangunan rumah tempat menyimpan seluruh data, foto produk, dan kode website, serta domain sebagai alamat unik yang memandu pengunjung menemukan lokasi bisnis Anda di internet. Lebih dari sekadar definisi teknis, pembahasan ini juga mengupas perbedaan ekstensi populer seperti .com dan .id, alasan mengapa nama domain tidak bisa dibuat sembarangan tanpa registrasi resmi, hingga bagaimana domain dan hosting bekerja beriringan saat halaman web diakses. Panduan ini memberikan kejelasan komprehensif agar Anda dapat memilih nama domain yang tepat serta menentukan spesifikasi hosting yang sesuai dengan kebutuhan operasional bisnis Anda.
+        </p>
+      </section>
+
       {/* Lead Paragraph */}
       <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
@@ -445,24 +462,30 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
 
       {/* ── KESIMPULAN ──────────────────────────────────────── */}
       <section id="kesimpulan" className="scroll-mt-28 pt-8 border-t border-white/10 space-y-5">
-        <div className="p-7 sm:p-9 rounded-3xl bg-gradient-to-b from-[#17100D] to-[#140E0B] border border-[#F45B1A]/40 shadow-xl space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>KESIMPULAN</span>
+          </div>
+
           <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB]">
-            KESIMPULAN: TEKNOLOGI ITU TIDAK HARUS RUMIT
+            Kesimpulan: Membangun Kehadiran Digital yang Tepat dan Berkelanjutan
           </h2>
+
           <p className="font-outfit text-base sm:text-lg text-[#D5CBC3] leading-relaxed">
-            Ternyata memahami domain dan hosting nggak sesulit yang dibayangkan, kan? Cukup ingat tiga rumus sederhana ini:
+            Memahami perbedaan antara domain dan hosting adalah langkah paling krusial sebelum Anda mulai menginvestasikan anggaran untuk membangun kehadiran digital bisnis. Keduanya memiliki fungsi yang sepenuhnya berbeda namun tidak dapat dipisahkan: domain berfungsi sebagai identitas alamat unik agar calon pelanggan dapat menemukan bisnis Anda dengan mudah, sedangkan hosting bertindak sebagai infrastruktur tempat menyimpan seluruh aset, gambar, dan program website agar selalu dapat diakses selama 24 jam penuh. Memiliki domain tanpa hosting membuat alamat Anda tidak memiliki tujuan kunjungan, sementara memiliki hosting tanpa domain menjadikan website Anda terisolasi dari pencarian publik. Dengan memahami cara kerja keduanya, Anda kini dapat merencanakan pembuatan website secara lebih percaya diri, memilih nama domain yang kredibel dan mudah diingat, serta menentukan layanan hosting yang stabil demi mendukung pertumbuhan bisnis jangka panjang.
           </p>
-          
-          <div className="space-y-2 pt-2 text-sm sm:text-base font-geom font-semibold">
-            <div className="p-3 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
+
+          <div className="space-y-2 pt-1 text-sm sm:text-base font-geom font-semibold">
+            <div className="p-3.5 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
               <span className="w-2 h-2 rounded-full bg-[#F45B1A]" />
               <span>Hosting = Rumah tempat seluruh file website disimpan.</span>
             </div>
-            <div className="p-3 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
+            <div className="p-3.5 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
               <span className="w-2 h-2 rounded-full bg-[#F45B1A]" />
               <span>Domain = Alamat unik untuk menemukan website di internet.</span>
             </div>
-            <div className="p-3 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
+            <div className="p-3.5 rounded-xl bg-[#0B0807] border border-white/10 flex items-center gap-2.5 text-[#F7F1EB]">
               <span className="w-2 h-2 rounded-full bg-[#F45B1A]" />
               <span>TLD (.com, .id, .online) = Akhiran resmi dalam sistem alamat global.</span>
             </div>
@@ -472,9 +495,68 @@ export default function ArticleDomainVsHosting({ waShareUrl }: Props) {
             Teknologi itu sebenarnya ramah dan logis ketika dijelaskan dengan benar. Yang terpenting adalah kita mau mengenalnya selangkah demi selangkah.
           </p>
 
-          <p className="font-geom font-bold text-base sm:text-lg text-[#F45B1A] pt-2">
+          <p className="font-geom font-bold text-base sm:text-lg text-[#F45B1A] pt-1">
             Paham teknologinya, pahami manfaatnya, kuasai masa depan.
           </p>
+        </div>
+      </section>
+
+      {/* ── RANGKUMAN PEMBAHASAN ───────────────────────────── */}
+      <section id="rangkuman-pembahasan" className="scroll-mt-28 space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <ListChecks className="w-4 h-4" />
+            <span>RANGKUMAN PEMBAHASAN</span>
+          </div>
+
+          <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
+            Poin-Poin Kunci Pembahasan
+          </h3>
+
+          <ul className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3]">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pengertian Domain:</strong> Alamat unik berbasis teks yang diketikkan pengguna di browser untuk menemukan dan mengakses halaman website di internet.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pengertian Hosting:</strong> Layanan komputer server aktif 24 jam yang menyediakan ruang penyimpanan fisik untuk seluruh file, gambar, basis data, dan kode pemrograman website.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Perbedaan Fungsi Utama:</strong> Domain berfungsi sebagai penunjuk arah alamat digital, sedangkan hosting berfungsi sebagai ruang penyimpanan konten yang dikunjungi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Hubungan Saling Melengkapi:</strong> Memiliki domain tanpa hosting hanya menampilkan halaman kosong, sementara hosting tanpa domain membuat website sulit diakses oleh publik.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Mekanisme Akses Bersama:</strong> Saat nama domain diketikkan, sistem DNS menerjemahkan nama tersebut menjadi alamat IP server hosting tempat seluruh aset web disajikan kepada pengunjung.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pertimbangan Memilih Domain:</strong> Pilih nama yang mudah diingat, mencerminkan identitas brand usaha, serta gunakan ekstensi bereputasi tinggi seperti .com atau .id.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pertimbangan Memilih Hosting:</strong> Prioritaskan keandalan uptime, kecepatan muat data, kapasitas penyimpanan, fitur keamanan SSL otomatis, dan ketersediaan bantuan teknis responsif.
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 

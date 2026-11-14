@@ -27,6 +27,8 @@ import {
   FileText,
   Clock,
   Sparkles,
+  BookOpenText,
+  ListChecks,
 } from "lucide-react";
 
 interface Props {
@@ -36,6 +38,20 @@ interface Props {
 export default function ArticleGemini4Carbon({ waShareUrl }: Props) {
   return (
     <div className="space-y-12">
+      {/* ── SINOPSIS ARTIKEL ─────────────────────────────────── */}
+      <section aria-label="Sinopsis Artikel" className="p-6 sm:p-7 rounded-2xl bg-[#17100D] border border-white/10 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+          <BookOpenText className="w-4 h-4" />
+          <span>SINOPSIS ARTIKEL</span>
+        </div>
+        <p className="text-xs font-outfit text-[#A99A90]">
+          Kenali apa yang akan kamu pelajari dalam artikel ini.
+        </p>
+        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+          Dunia kecerdasan buatan memasuki babak baru dengan diluncurkannya Gemini 4 Carbon oleh Google DeepMind, model frontier yang dirancang khusus untuk pekerjaan kompleks dan penalaran mendalam. Artikel ini mengupas tuntas kapabilitas Carbon secara komprehensif melalui analogi dua petugas keamanan komplek perumahan antara varian Argon yang lincah dan Carbon sang investigator senior. Pembaca akan diajak menelusuri arsitektur agentic workflow berbasis koordinasi /swarm di Google Antigravity, kemampuan pemrograman perangkat lunak, tantangan cybersecurity defensif, hingga demonstrasi prototipe game 3D interaktif. Ulasan ini menyajikan perbandingan objektif skor benchmark terhadap GPT-6 dan Claude Opus 5.5, panduan memilih model yang hemat biaya, rincian paket langganan Google AI Ultra, kalkulasi tarif API resmi, hingga contoh prompt praktis. Panduan ini memberikan perspektif berimbang agar developer dan pemilik bisnis dapat mengadopsi AI secara bijak dan efisien.
+        </p>
+      </section>
+
       {/* ── SECTION 00: PENDAHULUAN & STORYTELLING SATPAM ────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
         <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-4">
@@ -1656,34 +1672,94 @@ Berikan rekomendasi perbaikan spesifik dengan standar OWASP Top 10.`,
 
       {/* ── SECTION 17: KESIMPULAN ─────────────────────────────── */}
       <section id="17-kesimpulan" className="scroll-mt-28 space-y-6 border-t border-white/10 pt-10">
-        <div className="space-y-3">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
           <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
-            <BookOpen className="w-4 h-4" />
-            <span>BAGIAN 17 · SINTESIS PENUTUP</span>
+            <CheckCircle2 className="w-4 h-4" />
+            <span>BAGIAN 17 · KESIMPULAN</span>
           </div>
+
           <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] leading-tight">
             17. Kesimpulan: Bukan Soal Siapa yang Paling Pintar, tetapi Siapa yang Paling Tepat untuk Pekerjaanmu
           </h2>
-        </div>
 
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-4 font-outfit text-base sm:text-lg leading-relaxed text-[#D5CBC3]">
-          <p>
-            Kehadiran <strong className="text-[#F7F1EB]">Gemini 4 Carbon</strong> menandai babak baru dalam evolusi kecerdasan buatan global. Lanskap industri AI kini bergerak meninggalkan era chatbot sederhana yang hanya bisa menjawab satu prompt teks, menuju era <strong>Agentic AI</strong> yang mampu bekerja secara otonom, mengoperasikan tools komputasi nyata, memeriksa hasil pekerjaannya sendiri, dan menuntaskan proyek berskala besar.
-          </p>
-          <p className="text-sm sm:text-base text-[#A99A90]">
-            Melalui analogi pos keamanan Komplek Digital, kita memahami bahwa <strong className="text-[#38BDF8]">Argon</strong> adalah petugas junior terlatih yang siap menangani 80% pekerjaan harian secara cepat dan efisien, sedangkan <strong className="text-[#F45B1A]">Carbon</strong> adalah investigator senior spesialis yang dipanggil saat menghadapi krisis arsitektur dan sistemik.
-          </p>
-          <p className="text-sm sm:text-base text-[#A99A90]">
-            Hasil benchmark resmi membuktikan bahwa tidak ada satu model pun yang sempurna di semua lini. GPT-6 Astra unggul di FrontierSWE 2, Claude Opus 5.5 memimpin di OSWorld-2.1, sementara Carbon mendominasi di Terminal-Bench, tantangan cybersecurity, penalaran multimodal grafis, dan pemahaman dokumen teknis.
-          </p>
-          <div className="p-4 rounded-xl bg-[#0B0807] border border-white/10 text-center space-y-2">
-            <p className="font-geom font-bold text-lg text-[#F45B1A]">
-              "Carbon memang unsur kimia. Tapi Gemini 4 Carbon bukan isi pensil, bro. Ini teknologi komputasi frontier yang wajib kamu pahami sebelum kamu gunakan."
+          <div className="space-y-4 font-outfit text-base sm:text-lg leading-relaxed text-[#D5CBC3]">
+            <p>
+              Kehadiran Gemini 4 Carbon menegaskan pergeseran paradigma kecerdasan buatan dari sekadar asisten percakapan teks pasif menuju sistem otonom yang mampu mengeksekusi proyek teknis berskala besar. Meski demikian, kecanggihan Carbon bukanlah alasan untuk meninggalkan model yang lebih ringan. Melalui pemahaman yang objektif, kita melihat bahwa varian Argon tetap menjadi pilihan paling rasional dan hemat biaya untuk menangani sebagian besar kebutuhan operasional harian, sedangkan Carbon dialokasikan khusus bagi persoalan arsitektur kritis yang menuntut penalaran berlapis. Evaluasi benchmark independen juga membuktikan bahwa keunggulan model sangat bergantung pada domain pengujian yang spesifik, bukan dominasi mutlak di semua lini. Pada akhirnya, keberhasilan adopsi teknologi frontier tidak ditentukan oleh seberapa besar model yang Anda gunakan, melainkan seberapa cermat Anda menyelaraskan kapabilitas model, efisiensi anggaran token, dan pengawasan manusia demi menghasilkan solusi nyata yang bernilai tinggi.
             </p>
-            <p className="text-xs text-[#A99A90]">
-              Pahami kapabilitasnya, hitung efisiensi biayanya, dan kuasai masa depan digital dengan bijak.
-            </p>
+            <div className="p-4 rounded-xl bg-[#0B0807] border border-white/10 text-center space-y-2">
+              <p className="font-geom font-bold text-lg text-[#F45B1A]">
+                "Carbon memang unsur kimia. Tapi Gemini 4 Carbon bukan isi pensil, bro. Ini teknologi komputasi frontier yang wajib kamu pahami sebelum kamu gunakan."
+              </p>
+              <p className="text-xs text-[#A99A90]">
+                Pahami kapabilitasnya, hitung efisiensi biayanya, dan kuasai masa depan digital dengan bijak.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── RANGKUMAN PEMBAHASAN ───────────────────────────── */}
+      <section id="rangkuman-pembahasan" className="scroll-mt-28 space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <ListChecks className="w-4 h-4" />
+            <span>RANGKUMAN PEMBAHASAN</span>
+          </div>
+
+          <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
+            Poin-Poin Kunci Pembahasan
+          </h3>
+
+          <ul className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3]">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Hakikat Gemini 4 Carbon:</strong> Model frontier AI dari Google DeepMind yang dioptimalkan untuk penalaran mendalam, pemanggilan tools komputasi, dan eksekusi proyek multi-tahap.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Peran Argon dan Carbon:</strong> Argon bertindak sebagai model harian yang cepat dan ekonomis, sementara Carbon hadir sebagai spesialis pemecah krisis sistemik yang rumit.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Alur Kerja Otonom &amp; /swarm:</strong> Integrasi agen otonom memungkinkan pembagian tugas komputasi secara paralel dengan pengawasan kode mandiri di Google Antigravity.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Kapabilitas Teknis Unggulan:</strong> Menunjukkan performa tinggi pada software engineering, pemecahan tantangan keamanan siber, dan penalaran saintifik terintegrasi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Realitas Komparasi Benchmark:</strong> Unggul pada Terminal-Bench dan audit keamanan, bersaing ketat dengan GPT-6 pada FrontierSWE 2 dan Claude Opus pada OSWorld.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Eksplorasi Prototipe 3D &amp; Game:</strong> Mampu merancang alur Three.js dan WebGL, namun tetap memerlukan tuning performa dan logika tabrakan dari developer manusia.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Struktur Akses &amp; Skema Biaya:</strong> Tersedia melalui Google AI Ultra untuk konsumen dan Google AI Studio API dengan sistem penagihan berbasis konsumsi token.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Prinsip Pemilihan Berkelanjutan:</strong> Efisiensi biaya dan ketepatan fungsi adalah kunci; gunakan model sesuai tingkat kerumitan masalah tanpa memaksakan model terberat.
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 

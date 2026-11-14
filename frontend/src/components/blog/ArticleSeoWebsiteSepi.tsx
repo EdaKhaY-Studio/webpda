@@ -18,6 +18,8 @@ import {
   Layers,
   ArrowLeft,
   Users,
+  BookOpenText,
+  ListChecks,
 } from "lucide-react";
 
 interface Props {
@@ -27,6 +29,20 @@ interface Props {
 export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
   return (
     <div className="space-y-12">
+      {/* ── SINOPSIS ARTIKEL ─────────────────────────────────── */}
+      <section aria-label="Sinopsis Artikel" className="p-6 sm:p-7 rounded-2xl bg-[#17100D] border border-white/10 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+          <BookOpenText className="w-4 h-4" />
+          <span>SINOPSIS ARTIKEL</span>
+        </div>
+        <p className="text-xs font-outfit text-[#A99A90]">
+          Kenali apa yang akan kamu pelajari dalam artikel ini.
+        </p>
+        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+          Memiliki website dengan desain menarik dan domain resmi ternyata belum menjamin datangnya pengunjung secara otomatis. Artikel ini mengupas tuntas mengapa website baru sering kali sepi pengunjung dan bagaimana Search Engine Optimization (SEO) menjadi solusi strategisnya. Melalui analogi ramah Pak RT dan buku catatan warga, Anda akan diajak memahami cara kerja mesin pencari Google mulai dari proses penelusuran (crawling) oleh Googlebot, penyimpanan data halaman ke dalam Google Index, hingga penentuan peringkat (ranking) hasil pencarian. Pembahasan mencakup langkah-langkah praktis optimasi konten yang relevan dengan search intent pembaca, perbaikan fondasi teknis seperti kecepatan akses dan keramahan mobile, serta pentingnya evaluasi berkala melalui Google Search Console. Panduan ini menegaskan bahwa SEO adalah proses membangun reputasi dan kepercayaan jangka panjang, bukan sekadar trik instan menjejalkan kata kunci.
+        </p>
+      </section>
+
       {/* ── LEAD PARAGRAPH ───────────────────────────────────── */}
       <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg">
         <p className="font-geom font-semibold text-lg sm:text-xl text-[#F7F1EB] leading-relaxed mb-3">
@@ -677,13 +693,22 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
 
       {/* ── KESIMPULAN ──────────────────────────────────────── */}
       <section id="kesimpulan" className="scroll-mt-28 pt-8 border-t border-white/10 space-y-6">
-        <div className="p-7 sm:p-9 rounded-3xl bg-gradient-to-b from-[#17100D] to-[#120C09] border border-[#F45B1A]/50 shadow-2xl space-y-5">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>KESIMPULAN</span>
+          </div>
+
           <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB]">
-            KESIMPULAN: JADIKAN RUMAH DIGITALMU MUDAH DITEMUKAN
+            Kesimpulan: Menjadikan Rumah Digitalmu Ditemukan dan Dipercaya
           </h2>
 
           <p className="font-outfit text-base sm:text-lg text-[#D5CBC3] leading-relaxed">
-            Sekarang kita rangkai seluruh gambaran besar dari Seri Digital Knowledge:
+            Menerbitkan website ke internet hanyalah langkah awal dari perjalanan digital sebuah bisnis. Memiliki domain aktif dan hosting andal tidak serta-merta membuat calon pelanggan langsung berdatangan tanpa adanya upaya optimasi yang terencana dan konsisten. Melalui pemahaman konsep SEO yang tepat, Anda menyadari bahwa mesin pencari seperti Google bertindak selayaknya Pak RT yang bijak: hanya merekomendasikan rumah atau website yang jelas alamatnya, rapi susunan ruangannya, bermanfaat isinya, serta nyaman bagi setiap tamu yang datang berkunjung. Keberhasilan SEO menuntut keselarasan antara kualitas konten yang menjawab kebutuhan nyata audiens, fondasi teknis yang cepat dan aman, kepatuhan struktur sitemap, serta pemantauan data performa secara berkelanjutan melalui Google Search Console. Hasil peringkat pencarian di halaman pertama tidak pernah terjadi dalam semalam, melainkan buah dari kesabaran dan konsistensi membangun reputasi digital yang kredibel.
+          </p>
+
+          <p className="font-outfit text-sm sm:text-base text-[#A99A90] leading-relaxed pt-1">
+            Rangkai kembali seluruh fondasi pemahaman digital dari seri edukasi ini:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-geom font-semibold">
@@ -717,9 +742,74 @@ export default function ArticleSeoWebsiteSepi({ waShareUrl }: Props) {
             Jadi, jangan cuma sibuk membangun rumah yang bagus. Pastikan juga orang-orang tahu rumah tersebut ada, memahami apa yang tersedia di dalamnya, dan punya alasan kuat untuk berkunjung!
           </p>
 
-          <p className="font-geom font-bold text-base sm:text-lg text-[#F45B1A] pt-2">
+          <p className="font-geom font-bold text-base sm:text-lg text-[#F45B1A] pt-1">
             Paham teknologinya, pahami manfaatnya, kuasai masa depan.
           </p>
+        </div>
+      </section>
+
+      {/* ── RANGKUMAN PEMBAHASAN ───────────────────────────── */}
+      <section id="rangkuman-pembahasan" className="scroll-mt-28 space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <ListChecks className="w-4 h-4" />
+            <span>RANGKUMAN PEMBAHASAN</span>
+          </div>
+
+          <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
+            Poin-Poin Kunci Pembahasan
+          </h3>
+
+          <ul className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3]">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pengertian Dasar SEO:</strong> Proses strategis mengoptimalkan struktur teknis dan konten website agar mudah dipahami mesin pencari serta relevan dengan kebutuhan pengguna.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Penelusuran Bot (Crawling):</strong> Googlebot menjelajahi halaman-halaman web melalui tautan hyperlink secara berkala seperti petugas pendata lingkungan yang mendata rumah baru.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Penyimpanan Indeks (Indexing):</strong> Google mengkatalogkan dan menganalisis topik halaman ke dalam database Google Index sebelum halaman tersebut dapat dimunculkan pada hasil pencarian.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Faktor Penentu Peringkat (Ranking):</strong> Algoritma menilai relevansi kata kunci, keaslian konten, keramahan perangkat mobile, kecepatan akses, serta sinyal kepuasan pengunjung.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Optimasi Konten &amp; Search Intent:</strong> Buat konten yang secara tuntas menjawab pertanyaan pencari, bukan sekadar menumpuk kata kunci secara berlebihan tanpa nilai tambah.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Fondasi Teknis yang Sehat:</strong> Pastikan arsitektur tautan bersih, situs memakai protokol HTTPS aman, gambar terkompresi cepat, serta file sitemap.xml terkirim rapi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Evaluasi Google Search Console:</strong> Gunakan data resmi GSC untuk memantau performa tayangan, klik organik, kata kunci masuk, dan mendeteksi kesalahan teknis pengindeksan.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Konsistensi dan Kesabaran:</strong> Peringkat organik membutuhkan waktu pembuktian rekam jejak; tidak ada jaminan instan nomor satu tanpa proses optimasi yang berkelanjutan.
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 

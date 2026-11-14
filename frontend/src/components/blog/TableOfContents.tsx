@@ -20,6 +20,7 @@ const DEFAULT_TOC_ITEMS: TOCItem[] = [
   { id: "08-tempat-beli", number: "08", title: "Harus Dibeli di Tempat yang Sama?" },
   { id: "09-kebutuhan-bisnis", number: "09", title: "Kenapa Bisnis Membutuhkan Keduanya?" },
   { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
 ];
 
 export interface TableOfContentsProps {

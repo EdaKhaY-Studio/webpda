@@ -28,6 +28,8 @@ import {
   Scale,
   Smartphone,
   RefreshCw,
+  BookOpenText,
+  ListChecks,
 } from "lucide-react";
 
 interface Props {
@@ -37,6 +39,20 @@ interface Props {
 export default function ArticleApaItuGeo({ waShareUrl }: Props) {
   return (
     <div className="space-y-12">
+      {/* ── SINOPSIS ARTIKEL ─────────────────────────────────── */}
+      <section aria-label="Sinopsis Artikel" className="p-6 sm:p-7 rounded-2xl bg-[#17100D] border border-white/10 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+          <BookOpenText className="w-4 h-4" />
+          <span>SINOPSIS ARTIKEL</span>
+        </div>
+        <p className="text-xs font-outfit text-[#A99A90]">
+          Kenali apa yang akan kamu pelajari dalam artikel ini.
+        </p>
+        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+          Lanskap pencarian digital sedang bertransformasi pesat dari pengetikan kata kunci konvensional menuju dialog percakapan interaktif dengan asisten AI seperti ChatGPT, Google Gemini, dan Copilot. Artikel ini menyajikan panduan komprehensif mengenai Generative Engine Optimization (GEO), yaitu metodologi strategis agar informasi bisnis Anda dapat ditemukan, dipahami, dan direkomendasikan dalam jawaban berbasis kecerdasan buatan. Berlandaskan analogi interaksi warga di komplek perumahan, Anda akan mengeksplorasi enam sumber rujukan utama AI, perbedaan fundamental antara SEO tradisional dan GEO, serta sembilan langkah praktis optimasi mandiri. Pembahasan mendalam ini mencakup perancangan struktur semantik konten, penerapan Schema Markup berstandar Organization, tata kelola akses crawler pada file robots.txt, hingga studi kasus riset akademis KDD 2024. Panduan ini dirancang untuk membekali pemilik bisnis strategi konkret agar tetap relevan di era pencarian generasi baru.
+        </p>
+      </section>
+
       {/* ── BAGIAN 01: PENDAHULUAN ──────────────────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
         <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-3.5">
@@ -893,25 +909,89 @@ Sitemap: https://pahamdigital.online/sitemap.xml`}
 
       {/* ── BAGIAN 13: KESIMPULAN ───────────────────────── */}
       <section id="kesimpulan" className="scroll-mt-28 space-y-6 border-t border-white/10 pt-10">
-        <div className="space-y-3">
-          <div className="text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
-            <span>BAGIAN 13 · PESAN PENUTUP</span>
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>BAGIAN 13 · KESIMPULAN</span>
           </div>
-          <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] leading-tight">
-            Kesimpulan: Membangun Kehadiran Digital yang Nyata di Era AI
-          </h2>
-        </div>
 
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#1A120E] to-[#120C09] border border-[#F45B1A]/40 space-y-4 font-outfit text-base sm:text-lg text-[#D5CBC3] leading-relaxed">
-          <p>
-            Dulu, fokus digital kita adalah memastikan agar website ditemukan ketika seseorang mengetikkan kata kunci di Google. Hari ini, lanskap itu meluas: kita juga harus memastikan bahwa informasi bisnis kita cukup jelas, terstruktur, dan dapat dipercaya ketika seseorang meminta rekomendasi kepada asisten AI.
-          </p>
-          <p className="text-[#A99A90]">
-            Ingatlah selalu analogi Pak RT dan Tetangga Baru. GEO bukanlah tentang "mengakali mesin AI" dengan trik tersembunyi atau manipulasi review. <strong className="text-[#F7F1EB]">GEO adalah tentang merapikan rumah bisnismu sendiri</strong>—membangun website profesional yang cepat dan informatif, menyajikan data bisnis yang konsisten, melayani pelanggan dengan tulus hingga mereka sukarela memberikan ulasan positif, serta mendokumentasikan portofoliomu secara terbuka.
-          </p>
-          <p className="font-semibold text-[#F7F1EB]">
-            Ketika rumah bisnismu rapi, catatannya lengkap, dan reputasimu diakui warga sekitar, maka sistem AI mana pun yang bertamu ke lingkungan digital tidak akan ragu memperkenalkan bisnismu kepada calon pelanggan.
-          </p>
+          <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] leading-tight">
+            13. Kesimpulan: Membangun Kehadiran Digital yang Terstruktur di Era AI
+          </h2>
+
+          <div className="space-y-4 font-outfit text-base sm:text-lg text-[#D5CBC3] leading-relaxed">
+            <p>
+              Peralihan perilaku pencarian informasi menuju platform berbasis kecerdasan buatan bukanlah sinyal matinya SEO, melainkan evolusi alami menuju pemahaman semantik yang lebih mendalam. Generative Engine Optimization (GEO) bukan tentang trik manipulatif atau menyelipkan instruksi tersembunyi ke dalam kode halaman. Fondasi GEO yang sejati bertumpu pada integritas data bisnis Anda: memiliki website resmi yang terstruktur rapi dengan semantic HTML, menyajikan informasi langsung yang mudah diverifikasi, mencantumkan structured data Schema.org yang jujur, serta membangun reputasi riil melalui kepuasan pelanggan yang tulus. Sinergi antara SEO teknis dan GEO memastikan bahwa website Anda tidak hanya terindeks oleh mesin perayap, tetapi juga dipahami entitasnya secara utuh oleh model bahasa besar saat merumuskan rekomendasi. Membangun kehadiran digital yang kokoh hari ini adalah investasi terbaik agar bisnis Anda tetap menjadi rujukan tepercaya di masa depan.
+            </p>
+            <p className="font-semibold text-[#F7F1EB] pt-1">
+              Ketika rumah bisnismu rapi, catatannya lengkap, dan reputasimu diakui warga sekitar, maka sistem AI mana pun yang bertamu ke lingkungan digital tidak akan ragu memperkenalkan bisnismu kepada calon pelanggan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RANGKUMAN PEMBAHASAN ───────────────────────────── */}
+      <section id="rangkuman-pembahasan" className="scroll-mt-28 space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <ListChecks className="w-4 h-4" />
+            <span>RANGKUMAN PEMBAHASAN</span>
+          </div>
+
+          <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
+            Poin-Poin Kunci Pembahasan
+          </h3>
+
+          <ul className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3]">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Definisi Generative Engine Optimization:</strong> Strategi menyusun dan mengoptimalkan konten website agar mudah dipahami, disintesis, dan dikutip oleh mesin pencari berbasis AI.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Sinergi Erat SEO dan GEO:</strong> SEO membangun fondasi penelusuran (crawling) dan pengindeksan teknis, sedangkan GEO menyempurnakan struktur informasi agar mudah dirangkum oleh model AI.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Sumber Informasi Ekosistem AI:</strong> Sistem AI mengombinasikan data pelatihan prapengembangan, penelusuran web langsung (RAG), profil bisnis lokal, dan ulasan pelanggan independen.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pentingnya Struktur Semantik:</strong> Penggunaan tag HTML yang tepat, format tanya-jawab langsung (direct answers), dan hierarki heading mempermudah pemrosesan bahasa alami AI.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Kredibilitas dan Pembuktian Nyata:</strong> Model AI mengutamakan entitas bisnis yang memiliki konsistensi data NAP (Nama, Alamat, Kontak), ulasan otentik, dan portofolio terverifikasi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Penerapan Schema.org Jujur:</strong> Structured data bertipe Organization dan LocalBusiness memberi sinyal identitas mesin yang presisi tanpa meninggalkan ambiguitas informasi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Manajemen Akses Crawler:</strong> Mengizinkan crawler pencarian AI seperti OAI-SearchBot pada file robots.txt untuk membaca konten publik sekaligus menjaga privasi data sensitif.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Strategi Tanpa Manipulasi:</strong> Menolak jalan pintas seperti prompt stuffing tersembunyi, dan fokus menyajikan nilai nyata yang relevan bagi calon pelanggan Anda.
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 

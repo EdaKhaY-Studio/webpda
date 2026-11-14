@@ -19,6 +19,8 @@ import {
   ShieldCheck,
   Check,
   Sparkles,
+  BookOpenText,
+  ListChecks,
 } from "lucide-react";
 
 interface Props {
@@ -28,6 +30,20 @@ interface Props {
 export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
   return (
     <div className="space-y-12">
+      {/* ── SINOPSIS ARTIKEL ─────────────────────────────────── */}
+      <section aria-label="Sinopsis Artikel" className="p-6 sm:p-7 rounded-2xl bg-[#17100D] border border-white/10 space-y-3">
+        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+          <BookOpenText className="w-4 h-4" />
+          <span>SINOPSIS ARTIKEL</span>
+        </div>
+        <p className="text-xs font-outfit text-[#A99A90]">
+          Kenali apa yang akan kamu pelajari dalam artikel ini.
+        </p>
+        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed">
+          Banyak pemilik bisnis dan pelaku UMKM merasa cukup hanya mengandalkan akun media sosial untuk memasarkan produknya. Artikel ini mengupas secara mendalam mengapa bisnis tetap membutuhkan website resmi mandiri di tengah pesatnya perkembangan era digital dan kecerdasan buatan. Melalui analogi hidup di kos-kosan Komplek A versus memiliki toko fisik sendiri, Anda akan memahami perbedaan mendasar antara meminjam panggung di platform pihak ketiga dengan membangun aset digital yang Anda kendalikan sepenuhnya. Didukung data penetrasi internet Indonesia terkini, artikel ini menjelaskan bagaimana website berfungsi sebagai pusat informasi kredibel, sarana membangun kepercayaan pelanggan, etalase katalog produk yang rapi, serta pintu masuk utama agar bisnis Anda dapat ditemukan melalui Google Search maupun rekomendasi asisten AI. Ulasan ini memberikan panduan strategis dalam menentukan fitur website yang proporsional sesuai skala dan kebutuhan riil operasional usaha Anda.
+        </p>
+      </section>
+
       {/* ── LEAD PARAGRAPH: PENDAHULUAN ──────────────────────── */}
       <section id="pendahuluan" className="scroll-mt-28 space-y-4">
         <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-lg space-y-3.5">
@@ -760,49 +776,92 @@ export default function ArticleKenapaBisnisPerluWebsite({ waShareUrl }: Props) {
       </section>
 
       {/* ── KESIMPULAN & OFFICIAL CALLOUT ────────────────────── */}
-      <section id="kesimpulan" className="scroll-mt-28 space-y-6 pt-4">
-        <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
-          <FileText className="w-4 h-4" />
-          <span>KESIMPULAN</span>
-        </div>
-        <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
-          Jangan Hanya Dikenal Saat Viral, Bangun Juga Fondasi Digital Bisnismu
-        </h2>
+      <section id="kesimpulan" className="scroll-mt-28 space-y-6 pt-6 border-t border-white/10">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>KESIMPULAN</span>
+          </div>
 
-        <div className="space-y-4 text-base sm:text-lg text-[#A99A90] font-outfit leading-relaxed">
-          <p>
-            Sekarang kita kembali ke analogi awal.
-          </p>
-          <p>
-            Kamu mungkin sudah dikenal oleh anak-anak kos di Komplek A. Mereka mengenal produkmu, pernah membeli, dan bahkan merekomendasikan tokomu kepada teman-temannya.
-          </p>
-          <p>
-            Namun, masih banyak orang di luar kompleks yang belum mengetahui bisnismu.
-          </p>
-          <p>
-            Media sosial membantu memperkenalkan usaha kepada orang-orang tersebut.
-          </p>
-          <p>
-            Website memberikan tempat resmi untuk menjelaskan bisnis secara lebih lengkap.
-          </p>
-          <p>
-            Google membantu orang menemukan informasi melalui pencarian, sementara sistem AI tertentu juga dapat menggunakan website dan sumber digital lainnya ketika menyusun jawaban.
-          </p>
-          <p className="text-[#F7F1EB] font-medium">
-            Ketiganya bukan sesuatu yang harus dipilih salah satu. Justru semuanya bisa saling melengkapi.
-          </p>
-        </div>
+          <h2 className="font-geom font-bold text-2xl sm:text-3xl text-[#F7F1EB] tracking-tight">
+            Kesimpulan: Jangan Hanya Dikenal Saat Viral, Bangun Fondasi Digital Bisnismu
+          </h2>
 
-        {/* ── CALLOUT CARD ── */}
-        <div className="my-8 p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 shadow-xl space-y-2">
-          <p className="font-geom font-bold text-lg sm:text-xl md:text-2xl text-[#F7F1EB] leading-snug">
-            &ldquo;Jangan hanya membangun bisnis yang ramai ketika sedang viral. Bangun juga fondasi digital yang bisa terus kamu kelola ketika tren sudah berganti.&rdquo;
-          </p>
-        </div>
+          <div className="space-y-4 text-base sm:text-lg text-[#D5CBC3] font-outfit leading-relaxed">
+            <p>
+              Kehadiran website bagi bisnis dan UMKM modern bukan lagi sekadar pelengkap visual, melainkan fondasi utama dari seluruh strategi kehadiran digital. Mengandalkan media sosial semata ibarat menyewa kamar kos yang sewaktu-waktu dapat terdampak perubahan aturan, kebijakan sepihak platform, maupun fluktuasi algoritma yang tidak menentu. Sebaliknya, website mandiri memberikan kepemilikan penuh atas identitas bisnis, katalog layanan, portofolio, serta data interaksi pelanggan tanpa perantara. Keberadaan website juga menjadi prasyarat krusial agar profil usaha Anda dapat diverifikasi oleh mesin pencari Google serta dikutip secara akurat oleh sistem kecerdasan buatan masa kini. Media sosial dan website bukanlah dua opsi yang saling meniadakan, melainkan instrumen yang saling melengkapi: gunakan media sosial untuk menjaring audiens baru, dan arahkan mereka ke website resmi Anda untuk membangun loyalitas serta transaksi yang berkelanjutan.
+            </p>
+          </div>
 
-        <p className="font-outfit text-base sm:text-lg text-[#A99A90] leading-relaxed">
-          Karena bisnis yang ingin berkembang bukan hanya membutuhkan perhatian sesaat, tetapi juga identitas dan informasi yang bisa ditemukan oleh orang-orang yang membutuhkannya.
-        </p>
+          {/* ── CALLOUT CARD ── */}
+          <div className="p-6 sm:p-7 rounded-xl bg-[#0B0807] border border-white/10 space-y-2">
+            <p className="font-geom font-bold text-lg sm:text-xl text-[#F7F1EB] leading-snug">
+              &ldquo;Jangan hanya membangun bisnis yang ramai ketika sedang viral. Bangun juga fondasi digital yang bisa terus kamu kelola ketika tren sudah berganti.&rdquo;
+            </p>
+            <p className="font-outfit text-xs text-[#A99A90]">
+              Bisnis yang ingin berkembang membutuhkan identitas permanen dan informasi resmi yang selalu siap ditemukan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RANGKUMAN PEMBAHASAN ───────────────────────────── */}
+      <section id="rangkuman-pembahasan" className="scroll-mt-28 space-y-4">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#17100D] border border-white/10 space-y-5">
+          <div className="flex items-center gap-2 text-xs font-geom uppercase tracking-widest text-[#F45B1A] font-bold">
+            <ListChecks className="w-4 h-4" />
+            <span>RANGKUMAN PEMBAHASAN</span>
+          </div>
+
+          <h3 className="font-geom font-bold text-xl sm:text-2xl text-[#F7F1EB]">
+            Poin-Poin Kunci Pembahasan
+          </h3>
+
+          <ul className="space-y-3 font-outfit text-sm sm:text-base text-[#D5CBC3]">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Keharusan Kehadiran Digital:</strong> Dengan lebih dari 231 juta pengguna internet di Indonesia, visibilitas mandiri di dunia digital merupakan syarat mutlak bagi pertumbuhan bisnis modern.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Pusat Informasi Resmi Terpusat:</strong> Website menyediakan wadah terstruktur 24 jam untuk menampilkan profil usaha, katalog produk, daftar harga transparan, dan kanal kontak langsung.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Membangun Kepercayaan Pelanggan:</strong> Kepemilikan domain dan website mandiri memancarkan profesionalisme tinggi serta meningkatkan keyakinan calon pelanggan sebelum mengambil keputusan pembelian.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Optimalisasi Penemuan Google &amp; AI:</strong> Halaman website dapat dirayapi Google Search dan dijadikan sumber kutipan otoritatif oleh asisten kecerdasan buatan seperti ChatGPT dan Gemini.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Kemandirian dari Algoritma Platform:</strong> Berbeda dengan media sosial yang rentan fluktuasi algoritma, website adalah aset mandiri tempat Anda memegang kendali penuh atas penyajian informasi.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Fleksibilitas Skala Usaha:</strong> Fitur website dapat dimulai dari profil sederhana, lalu berkembang menjadi sistem e-commerce, reservasi booking, atau aplikasi automasi layanan sesuai fase pertumbuhan.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F45B1A] shrink-0 mt-2" />
+              <span>
+                <strong className="text-[#F7F1EB]">Aset Digital Jangka Panjang:</strong> Investasi pembuatan website terus mengakumulasi nilai reputasi, rekam jejak SEO, dan kepercayaan pasar secara berkelanjutan tanpa batas kedaluwarsa.
+              </span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       {/* ── CTA BOX: INGIN BISNISMU MEMILIKI WEBSITE SENDIRI? ─── */}

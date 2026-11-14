@@ -83,6 +83,7 @@ const TOC_DOMAIN_HOSTING_ITEMS = [
   { id: "08-tempat-beli", number: "08", title: "Harus Dibeli di Tempat yang Sama?" },
   { id: "09-kebutuhan-bisnis", number: "09", title: "Kenapa Bisnis Membutuhkan Keduanya?" },
   { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
 ];
 
 const TOC_SEO_ITEMS = [
@@ -95,6 +96,7 @@ const TOC_SEO_ITEMS = [
   { id: "07-mitos-halaman-pertama", number: "07", title: "Apakah SEO Menjamin Halaman Pertama?" },
   { id: "08-website-baru-butuh-waktu", number: "08", title: "Kenapa Website Baru Belum Ramai?" },
   { id: "kesimpulan", number: "★", title: "Kesimpulan & Solusi Bisnis" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
 ];
 
 const TOC_GEO_ITEMS = [
@@ -111,6 +113,7 @@ const TOC_GEO_ITEMS = [
   { id: "cara-mengukur", number: "11", title: "Cara Mengukur Hasil GEO" },
   { id: "bisnis-kecil-bisa", number: "12", title: "Peluang Realistis untuk Bisnis Kecil" },
   { id: "kesimpulan", number: "13", title: "Kesimpulan & Pesan Penutup" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
   { id: "daftar-sumber", number: "14", title: "Daftar Sumber Riset & Rujukan Resmi" },
 ];
 
@@ -124,6 +127,7 @@ const TOC_KENAPA_BISNIS_PERLU_WEBSITE_ITEMS = [
   { id: "06-langkah-pemilik-bisnis", number: "06", title: "Apa yang Harus Dilakukan Pemilik Bisnis?" },
   { id: "07-website-sesuai-kebutuhan", number: "07", title: "Website Mengikuti Kebutuhan Bisnis" },
   { id: "kesimpulan", number: "★", title: "Kesimpulan & Fondasi Digital" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
   { id: "referensi", number: "★", title: "Referensi dan Sumber Data" },
 ];
 
@@ -146,6 +150,7 @@ const TOC_GEMINI_4_CARBON_ITEMS = [
   { id: "15-contoh-prompt", number: "15", title: "Contoh Prompt Gemini 4 Carbon" },
   { id: "16-siapa-yang-cocok", number: "16", title: "Siapa yang Sebaiknya Menggunakan?" },
   { id: "17-kesimpulan", number: "17", title: "Kesimpulan & Pesan Penutup" },
+  { id: "rangkuman-pembahasan", number: "★", title: "Rangkuman Pembahasan" },
   { id: "18-faq", number: "18", title: "FAQ Pertanyaan yang Sering Ditanyakan" },
   { id: "referensi", number: "★", title: "Daftar Sumber Resmi & Rujukan Ilmiah" },
 ];

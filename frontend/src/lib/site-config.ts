@@ -219,6 +219,7 @@ export const PORTFOLIO_PROJECTS = [
 
 export const BLOG_CATEGORIES = [
   "Semua",
+  "Teknologi AI",
   "AI & Technology",
   "SEO & Digital Marketing",
   "Website & Technology",
@@ -227,6 +228,47 @@ export const BLOG_CATEGORIES = [
 ];
 
 export const BLOG_POSTS = [
+  {
+    id: "apa-itu-gemini-4-hydrogen",
+    articleNumber: "06",
+    series: "PAHAM DIGITAL — DIGITAL KNOWLEDGE",
+    title:
+      "Gemini 4 Hydrogen Itu Apa? Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!",
+    h1: "Gemini 4 Hydrogen Itu Apa? Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!",
+    subtitle:
+      "Google baru saja memperkenalkan Gemini 4 Hydrogen, model AI yang berfokus pada kecepatan dan efisiensi untuk coding sehari-hari serta agentic workflow. Kenali hubungan Hydrogen, Carbon, dan Argon, teknologi Orchestrator, benchmark, demonstrasi game 3D, hingga biaya API-nya.",
+    slug: "apa-itu-gemini-4-hydrogen",
+    category: "Teknologi AI",
+    excerpt:
+      "Google baru saja memperkenalkan Gemini 4 Hydrogen, model AI yang berfokus pada kecepatan dan efisiensi untuk coding sehari-hari serta agentic workflow. Kenali hubungan Hydrogen, Carbon, dan Argon, teknologi Orchestrator, benchmark, demonstrasi game 3D, hingga biaya API-nya.",
+    publishedAt: "2026-11-14",
+    readingTime: 22,
+    coverImage: "/images/blog/apa-itu-gemini-4-hydrogen-cover.webp",
+    coverAlt:
+      "Ilustrasi Gemini 4 Hydrogen, Carbon, dan Argon sebagai tiga model AI dengan peran berbeda dalam workflow coding dan agentic.",
+    author: "Kholid Yagha",
+    authorRole: "Founder Paham Digital Agency",
+    featured: true,
+    seoTitle: "Gemini 4 Hydrogen Itu Apa? AI Google untuk Coding Lebih Gesit",
+    primaryKeyword: "apa itu Gemini 4 Hydrogen",
+    additionalKeywords: [
+      "Gemini 4 Hydrogen Google",
+      "Gemini 4 Hydrogen vs Carbon",
+      "Gemini 4 Hydrogen coding",
+      "benchmark Gemini 4 Hydrogen",
+      "harga API Gemini 4 Hydrogen",
+      "model AI untuk coding",
+      "Gemini 4 Argon Hydrogen Carbon",
+      "Google AI untuk programmer",
+      "agentic workflow Gemini",
+    ],
+    metaDescription:
+      "Google baru saja memperkenalkan Gemini 4 Hydrogen, model AI yang berfokus pada kecepatan dan efisiensi untuk coding sehari-hari serta agentic workflow. Kenali hubungan Hydrogen, Carbon, dan Argon, teknologi Orchestrator, benchmark, demonstrasi game 3D, hingga biaya API-nya.",
+    ogTitle:
+      "Gemini 4 Hydrogen Itu Apa? Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!",
+    ogDescription:
+      "Pelajari Gemini 4 Hydrogen dari Google DeepMind: AI yang 2.5x lebih cepat dari Carbon untuk coding sehari-hari, agentic workflow, dan orchestrator multi-agent. Dilengkapi benchmark lengkap, perbandingan harga API, dan contoh prompt praktis.",
+  },
   {
     id: "apa-itu-gemini-4-carbon",
     articleNumber: "05",
@@ -247,7 +289,7 @@ export const BLOG_POSTS = [
       "Poster edukasi Paham Digital Agency tentang Gemini 4 Argon dan Gemini 4 Carbon untuk coding, cybersecurity, agentic workflow, dan pengembangan 3D.",
     author: "Kholid Yagha",
     authorRole: "Founder Paham Digital Agency",
-    featured: true,
+    featured: false,
     seoTitle: "Gemini 4 Carbon: AI untuk Proyek Kompleks | Paham Digital",
     primaryKeyword: "Gemini 4 Carbon",
     additionalKeywords: [

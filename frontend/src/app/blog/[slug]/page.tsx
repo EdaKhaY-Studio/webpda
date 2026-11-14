@@ -17,6 +17,7 @@ import ArticleSeoWebsiteSepi from "@/components/blog/ArticleSeoWebsiteSepi";
 import ArticleKenapaBisnisPerluWebsite from "@/components/blog/ArticleKenapaBisnisPerluWebsite";
 import ArticleApaItuGeo from "@/components/blog/ArticleApaItuGeo";
 import ArticleGemini4Carbon from "@/components/blog/ArticleGemini4Carbon";
+import ArticleGemini4Hydrogen from "@/components/blog/ArticleGemini4Hydrogen";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -155,6 +156,31 @@ const TOC_GEMINI_4_CARBON_ITEMS = [
   { id: "referensi", number: "★", title: "Daftar Sumber Resmi & Rujukan Ilmiah" },
 ];
 
+const TOC_GEMINI_4_HYDROGEN_ITEMS = [
+  { id: "pendahuluan", number: "00", title: "Pembukaan: Google, Kita Baru Selesai Membahas Carbon!" },
+  { id: "01-apa-itu-gemini-4-hydrogen", number: "01", title: "1. Apa Itu Gemini 4 Hydrogen?" },
+  { id: "02-analogi-satpam", number: "02", title: "2. Analogi Tiga Satpam: Argon, Hydrogen, Carbon" },
+  { id: "03-hubungan-hydrogen-carbon", number: "03", title: "3. Hubungan Gemini 4 Hydrogen dengan Carbon" },
+  { id: "04-orchestrator", number: "04", title: "4. Orchestrator: Kepala Operasional AI" },
+  { id: "05-coding", number: "05", title: "5. Gemini 4 Hydrogen untuk Coding" },
+  { id: "06-kecepatan", number: "06", title: "6. Seberapa Cepat Gemini 4 Hydrogen?" },
+  { id: "07-benchmark", number: "07", title: "7. Benchmark: Melawan Claude & GPT" },
+  { id: "08-thinking-levels", number: "08", title: "8. Empat Thinking Levels" },
+  { id: "09-game-3d-website", number: "09", title: "9. Pembuatan Game 3D dan Website" },
+  { id: "10-hydrogen-vs-carbon", number: "10", title: "10. Apakah Lebih Baik daripada Carbon?" },
+  { id: "11-konteks-1-juta-token", number: "11", title: "11. Konteks 1 Juta Token & Multimodal" },
+  { id: "12-keamanan-sop", number: "12", title: "12. Keamanan & SOP Satpam Senior Muda" },
+  { id: "13-harga-api", number: "13", title: "13. Harga Gemini 4 Hydrogen API" },
+  { id: "14-cara-mengakses", number: "14", title: "14. Cara Mengakses Gemini 4 Hydrogen" },
+  { id: "15-keterbatasan", number: "15", title: "15. Keterbatasan & Halusinasi AI" },
+  { id: "16-contoh-prompt", number: "16", title: "16. Contoh Prompt Siap Pakai" },
+  { id: "17-siapa-yang-cocok", number: "17", title: "17. Siapa yang Paling Cocok Menggunakan?" },
+  { id: "kesimpulan", number: "18", title: "18. Kesimpulan & Refleksi" },
+  { id: "rangkuman-pembahasan", number: "19", title: "19. Rangkuman Pembahasan (10 Poin)" },
+  { id: "faq", number: "20", title: "20. FAQ Pertanyaan Populer" },
+  { id: "referensi", number: "21", title: "21. Referensi dan Sumber Resmi" },
+];
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
@@ -168,12 +194,15 @@ export default async function BlogPostPage({ params }: Props) {
     `${post.title} — Paham Digital Agency\n${canonicalUrl}`
   )}`;
 
+  const isArticle06 = post.slug === "apa-itu-gemini-4-hydrogen";
   const isArticle05 = post.slug === "apa-itu-gemini-4-carbon";
   const isArticle04 = post.slug === "apa-itu-geo";
   const isArticle03 = post.slug === "kenapa-bisnis-perlu-website";
   const isArticle02 = post.slug === "apa-itu-seo-website-sepi-pengunjung";
 
-  const tocItems = isArticle05
+  const tocItems = isArticle06
+    ? TOC_GEMINI_4_HYDROGEN_ITEMS
+    : isArticle05
     ? TOC_GEMINI_4_CARBON_ITEMS
     : isArticle04
     ? TOC_GEO_ITEMS
@@ -183,7 +212,9 @@ export default async function BlogPostPage({ params }: Props) {
     ? TOC_SEO_ITEMS
     : TOC_DOMAIN_HOSTING_ITEMS;
 
-  const waConsultMessage = isArticle05
+  const waConsultMessage = isArticle06
+    ? "Halo Tim Paham Digital! Saya membaca artikel 'Gemini 4 Hydrogen Itu Apa? Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!' dan ingin berdiskusi mengenai implementasi AI dan automasi sistem bisnis saya."
+    : isArticle05
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Gemini 4 Carbon Itu Apa? Bukan Unsur Kimia! Kenali AI Google yang Bisa Mengerjakan Proyek Kompleks' dan ingin berdiskusi mengenai integrasi AI dan pengembangan sistem bisnis saya."
     : isArticle04
     ? "Halo Tim Paham Digital! Saya membaca artikel 'Apa Itu GEO? Cara Agar Bisnis Lebih Mudah Dikenal dan Direkomendasikan oleh AI' dan ingin berdiskusi mengenai optimasi website dan kehadiran bisnis saya untuk sistem AI."
@@ -266,7 +297,9 @@ export default async function BlogPostPage({ params }: Props) {
     ],
   };
 
-  const figCaption = isArticle05
+  const figCaption = isArticle06
+    ? "Ilustrasi visual perbandingan tiga model Google AI: Gemini 4 Argon (satpam junior terlatih), Gemini 4 Hydrogen (satpam senior muda yang gesit, 2.5x lebih cepat), dan Gemini 4 Carbon (satpam senior spesialis untuk tugas kompleks)."
+    : isArticle05
     ? "Poster edukasi Paham Digital Agency tentang Gemini 4 Argon dan Gemini 4 Carbon untuk coding, cybersecurity, agentic workflow, dan pengembangan 3D."
     : isArticle04
     ? "Ilustrasi visual: Diorama 3D miniatur komplek perumahan analogi Pak RT dan Tetangga Baru untuk memahami konsep Generative Engine Optimization (GEO) dan AI Search."
@@ -323,7 +356,14 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Title (H1 in Geom) */}
-            {isArticle05 ? (
+            {isArticle06 ? (
+              <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
+                Gemini 4 Hydrogen Itu Apa?{" "}
+                <span className="text-[#F45B1A]">
+                  Baru 2 Hari Setelah Carbon, Google Hadirkan AI yang Lebih Gesit!
+                </span>
+              </h1>
+            ) : isArticle05 ? (
               <h1 className="font-geom font-bold text-[28px] sm:text-[40px] lg:text-[46px] text-[#F7F1EB] leading-[1.14] tracking-tight mb-5">
                 Gemini 4 Carbon:{" "}
                 <span className="text-[#F45B1A]">
@@ -419,7 +459,9 @@ export default async function BlogPostPage({ params }: Props) {
             
             {/* ── Left Column: Editorial Content (Max ~780px) ───────── */}
             <div className="lg:col-span-8">
-              {isArticle05 ? (
+              {isArticle06 ? (
+                <ArticleGemini4Hydrogen waShareUrl={waShareUrl} />
+              ) : isArticle05 ? (
                 <ArticleGemini4Carbon waShareUrl={waShareUrl} />
               ) : isArticle04 ? (
                 <ArticleApaItuGeo waShareUrl={waShareUrl} />
@@ -446,7 +488,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </div>
 
                 <h3 className="font-geom font-bold text-xl text-[#F7F1EB] leading-snug">
-                  {isArticle05
+                  {isArticle06
+                    ? "Ingin Mengintegrasikan Solusi AI & Automasi ke Bisnis Anda?"
+                    : isArticle05
                     ? "Ingin Mengintegrasikan Solusi AI ke Bisnis Anda?"
                     : isArticle04
                     ? "Mau Bisnismu Siap Dikenal & Direkomendasikan AI?"
@@ -458,7 +502,9 @@ export default async function BlogPostPage({ params }: Props) {
                 </h3>
 
                 <p className="font-outfit text-xs sm:text-sm text-[#A99A90] leading-relaxed">
-                  {isArticle05
+                  {isArticle06
+                    ? "Paham Digital Agency membantu bisnis merancang website modern, sistem automasi alur kerja, dan integrasi AI cerdas yang cepat, aman, dan efisien."
+                    : isArticle05
                     ? "Paham Digital Agency membantu bisnis merancang website profesional, sistem automasi alur kerja, dan integrasi kecerdasan buatan terapan yang aman dan teruji."
                     : isArticle04
                     ? "Paham Digital Agency membantu bisnis membangun website profesional berarsitektur semantik yang siap dipahami Google dan sistem pencarian AI generasi baru."

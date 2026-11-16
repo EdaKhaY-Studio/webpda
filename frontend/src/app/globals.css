@@ -406,16 +406,60 @@ body {
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ── Stacked Editorial Carousel Subtle Floating Levitation ── */
+@keyframes carousel-float-active {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes carousel-float-left {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3.5px);
+  }
+}
+
+@keyframes carousel-float-right {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3.5px);
+  }
+}
+
+.carousel-floating-active {
+  animation: carousel-float-active 5s ease-in-out infinite;
+}
+
+.carousel-floating-left {
+  animation: carousel-float-left 5.8s ease-in-out 0.9s infinite;
+}
+
+.carousel-floating-right {
+  animation: carousel-float-right 6.2s ease-in-out 1.8s infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sr-auto,
   .reveal-heading,
   .reveal-subheading,
   .reveal-paragraph,
   .reveal-card,
-  .reveal-button {
+  .reveal-button,
+  .carousel-floating-active,
+  .carousel-floating-left,
+  .carousel-floating-right {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
   }
 }
 

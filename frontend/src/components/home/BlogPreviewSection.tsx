@@ -8,7 +8,15 @@ import {
   ChevronRight,
   ArrowRight,
   Clock,
-  Sparkles,
+  Globe,
+  SearchCheck,
+  Monitor,
+  Brain,
+  Cpu,
+  Zap,
+  Building2,
+  BookOpen,
+  type LucideIcon,
 } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -18,6 +26,70 @@ function formatDate(dateStr: string) {
     month: "long",
     day: "numeric",
   });
+}
+
+/**
+ * Article-specific semantic icon mapping
+ * Ensures each article topic is visually reinforced with its own meaningful icon.
+ */
+function getArticleIcon(slug: string, category?: string): LucideIcon {
+  switch (slug) {
+    case "domain-vs-hosting":
+      return Globe;
+    case "apa-itu-seo-website-sepi-pengunjung":
+    case "apa-itu-seo":
+      return SearchCheck;
+    case "kenapa-bisnis-perlu-website":
+      return Monitor;
+    case "apa-itu-geo":
+      return Brain;
+    case "apa-itu-gemini-4-carbon":
+      return Cpu;
+    case "apa-itu-gemini-4-hydrogen":
+      return Zap;
+    case "apa-itu-paham-digital-agency":
+      return Building2;
+    default:
+      if (category) {
+        const cat = category.toLowerCase();
+        if (
+          cat.includes("seo") ||
+          cat.includes("search") ||
+          cat.includes("marketing")
+        ) {
+          return SearchCheck;
+        }
+        if (
+          cat.includes("ai") ||
+          cat.includes("kecerdasan") ||
+          cat.includes("intelegensi")
+        ) {
+          return Brain;
+        }
+        if (
+          cat.includes("web") ||
+          cat.includes("aplikasi") ||
+          cat.includes("app")
+        ) {
+          return Monitor;
+        }
+        if (
+          cat.includes("hosting") ||
+          cat.includes("domain") ||
+          cat.includes("internet")
+        ) {
+          return Globe;
+        }
+        if (
+          cat.includes("agency") ||
+          cat.includes("profil") ||
+          cat.includes("bisnis")
+        ) {
+          return Building2;
+        }
+      }
+      return BookOpen;
+  }
 }
 
 export default function BlogPreviewSection() {
@@ -244,150 +316,164 @@ export default function BlogPreviewSection() {
                 pointerEventsVal = "none";
               }
 
+              // Semantic icon dedicated to this specific article
+              const ArticleIcon = getArticleIcon(post.slug, post.category);
+
               return (
+                /* Layer 1: Outer Card Wrapper (Horizontal positioning, scale, rotation, stack) */
                 <div
                   key={post.id}
                   ref={(el) => {
                     cardRefs.current[idx] = el;
                   }}
-                  className={`absolute top-0 left-1/2 w-full max-w-[92vw] sm:max-w-[560px] lg:max-w-[680px] rounded-3xl transition-all ${
-                    isCenter
-                      ? "shadow-[0_24px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(244,91,26,0.14)] border border-[#F45B1A]/35 bg-gradient-to-b from-[#1C130F] to-[#120B08]"
-                      : "shadow-[0_16px_40px_rgba(0,0,0,0.65)] border border-white/12 bg-[#17100D] hover:border-[#F45B1A]/40"
-                  }`}
+                  className="absolute top-0 left-1/2 w-full max-w-[92vw] sm:max-w-[560px] lg:max-w-[680px]"
                   style={{
                     transform: transformStr,
                     opacity: opacityVal,
                     zIndex: zIndexVal,
                     pointerEvents: pointerEventsVal,
                     transition:
-                      "transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 450ms ease, border-color 300ms ease",
+                      "transform 600ms cubic-bezier(0.22, 1, 0.36, 1), opacity 550ms cubic-bezier(0.22, 1, 0.36, 1)",
                     willChange: "transform, opacity",
                   }}
                 >
-                  {/* Flanking Card Clickable Overlay with Visual Hint */}
-                  {!isCenter && (
-                    <div
-                      onClick={isLeft ? handlePrev : handleNext}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") {
-                          e.preventDefault();
-                          if (isLeft) handlePrev();
-                          else handleNext();
+                  {/* Layer 2: Inner Card (Subtle floating levitation, surface styling & depth) */}
+                  <div
+                    className={`relative w-full rounded-3xl transition-all duration-300 ${
+                      isCenter
+                        ? "carousel-floating-active shadow-[0_24px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(244,91,26,0.14)] hover:shadow-[0_30px_75px_rgba(0,0,0,0.92),0_0_45px_rgba(244,91,26,0.22)] border border-[#F45B1A]/35 hover:border-[#F45B1A]/55 bg-gradient-to-b from-[#1C130F] to-[#120B08]"
+                        : isLeft
+                        ? "carousel-floating-left shadow-[0_16px_40px_rgba(0,0,0,0.65)] border border-white/12 bg-[#17100D] hover:border-[#F45B1A]/40"
+                        : "carousel-floating-right shadow-[0_16px_40px_rgba(0,0,0,0.65)] border border-white/12 bg-[#17100D] hover:border-[#F45B1A]/40"
+                    }`}
+                  >
+                    {/* Flanking Card Clickable Overlay with Visual Hint */}
+                    {!isCenter && (
+                      <div
+                        onClick={isLeft ? handlePrev : handleNext}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            if (isLeft) handlePrev();
+                            else handleNext();
+                          }
+                        }}
+                        aria-label={
+                          isLeft
+                            ? `Buka artikel sebelumnya: ${post.title}`
+                            : `Buka artikel selanjutnya: ${post.title}`
                         }
-                      }}
-                      aria-label={
-                        isLeft
-                          ? `Buka artikel sebelumnya: ${post.title}`
-                          : `Buka artikel selanjutnya: ${post.title}`
-                      }
-                      className="absolute inset-0 z-20 cursor-pointer rounded-3xl bg-[#0B0807]/45 hover:bg-[#0B0807]/15 backdrop-blur-[0.5px] transition-all flex flex-col items-center justify-center p-4 group/overlay"
-                    >
-                      <div className="opacity-0 group-hover/overlay:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/overlay:translate-y-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F45B1A] text-white text-xs font-geom font-bold shadow-[0_4px_20px_rgba(244,91,26,0.4)]">
-                        {isLeft ? (
-                          <>
-                            <ChevronLeft className="w-4 h-4" />
-                            <span>Artikel Sebelumnya</span>
-                          </>
-                        ) : (
-                          <>
-                            <span>Artikel Selanjutnya</span>
-                            <ChevronRight className="w-4 h-4" />
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Card Main Editorial Content */}
-                  <article className="p-5 sm:p-7 lg:p-8 flex flex-col justify-between h-full">
-                    <div>
-                      {/* Top Metadata Row Above Cover Image */}
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="px-3 py-1 rounded-full bg-[#F45B1A] text-white text-[11px] font-bold uppercase tracking-wider font-geom shadow-sm">
-                            {post.category}
-                          </span>
-                          {post.articleNumber && (
-                            <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#F7F1EB] text-[11px] font-bold uppercase tracking-wider font-geom">
-                              ARTIKEL {post.articleNumber}
-                            </span>
+                        className="absolute inset-0 z-20 cursor-pointer rounded-3xl bg-[#0B0807]/45 hover:bg-[#0B0807]/15 backdrop-blur-[0.5px] transition-all flex flex-col items-center justify-center p-4 group/overlay"
+                      >
+                        <div className="opacity-0 group-hover/overlay:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/overlay:translate-y-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F45B1A] text-white text-xs font-geom font-bold shadow-[0_4px_20px_rgba(244,91,26,0.4)]">
+                          {isLeft ? (
+                            <>
+                              <ChevronLeft className="w-4 h-4" />
+                              <span>Artikel Sebelumnya</span>
+                            </>
+                          ) : (
+                            <>
+                              <span>Artikel Selanjutnya</span>
+                              <ChevronRight className="w-4 h-4" />
+                            </>
                           )}
                         </div>
-
-                        <div className="flex items-center gap-1.5 text-xs text-[#A99A90] font-outfit">
-                          <Clock className="w-3.5 h-3.5 text-[#F45B1A]" />
-                          <span>{post.readingTime} menit baca</span>
-                        </div>
                       </div>
+                    )}
 
-                      {/* Visual 16:9 Cover Artwork */}
-                      <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#0B0807] mb-5 shadow-inner group/img">
-                        {post.coverImage ? (
-                          <img
-                            src={post.coverImage}
-                            alt={post.coverAlt || post.title}
-                            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
-                            loading={idx === 0 ? "eager" : "lazy"}
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#21140F] to-[#0B0807]">
-                            <span className="text-sm font-geom text-[#F45B1A] font-bold">
-                              PAHAM DIGITAL
+                    {/* Card Main Editorial Content */}
+                    <article className="p-5 sm:p-7 lg:p-8 flex flex-col justify-between h-full">
+                      <div>
+                        {/* Top Metadata Row Above Cover Image */}
+                        <div className="flex items-center justify-between gap-3 mb-4">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="px-3 py-1 rounded-full bg-[#F45B1A] text-white text-[11px] font-bold uppercase tracking-wider font-geom shadow-sm">
+                              {post.category}
                             </span>
+                            {post.articleNumber && (
+                              <span className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#F7F1EB] text-[11px] font-bold uppercase tracking-wider font-geom">
+                                ARTIKEL {post.articleNumber}
+                              </span>
+                            )}
                           </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                          <div className="flex items-center gap-1.5 text-xs text-[#A99A90] font-outfit">
+                            <Clock className="w-3.5 h-3.5 text-[#F45B1A]" />
+                            <span>{post.readingTime} menit baca</span>
+                          </div>
+                        </div>
+
+                        {/* Visual 16:9 Cover Artwork */}
+                        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#0B0807] mb-5 shadow-inner group/img">
+                          {post.coverImage ? (
+                            <img
+                              src={post.coverImage}
+                              alt={post.coverAlt || post.title}
+                              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
+                              loading={idx === 0 ? "eager" : "lazy"}
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#21140F] to-[#0B0807]">
+                              <span className="text-sm font-geom text-[#F45B1A] font-bold">
+                                PAHAM DIGITAL
+                              </span>
+                            </div>
+                          )}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                        </div>
+
+                        {/* Publication Date & Author */}
+                        <div className="flex items-center gap-2 text-xs text-[#A99A90] font-outfit mb-2.5">
+                          <span>{formatDate(post.publishedAt)}</span>
+                          <span>·</span>
+                          <span className="text-[#F7F1EB]">
+                            Penulis: {post.author}
+                          </span>
+                        </div>
+
+                        {/* Full Article Title */}
+                        <Link
+                          href={`/blog/${post.slug}/`}
+                          className="block group/title no-underline"
+                          tabIndex={isCenter ? 0 : -1}
+                        >
+                          <h3 className="font-geom font-bold text-xl sm:text-2xl lg:text-[27px] text-[#F7F1EB] group-hover/title:text-[#F45B1A] transition-colors leading-[1.2] mb-3.5">
+                            {post.title}
+                          </h3>
+                        </Link>
+
+                        {/* Full Synopsis / Excerpt — Preserving Complete Content */}
+                        <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed mb-6 font-normal">
+                          {post.excerpt}
+                        </p>
                       </div>
 
-                      {/* Publication Date & Author */}
-                      <div className="flex items-center gap-2 text-xs text-[#A99A90] font-outfit mb-2.5">
-                        <span>{formatDate(post.publishedAt)}</span>
-                        <span>·</span>
-                        <span className="text-[#F7F1EB]">
-                          Penulis: {post.author}
-                        </span>
+                      {/* Bottom Action & Article-Specific Category/Icon Row */}
+                      <div className="pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                        <div className="flex items-center gap-2 text-xs font-outfit text-[#D5CBC3]">
+                          <ArticleIcon
+                            className="w-4 h-4 text-[#F45B1A] shrink-0"
+                            strokeWidth={2}
+                            aria-hidden="true"
+                          />
+                          <span className="font-medium tracking-wide">
+                            {post.category}
+                          </span>
+                        </div>
+
+                        <Link
+                          href={`/blog/${post.slug}/`}
+                          tabIndex={isCenter ? 0 : -1}
+                          className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#F45B1A] hover:bg-[#FF6A2A] text-white text-xs sm:text-sm font-outfit font-bold transition-all shadow-md shadow-[#F45B1A]/25 hover:shadow-lg hover:shadow-[#F45B1A]/40 hover:-translate-y-0.5 group/btn"
+                        >
+                          <span>Baca Artikel Lengkap</span>
+                          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                        </Link>
                       </div>
-
-                      {/* Full Article Title */}
-                      <Link
-                        href={`/blog/${post.slug}/`}
-                        className="block group/title no-underline"
-                        tabIndex={isCenter ? 0 : -1}
-                      >
-                        <h3 className="font-geom font-bold text-xl sm:text-2xl lg:text-[27px] text-[#F7F1EB] group-hover/title:text-[#F45B1A] transition-colors leading-[1.2] mb-3.5">
-                          {post.title}
-                        </h3>
-                      </Link>
-
-                      {/* Full Synopsis / Excerpt — Preserving Complete Content */}
-                      <p className="font-outfit text-sm sm:text-base text-[#D5CBC3] leading-relaxed mb-6 font-normal">
-                        {post.excerpt}
-                      </p>
-                    </div>
-
-                    {/* Bottom Action & Quality Badge */}
-                    <div className="pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-                        <span className="text-xs font-outfit text-[#D5CBC3] flex items-center gap-1">
-                          <Sparkles className="w-3 h-3 text-[#F45B1A]" />
-                          Wawasan Edukasi Resmi
-                        </span>
-                      </div>
-
-                      <Link
-                        href={`/blog/${post.slug}/`}
-                        tabIndex={isCenter ? 0 : -1}
-                        className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#F45B1A] hover:bg-[#FF6A2A] text-white text-xs sm:text-sm font-outfit font-bold transition-all shadow-md shadow-[#F45B1A]/25 hover:shadow-lg hover:shadow-[#F45B1A]/40 hover:-translate-y-0.5 group/btn"
-                      >
-                        <span>Baca Artikel Lengkap</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </div>
-                  </article>
+                    </article>
+                  </div>
                 </div>
               );
             })}
